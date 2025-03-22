@@ -1,0 +1,16 @@
+// Variables
+@import "partials/variables";
+
+@import "~bootstrap/scss/bootstrap";
+
+@import "partials/mixins";
+@import "partials/fonts";
+
+@import "components/global";
+@import "components/formControls";
+
+@import "components/header";
+@import "components/footer";
+
+@import "layouts/home";
+@import "layouts/page";

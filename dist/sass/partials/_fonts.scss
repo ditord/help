@@ -1,0 +1,167 @@
+/* @font-face {
+    font-family: 'Corpid';
+    src: url('../fonts/CorpidE1sSCd-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Corpid';
+    src: url('../fonts/CorpidE1sSCd-Light.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Corpid';
+    src: url('../fonts/CorpidE1sSCd-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+} */
+
+// @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900&display=swap');
+
+@font-face {
+    font-family: 'Mardoto';
+    src: url('../../fonts/Mardoto-Italic.eot');
+    src: url('../../fonts/Mardoto-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/Mardoto-Italic.woff2') format('woff2'),
+        url('../../fonts/Mardoto-Italic.woff') format('woff'),
+        url('../../fonts/Mardoto-Italic.ttf') format('truetype'),
+        url('../../fonts/Mardoto-Italic.svg#Mardoto-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Mardoto';
+    src: url('../../fonts/Mardoto-BlackItalic.eot');
+    src: url('../../fonts/Mardoto-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/Mardoto-BlackItalic.woff2') format('woff2'),
+        url('../../fonts/Mardoto-BlackItalic.woff') format('woff'),
+        url('../../fonts/Mardoto-BlackItalic.ttf') format('truetype'),
+        url('../../fonts/Mardoto-BlackItalic.svg#Mardoto-BlackItalic') format('svg');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Mardoto';
+    src: url('../../fonts/Mardoto-MediumItalic.eot');
+    src: url('../../fonts/Mardoto-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/Mardoto-MediumItalic.woff2') format('woff2'),
+        url('../../fonts/Mardoto-MediumItalic.woff') format('woff'),
+        url('../../fonts/Mardoto-MediumItalic.ttf') format('truetype'),
+        url('../../fonts/Mardoto-MediumItalic.svg#Mardoto-MediumItalic') format('svg');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Mardoto';
+    src: url('../../fonts/Mardoto-LightItalic.eot');
+    src: url('../../fonts/Mardoto-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/Mardoto-LightItalic.woff2') format('woff2'),
+        url('../../fonts/Mardoto-LightItalic.woff') format('woff'),
+        url('../../fonts/Mardoto-LightItalic.ttf') format('truetype'),
+        url('../../fonts/Mardoto-LightItalic.svg#Mardoto-LightItalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Mardoto';
+    src: url('../../fonts/Mardoto-Medium.eot');
+    src: url('../../fonts/Mardoto-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/Mardoto-Medium.woff2') format('woff2'),
+        url('../../fonts/Mardoto-Medium.woff') format('woff'),
+        url('../../fonts/Mardoto-Medium.ttf') format('truetype'),
+        url('../../fonts/Mardoto-Medium.svg#Mardoto-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mardoto';
+    src: url('../../fonts/Mardoto-Thin.eot');
+    src: url('../../fonts/Mardoto-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/Mardoto-Thin.woff2') format('woff2'),
+        url('../../fonts/Mardoto-Thin.woff') format('woff'),
+        url('../../fonts/Mardoto-Thin.ttf') format('truetype'),
+        url('../../fonts/Mardoto-Thin.svg#Mardoto-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mardoto';
+    src: url('../../fonts/Mardoto-BoldItalic.eot');
+    src: url('../../fonts/Mardoto-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/Mardoto-BoldItalic.woff2') format('woff2'),
+        url('../../fonts/Mardoto-BoldItalic.woff') format('woff'),
+        url('../../fonts/Mardoto-BoldItalic.ttf') format('truetype'),
+        url('../../fonts/Mardoto-BoldItalic.svg#Mardoto-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Mardoto';
+    src: url('../../fonts/Mardoto-Black.eot');
+    src: url('../../fonts/Mardoto-Black.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/Mardoto-Black.woff2') format('woff2'),
+        url('../../fonts/Mardoto-Black.woff') format('woff'),
+        url('../../fonts/Mardoto-Black.ttf') format('truetype'),
+        url('../../fonts/Mardoto-Black.svg#Mardoto-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mardoto';
+    src: url('../../fonts/Mardoto-Bold.eot');
+    src: url('../../fonts/Mardoto-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/Mardoto-Bold.woff2') format('woff2'),
+        url('../../fonts/Mardoto-Bold.woff') format('woff'),
+        url('../../fonts/Mardoto-Bold.ttf') format('truetype'),
+        url('../../fonts/Mardoto-Bold.svg#Mardoto-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mardoto';
+    src: url('../../fonts/Mardoto-Regular.eot');
+    src: url('../../fonts/Mardoto-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/Mardoto-Regular.woff2') format('woff2'),
+        url('../../fonts/Mardoto-Regular.woff') format('woff'),
+        url('../../fonts/Mardoto-Regular.ttf') format('truetype'),
+        url('../../fonts/Mardoto-Regular.svg#Mardoto-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mardoto';
+    src: url('../../fonts/Mardoto-Light.eot');
+    src: url('../../fonts/Mardoto-Light.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/Mardoto-Light.woff2') format('woff2'),
+        url('../../fonts/Mardoto-Light.woff') format('woff'),
+        url('../../fonts/Mardoto-Light.ttf') format('truetype'),
+        url('../../fonts/Mardoto-Light.svg#Mardoto-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mardoto';
+    src: url('../../fonts/Mardoto-ThinItalic.eot');
+    src: url('../../fonts/Mardoto-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/Mardoto-ThinItalic.woff2') format('woff2'),
+        url('../../fonts/Mardoto-ThinItalic.woff') format('woff'),
+        url('../../fonts/Mardoto-ThinItalic.ttf') format('truetype'),
+        url('../../fonts/Mardoto-ThinItalic.svg#Mardoto-ThinItalic') format('svg');
+    font-weight: 100;
+    font-style: italic;
+}
+

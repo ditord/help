@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="81" height="80" viewBox="0 0 81 80">
+  <defs>
+    <path id="arrow-right-2-b" d="M0,56 L0,0 L68,0 L60,56 L0,56 Z"/>
+    <filter id="arrow-right-2-a" width="156.1%" height="185.7%" x="-29.4%" y="-21.4%" filterUnits="objectBoundingBox">
+      <feMorphology in="SourceAlpha" radius="6" result="shadowSpreadOuter1"/>
+      <feOffset dy="16" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="10"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.246399546   0 0 0 0 0.41316691   0 0 0 0 0.588711504  0 0 0 0.32 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(5)">
+    <g transform="matrix(-1 0 0 1 68 0)">
+      <use fill="#000" filter="url(#arrow-right-2-a)" xlink:href="#arrow-right-2-b"/>
+      <use fill="#EEF1F3" xlink:href="#arrow-right-2-b"/>
+    </g>
+    <polygon fill="#2B2B30" points="42 14 40.502 15.498 52.005 27 24 27 24 29 52.003 29 40.502 40.502 42 42 56 28"/>
+  </g>
+</svg>

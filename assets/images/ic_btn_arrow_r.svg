@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="5px" height="8px" viewBox="0 0 5 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 58 (101010) - https://sketch.com -->
+    <title>E0AA3803-ABF5-4789-B42C-7B5EEEAE7884</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="Neruzh-Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="00--Landing-page" transform="translate(-1159.000000, -587.000000)">
+            <g id="img_cover">
+                <g id="aplication-deadline" transform="translate(835.000000, 311.000000)">
+                    <g id="btn_apply-now" transform="translate(99.000000, 255.000000)">
+                        <g id="Icons/ic_btn-arrow">
+                            <g transform="translate(228.000000, 25.000000) rotate(-90.000000) translate(-228.000000, -25.000000) translate(218.000000, 15.000000)">
+                                <g id="Icons/Arrow-Drop-Down">
+                                    <rect id="Bounding-Box" x="0" y="0" width="20" height="20"></rect>
+                                    <path d="M9.56774935,11.8251892 L6.16524282,8.2503489 C5.94491906,8.01422114 5.94491906,7.62792793 6.16524282,7.3920688 L6.36576501,7.17689435 C6.58558747,6.94103522 6.94627676,6.94103522 7.16634987,7.17689435 L9.99987467,10.1419394 L12.8336501,7.17689435 C13.0537232,6.94103522 13.4144125,6.94103522 13.634235,7.17689435 L13.8347572,7.3920688 C14.0550809,7.62792793 14.0550809,8.01422114 13.8347572,8.2503489 L10.4317493,11.8251892 C10.3136919,11.9519836 10.1550287,12.0083964 9.99987467,11.9989943 C9.84472063,12.0083964 9.68630809,11.9519836 9.56774935,11.8251892 Z" id="Arrow-Drop-Down" fill="#FFFFFF"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

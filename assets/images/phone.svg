@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="85" viewBox="0 0 80 85">
+  <defs>
+    <linearGradient id="phone-c" x1="100%" x2="0%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#83CEEC"/>
+      <stop offset="100%" stop-color="#598DDC"/>
+    </linearGradient>
+    <polygon id="phone-b" points="0 0 64 5.12 64 53.76 0 64"/>
+    <filter id="phone-a" width="162.5%" height="171.8%" x="-31.2%" y="-18.8%" filterUnits="objectBoundingBox">
+      <feMorphology in="SourceAlpha" radius="6" result="shadowSpreadOuter1"/>
+      <feOffset dy="16" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="10"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0183033484   0 0 0 0 0.292829697   0 0 0 0 0.581804801  0 0 0 0.32 0"/>
+    </filter>
+    <path id="phone-d" d="M8.82666667,14.3866667 C10.7466667,18.16 13.84,21.24 17.6133333,23.1733333 L20.5466667,20.24 C20.9066667,19.88 21.44,19.76 21.9066667,19.92 C23.4,20.4133333 25.0133333,20.68 26.6666667,20.68 C27.4,20.68 28,21.28 28,22.0133333 L28,26.6666667 C28,27.4 27.4,28 26.6666667,28 C14.1466667,28 4,17.8533333 4,5.33333333 C4,4.6 4.6,4 5.33333333,4 L10,4 C10.7333333,4 11.3333333,4.6 11.3333333,5.33333333 C11.3333333,7 11.6,8.6 12.0933333,10.0933333 C12.24,10.56 12.1333333,11.08 11.76,11.4533333 L8.82666667,14.3866667 L8.82666667,14.3866667 Z"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(8)">
+    <use fill="#000" filter="url(#phone-a)" xlink:href="#phone-b"/>
+    <use fill="url(#phone-c)" xlink:href="#phone-b"/>
+    <use fill="#FFF" transform="translate(16 16)" xlink:href="#phone-d"/>
+  </g>
+</svg>

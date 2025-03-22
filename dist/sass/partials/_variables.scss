@@ -1,0 +1,39 @@
+
+// Body
+$body-bg: #FFFFFF;
+$nav-bg: #FFFFFF;
+
+// text
+$text-color: #2B2B30;
+$text-color-light: #605F65;
+$blue: #5A8FDC;
+$white: #FFFFFF;
+
+// to be deleted
+$blue-dark: #001B37;
+$black: #000000;
+$red: #E30613;
+$grey: #4C4C4C;
+$grey-dark: #333333;
+$grey-white: #e6e6e6;
+$grey-light: #778088;
+$ccc: #CCCCCC;
+// end to be deleted
+
+// bootstrap
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1700px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1600px
+);

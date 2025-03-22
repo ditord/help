@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 58 (101010) - https://sketch.com -->
+    <title>B927EABD-7B0C-4B5F-ACAA-C8A71FB84331</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <filter x="-1.4%" y="-20.0%" width="102.8%" height="140.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Neruzh-Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Header-scroll-view-1" transform="translate(-1392.000000, -43.000000)">
+            <g id="header-header-scrolled" filter="url(#filter-1)">
+                <g id="header">
+                    <g id="Navigation" transform="translate(503.000000, 41.000000)">
+                        <g id="language" transform="translate(863.000000, 0.000000)">
+                            <g id="Icons/ic_btn-arrow-enter-aktiv" transform="translate(38.000000, 10.000000) rotate(-270.000000) translate(-38.000000, -10.000000) translate(28.000000, 0.000000)">
+                                <g id="Icons/Arrow-Drop-Down">
+                                    <rect id="Bounding-Box" x="0" y="0" width="20" height="20"></rect>
+                                    <path d="M9.56774935,12.3251892 L6.16524282,8.7503489 C5.94491906,8.51422114 5.94491906,8.12792793 6.16524282,7.8920688 L6.36576501,7.67689435 C6.58558747,7.44103522 6.94627676,7.44103522 7.16634987,7.67689435 L9.99987467,10.6419394 L12.8336501,7.67689435 C13.0537232,7.44103522 13.4144125,7.44103522 13.634235,7.67689435 L13.8347572,7.8920688 C14.0550809,8.12792793 14.0550809,8.51422114 13.8347572,8.7503489 L10.4317493,12.3251892 C10.3136919,12.4519836 10.1550287,12.5083964 9.99987467,12.4989943 C9.84472063,12.5083964 9.68630809,12.4519836 9.56774935,12.3251892 Z" id="Arrow-Drop-Down" fill="#778088" transform="translate(10.000000, 10.000000) rotate(-90.000000) translate(-10.000000, -10.000000) "></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

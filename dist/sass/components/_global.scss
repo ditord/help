@@ -1,0 +1,32 @@
+html,body {
+    font-family: 'Mardoto';
+    font-weight: normal;
+    color: $text-color;
+    &.overflow-hide {
+        overflow: hidden;
+    }
+}
+
+body:not(.home) {
+    background-color: #FAFAFA;
+}
+
+button:focus, button:active {
+    outline: none;
+}
+a:hover {
+    text-decoration: none;
+}
+
+*:focus {
+    outline: none;
+}
+
+.mb-16 {
+    margin-bottom: 16px !important;
+}
+
+#container {
+    margin: 0 auto !important;
+    left: unset !important;
+}

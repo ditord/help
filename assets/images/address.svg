@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="85" viewBox="0 0 80 85">
+  <defs>
+    <linearGradient id="address-c" x1="100%" x2="0%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#83CEEC"/>
+      <stop offset="100%" stop-color="#598DDC"/>
+    </linearGradient>
+    <polygon id="address-b" points="0 0 64 5.12 64 53.76 0 64"/>
+    <filter id="address-a" width="162.5%" height="171.8%" x="-31.2%" y="-18.8%" filterUnits="objectBoundingBox">
+      <feMorphology in="SourceAlpha" radius="6" result="shadowSpreadOuter1"/>
+      <feOffset dy="16" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="10"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0183033484   0 0 0 0 0.292829697   0 0 0 0 0.581804801  0 0 0 0.32 0"/>
+    </filter>
+    <path id="address-d" d="M16,2.66666667 C10.84,2.66666667 6.66666667,6.84 6.66666667,12 C6.66666667,19 16,29.3333333 16,29.3333333 C16,29.3333333 25.3333333,19 25.3333333,12 C25.3333333,6.84 21.16,2.66666667 16,2.66666667 L16,2.66666667 Z M16,15.3333333 C14.16,15.3333333 12.6666667,13.84 12.6666667,12 C12.6666667,10.16 14.16,8.66666667 16,8.66666667 C17.84,8.66666667 19.3333333,10.16 19.3333333,12 C19.3333333,13.84 17.84,15.3333333 16,15.3333333 L16,15.3333333 Z"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(8)">
+    <use fill="#000" filter="url(#address-a)" xlink:href="#address-b"/>
+    <use fill="url(#address-c)" xlink:href="#address-b"/>
+    <use fill="#FFF" transform="translate(16 15)" xlink:href="#address-d"/>
+  </g>
+</svg>
