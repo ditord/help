@@ -431,7 +431,7 @@
         }
     }
 }
- 
+
 .partners-section {
     padding: 84px 0;
     background-color: #FAFAFA;
@@ -453,9 +453,6 @@
         // box-shadow: 0 24px 28px -24px rgba(63,105,150,0.12);
         max-width: 270px;
         margin: 0 auto;
-        display: flex; /* Add this line */
-        align-items: center; /* Add this line */
-        justify-content: center; /* Add this line */
         a {
             display: block;
             width: 100%;
@@ -463,6 +460,7 @@
             img {
                 width: 100%;
                 height: 100%;
+                max-width: 210px;
                 object-fit: contain;
             }
         }
