@@ -465,7 +465,7 @@
                 /* height: 100%; */
                 height: auto; /* Change this line */
                 max-height: 100%; /* Add this line */
-                object-fit: cover;
+                object-fit: contains;
             }
         }
     }
