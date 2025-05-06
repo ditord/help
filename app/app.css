@@ -1,0 +1,353 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@theme {
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1700px;
+}
+
+.container {
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .container {
+      max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+      max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+      max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+      max-width: 1140px;
+  }
+}
+@media (min-width: 1700px) {
+  .container {
+      max-width: 1600px;
+  }
+}
+
+
+
+
+.clip-path-rounded {
+  clip-path: path('M0 99.7057V6.31824C0 2.91248 2.9034 0.22984 6.29854 0.498608L102.623 8.12388C105.659 8.36422 108 10.898 108 13.9435V84.4552C108 87.3269 105.911 89.7721 103.075 90.2212L6.75074 105.472C3.20665 106.033 0 103.294 0 99.7057Z');
+  transition: clip-path 0.3s ease-in-out;
+  background: linear-gradient(47.56deg, #639BDF 0%, #80C9EB 103.5%);
+}
+
+.group:hover .clip-path-rounded {
+  clip-path: path('M0 100V8C0 3.58172 3.58172 0 8 0L100 0C104.418 0 108 3.58172 108 8V100C108 104.418 104.418 108 100 108L8 108C3.58172 108 0 104.418 0 100Z');
+}
+
+
+
+.clip-path-panel {
+  clip-path: polygon(0 0, 100% 8%, 100% 85%, 0 100%);
+  transition: clip-path 0.3s ease-in-out, transform 0.3s ease-in-out;
+  background: linear-gradient(47.56deg, #639BDF 0%, #80C9EB 103.5%);
+}
+
+.group:hover .clip-path-panel {
+  /* clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 85%); */
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transform: translateX(-5px);
+}
+
+.after-skew-gradient {
+  background: linear-gradient(225deg, #83ceec, #598ddc);
+  box-shadow: 0 16px 20px -12px rgba(5, 75, 148, .32);
+  padding: 45px 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.after-skew-gradient::after {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(225deg, #83ceec, #598ddc);
+  transform-origin: top right;
+  transform: skew(0deg, -2deg);
+}
+
+.btn.btn-blue, .btn.btn-blue:after {
+  background: linear-gradient(225deg, #83ceec, #598ddc);
+}
+
+.btn.btn-blue {
+  min-width: 270px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.btn.btn-blue:hover {
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: .7;
+  box-shadow: 0 16px 20px -12px rgba(63, 105, 150, .32);
+  color: rgb(33, 37, 41);
+  text-decoration: none;
+}
+
+.btn.btn-small {
+  padding: 12px 28px;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 1.75px;
+}
+
+.btn {
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  font-weight: 400;
+  color: #5a8fdc;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 20px;
+  background-color: #eef1f3;
+  box-shadow: 0 16px 20px -12px rgba(63, 105, 150, .32);
+  border: unset;
+  border-radius: 0;
+  min-width: 170px;
+  opacity: 1;
+  -webkit-transition: .5s;
+  transition: .5s;
+  position: relative;
+  z-index: 1;
+}
+
+.btn:after {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: #eef1f3;
+  -webkit-transform-origin: bottom left;
+  transform-origin: bottom left;
+  -webkit-transform: skew(-7deg, 0deg);
+  transform: skew(-7deg, 0deg);
+}
+
+.after-shape::after {
+  content: "";
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 265px;
+  height: 495px;
+  background: url('/assets/images/shape_1.svg') 50% / contain no-repeat;
+}
+
+
+@font-face {
+  font-family: 'Mardoto';
+  src: url('/assets/fonts/Mardoto-Italic.eot');
+  src: url('/assets/fonts/Mardoto-Italic.eot?#iefix') format('embedded-opentype'),
+      url('/assets/fonts/Mardoto-Italic.woff2') format('woff2'),
+      url('/assets/fonts/Mardoto-Italic.woff') format('woff'),
+      url('/assets/fonts/Mardoto-Italic.ttf') format('truetype'),
+      url('/assets/fonts/Mardoto-Italic.svg#Mardoto-Italic') format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Mardoto';
+  src: url('/assets/fonts/Mardoto-BlackItalic.eot');
+  src: url('/assets/fonts/Mardoto-BlackItalic.eot?#iefix') format('embedded-opentype'),
+      url('/assets/fonts/Mardoto-BlackItalic.woff2') format('woff2'),
+      url('/assets/fonts/Mardoto-BlackItalic.woff') format('woff'),
+      url('/assets/fonts/Mardoto-BlackItalic.ttf') format('truetype'),
+      url('/assets/fonts/Mardoto-BlackItalic.svg#Mardoto-BlackItalic') format('svg');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Mardoto';
+  src: url('/assets/fonts/Mardoto-MediumItalic.eot');
+  src: url('/assets/fonts/Mardoto-MediumItalic.eot?#iefix') format('embedded-opentype'),
+      url('/assets/fonts/Mardoto-MediumItalic.woff2') format('woff2'),
+      url('/assets/fonts/Mardoto-MediumItalic.woff') format('woff'),
+      url('/assets/fonts/Mardoto-MediumItalic.ttf') format('truetype'),
+      url('/assets/fonts/Mardoto-MediumItalic.svg#Mardoto-MediumItalic') format('svg');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Mardoto';
+  src: url('/assets/fonts/Mardoto-LightItalic.eot');
+  src: url('/assets/fonts/Mardoto-LightItalic.eot?#iefix') format('embedded-opentype'),
+      url('/assets/fonts/Mardoto-LightItalic.woff2') format('woff2'),
+      url('/assets/fonts/Mardoto-LightItalic.woff') format('woff'),
+      url('/assets/fonts/Mardoto-LightItalic.ttf') format('truetype'),
+      url('/assets/fonts/Mardoto-LightItalic.svg#Mardoto-LightItalic') format('svg');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Mardoto';
+  src: url('/assets/fonts/Mardoto-Medium.eot');
+  src: url('/assets/fonts/Mardoto-Medium.eot?#iefix') format('embedded-opentype'),
+      url('/assets/fonts/Mardoto-Medium.woff2') format('woff2'),
+      url('/assets/fonts/Mardoto-Medium.woff') format('woff'),
+      url('/assets/fonts/Mardoto-Medium.ttf') format('truetype'),
+      url('/assets/fonts/Mardoto-Medium.svg#Mardoto-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mardoto';
+  src: url('/assets/fonts/Mardoto-Thin.eot');
+  src: url('/assets/fonts/Mardoto-Thin.eot?#iefix') format('embedded-opentype'),
+      url('/assets/fonts/Mardoto-Thin.woff2') format('woff2'),
+      url('/assets/fonts/Mardoto-Thin.woff') format('woff'),
+      url('/assets/fonts/Mardoto-Thin.ttf') format('truetype'),
+      url('/assets/fonts/Mardoto-Thin.svg#Mardoto-Thin') format('svg');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mardoto';
+  src: url('/assets/fonts/Mardoto-BoldItalic.eot');
+  src: url('/assets/fonts/Mardoto-BoldItalic.eot?#iefix') format('embedded-opentype'),
+      url('/assets/fonts/Mardoto-BoldItalic.woff2') format('woff2'),
+      url('/assets/fonts/Mardoto-BoldItalic.woff') format('woff'),
+      url('/assets/fonts/Mardoto-BoldItalic.ttf') format('truetype'),
+      url('/assets/fonts/Mardoto-BoldItalic.svg#Mardoto-BoldItalic') format('svg');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Mardoto';
+  src: url('/assets/fonts/Mardoto-Black.eot');
+  src: url('/assets/fonts/Mardoto-Black.eot?#iefix') format('embedded-opentype'),
+      url('/assets/fonts/Mardoto-Black.woff2') format('woff2'),
+      url('/assets/fonts/Mardoto-Black.woff') format('woff'),
+      url('/assets/fonts/Mardoto-Black.ttf') format('truetype'),
+      url('/assets/fonts/Mardoto-Black.svg#Mardoto-Black') format('svg');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mardoto';
+  src: url('/assets/fonts/Mardoto-Bold.eot');
+  src: url('/assets/fonts/Mardoto-Bold.eot?#iefix') format('embedded-opentype'),
+      url('/assets/fonts/Mardoto-Bold.woff2') format('woff2'),
+      url('/assets/fonts/Mardoto-Bold.woff') format('woff'),
+      url('/assets/fonts/Mardoto-Bold.ttf') format('truetype'),
+      url('/assets/fonts/Mardoto-Bold.svg#Mardoto-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mardoto';
+  src: url('/assets/fonts/Mardoto-Regular.eot');
+  src: url('/assets/fonts/Mardoto-Regular.eot?#iefix') format('embedded-opentype'),
+      url('/assets/fonts/Mardoto-Regular.woff2') format('woff2'),
+      url('/assets/fonts/Mardoto-Regular.woff') format('woff'),
+      url('/assets/fonts/Mardoto-Regular.ttf') format('truetype'),
+      url('/assets/fonts/Mardoto-Regular.svg#Mardoto-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mardoto';
+  src: url('/assets/fonts/Mardoto-Light.eot');
+  src: url('/assets/fonts/Mardoto-Light.eot?#iefix') format('embedded-opentype'),
+      url('/assets/fonts/Mardoto-Light.woff2') format('woff2'),
+      url('/assets/fonts/Mardoto-Light.woff') format('woff'),
+      url('/assets/fonts/Mardoto-Light.ttf') format('truetype'),
+      url('/assets/fonts/Mardoto-Light.svg#Mardoto-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mardoto';
+  src: url('/assets/fonts/Mardoto-ThinItalic.eot');
+  src: url('/assets/fonts/Mardoto-ThinItalic.eot?#iefix') format('embedded-opentype'),
+      url('/assets/fonts/Mardoto-ThinItalic.woff2') format('woff2'),
+      url('/assets/fonts/Mardoto-ThinItalic.woff') format('woff'),
+      url('/assets/fonts/Mardoto-ThinItalic.ttf') format('truetype'),
+      url('/assets/fonts/Mardoto-ThinItalic.svg#Mardoto-ThinItalic') format('svg');
+  font-weight: 100;
+  font-style: italic;
+}
+
+html,body {
+  font-family: 'Mardoto';
+  font-weight: normal;
+  /* color: $text-color; */
+}
+
+
+@font-face {
+  font-family: 'icomoon';
+  src: url('/assets/fonts/icomoon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^='icon-'],
+[class*=' icon-'] {
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-help:before {
+  content: '\e91d';
+}
+.icon-target:before {
+  content: '\e92f';
+}
