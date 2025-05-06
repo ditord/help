@@ -48,7 +48,7 @@ export const Header = ({ lang = "hy" }: HeaderType) => {
       <nav className={`bg-white h-20 z-50 px-4 py-2 max-lg:fixed max-lg:top-0 max-lg:left-0 max-lg:right-0 ${scrolled ? " fixed top-0 left-0 right-0 shadow-md" : ""}`}>
         <div className="mx-auto lg:px-4 h-full">
           <div className="flex justify-between items-center h-full gap-2">
-            <Link to="/" className="lg:pb-1">
+            <Link to={`/${lang}`} className="lg:pb-1">
               <img src="/assets/images/logo@1x.png" alt="CyberHub Logo" className="w-32.5" />
             </Link>
 
