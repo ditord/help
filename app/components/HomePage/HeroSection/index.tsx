@@ -41,13 +41,13 @@ export const HeroSection = ({ lang = "hy" }: { lang?: Language }) => {
             <h3 className="text-2xl font-light">{texts[lang].description2}</h3>
             <div className="flex gap-8 max-md:flex-col items-start">
               <Link
-                to="/help/"
+                to={`/${lang}/help/`}
                 className="btn btn-blue"
               >
                 {texts[lang].btn1}
               </Link>
               <Link 
-                to="/blogs/"
+                to={`/${lang}/blogs/`}
                 className="btn"
               >
                 {texts[lang].btn2}

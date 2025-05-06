@@ -6,11 +6,13 @@ const texts = {
     title: "Բլոգ",
     blogCommonTitle: "Վերնագիր",
     blogCommonDescription: "Կարճ նկարագրություն",
+    button: "Դիտել ավելին",
   },
   en: {
     title: "Blog",
     blogCommonTitle: "Title",
     blogCommonDescription: "Short description",
+    button: "See more",
   },
 };
 
@@ -37,8 +39,8 @@ export const BlogsSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => 
         </div>
 
         <div className="text-center mt-6">
-          <Link to="/blogs/" className="btn btn-small">
-            Դիտել ավելին
+          <Link to={`/${lang}/blogs/`} className="btn btn-small">
+            {texts[lang].button}
           </Link>
         </div>
       </div>

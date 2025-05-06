@@ -395,7 +395,7 @@ export const HelpSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => {
       {/* View All Link - Common for both views */}
       <div className="container mx-auto px-4 relative">
         <div className="text-center mt-6">
-          <Link to="/blogs/" className="btn btn-blue btn-small">
+          <Link to={`/${lang}/help/`} className="btn btn-blue btn-small">
             {texts[lang].button}
           </Link>
         </div>
