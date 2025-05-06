@@ -1,0 +1,26 @@
+<IfModule mod_rewrite.c>
+
+  RewriteEngine On
+  RewriteBase /
+  
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  RewriteRule ^$ /hy/ [L,R=302]
+  
+  RewriteRule ^hy/$ /hy/index.html [L]
+  RewriteRule ^en/$ /en/index.html [L]
+  
+  RewriteRule ^hy/about-us/$ /hy/about-us/index.html [L]
+  RewriteRule ^en/about-us/$ /en/about-us/index.html [L]
+  
+  RewriteRule ^hy/blogs/$ /hy/blogs/index.html [L]
+  RewriteRule ^en/blogs/$ /en/blogs/index.html [L]
+  
+  RewriteRule ^hy/contact-us/$ /hy/contact-us/index.html [L]
+  RewriteRule ^en/contact-us/$ /en/contact-us/index.html [L]
+  
+  RewriteRule ^hy/help/$ /hy/help/index.html [L]
+  RewriteRule ^en/help/$ /en/help/index.html [L]
+  
+  </IfModule>
