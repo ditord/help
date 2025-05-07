@@ -1,1 +1,0 @@
-import{w as o}from"./with-props-g9uxTVAI.js";import{o as r}from"./chunk-AYJ5UCUI-mw5IXckX.js";import{H as m}from"./HelpMain-BRvQw0O5.js";import{m as n}from"./index-Ds4MtY-3.js";const t="hy";function f({}){return n.help[t]}const l=o(function(){return r.jsx(m,{lang:t})});export{l as default,f as meta};

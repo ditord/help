@@ -1,1 +1,0 @@
-import{w as t}from"./with-props-g9uxTVAI.js";import{o as r}from"./chunk-AYJ5UCUI-mw5IXckX.js";import{B as s}from"./BlogsMain-DGFmFgSf.js";import{m}from"./index-Ds4MtY-3.js";const o="hy";function f({}){return m.blogs[o]}const l=t(function(){return r.jsx(s,{lang:o})});export{l as default,f as meta};

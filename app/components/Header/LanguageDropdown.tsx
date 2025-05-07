@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react';
-import { Link } from 'react-router';
+import { useState, useRef, useEffect } from 'react';
+import { Link, useLocation } from 'react-router';
 import type { Language } from "~/Types";
 
 const languages = {
@@ -11,6 +11,19 @@ export const LanguageDropdown = ({ lang = "hy" }: { lang: Language }) => {
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const handlerRef = useRef<((event: MouseEvent) => void) | null>(null);
+  const location = useLocation();
+
+  const getLocalizedUrl = (targetLang: Language) => {
+    const currentPath = location.pathname;
+    const pathSegments = currentPath.split('/').filter(Boolean);
+    
+    if (pathSegments.length === 0 || (pathSegments.length === 1 && (pathSegments[0] === 'en' || pathSegments[0] === 'hy'))) {
+      return `/${targetLang}`;
+    }
+    
+    const newPathSegments = [targetLang, ...pathSegments.slice(1)];
+    return `/${newPathSegments.join('/')}`;
+  };
 
   if (!handlerRef.current) {
     handlerRef.current = (event: MouseEvent): void => {
@@ -20,6 +33,14 @@ export const LanguageDropdown = ({ lang = "hy" }: { lang: Language }) => {
       }
     };
   }
+
+  useEffect(() => {
+    return () => {
+      if (handlerRef.current) {
+        document.removeEventListener('mousedown', handlerRef.current as EventListener);
+      }
+    };
+  }, []);
 
   const toggleLangDropdown = (): void => {
     const isDropdownOpen = !isLangDropdownOpen; 
@@ -47,14 +68,14 @@ export const LanguageDropdown = ({ lang = "hy" }: { lang: Language }) => {
       >
         <Link
           className="block py-2 px-9 text-sm leading-relaxed hover:bg-gray-100"
-          to="/hy/"
+          to={getLocalizedUrl('hy')}
           onClick={() => toggleLangDropdown()}
         >
           ARM
         </Link>
         <Link
           className="block py-2 px-9 text-sm leading-relaxed hover:bg-gray-100"
-          to="/en/"
+          to={getLocalizedUrl('en')}
           onClick={() => toggleLangDropdown()}
         >
           ENG

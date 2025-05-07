@@ -1,3 +1,5 @@
+import type { Language } from "~/Types";
+
 export const headerNavigation = {
   hy: [
     {
@@ -98,53 +100,10 @@ export const helpContacts = {
       en: "Anonymous chat",
     }
   },
-
 };
+
+
 export const helpItems = [
-  {
-    icon: <img src="/assets/images/help-icons/help-icon-4.png" alt="help-icon" className="scale-[0.7]" />,
-    title: {
-      hy: "Սեռական հետապնդման եմ ենթարկվում",
-      en: "I am being sexually harassed",
-    },
-    description: {
-      hy: "Մեկը, ով դեռահաս է ձևացնում, փորձում է ընկերանալ, ստանալ վստահություն և հետո պահանջում է անձնական տվյալներ։",
-      en: "Someone who pretends to be a teenager tries to befriend me, gain my trust and then demands personal information."
-    }
-  }, 
-  {
-    icon: <img src="/assets/images/help-icons/help-icon-7.png" alt="help-icon" className="scale-[0.7]" />,
-    title: {
-      hy: "Իմ նկարները կամ տեսանյութերը տարածել են առանց թույլտվության",
-      en: "My photos or videos have been shared without permission",
-    },
-    description: {
-      hy: "Իմ լուսանկարները կամ տեսանյութերը օգտագործում են կամ տարածում են առանց իմ իմացության։",
-      en: "My photos or videos are being used or shared without my knowledge."
-    }
-  }, 
-  {
-    icon: <img src="/assets/images/help-icons/help-icon-6.png" alt="help-icon" className="scale-[0.7]" />,
-    title: {
-      hy: "Ինձ վարկաբեկել են նկարներով կամ խմբագրված վիզուալներով",
-      en: "I've been discredited with photos or edited visuals",
-    },
-    description: {
-      hy: "Իմ նկարները կամ խմբագրված վիզուալները տարածել են՝ ինձ վատ ներկայացնելու համար։",
-      en: "My photos or edited visuals have been shared to misrepresent me."
-    }
-  }, 
-  {
-    icon: <img src="/assets/images/help-icons/help-icon-5.png" alt="help-icon" className="scale-[0.7]" />,
-    title: {
-      hy: "Անհանգիստ եմ իմ պատասխանատվության տակ երեխայի օնլայն անվտանգության համար",
-      en: "I'm concerned about the online safety of a child under my care",
-    },
-    description: {
-      hy: "Ուզում եմ համոզվել, որ նա պաշտպանված է համացանցում։ Կա մտահոգություն, կամ պարզապես ուզում եմ ավելի ուշադիր լինել նրա օնլայն վարքին։",
-      en: "I want to make sure they are protected online. There's a concern, or I simply want to be more attentive to their online behavior."
-    }
-  }, 
   {
     icon: <img src="/assets/images/help-icons/help-icon-1.png" alt="help-icon" className="scale-[0.7]" />,
     title: {
@@ -155,7 +114,7 @@ export const helpItems = [
       hy: "Ինստագրամ / ֆեյսբուք / Սնապչատ / Տիկտոկ / Վոթսափ / Վայբեր / Տելեգրամ / մեյլ / գուգլ դրայվ։",
       en: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / email / Google Drive."
     }
-  }, 
+  },
   {
     icon: <img src="/assets/images/help-icons/help-icon-2.png" alt="help-icon" className="scale-[0.7]" />,
     title: {
@@ -166,7 +125,40 @@ export const helpItems = [
       hy: "Ինստագրամ / ֆեյսբուք / Սնապչատ / Տիկտոկ / Վոթսափ / Վայբեր / Տելեգրամ / մեյլ / գուգլ դրայվ։",
       en: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / email / Google Drive."
     }
-  }, 
+  },
+  {
+    icon: <img src="/assets/images/help-icons/help-icon-7.png" alt="help-icon" className="scale-[0.7]" />,
+    title: {
+      hy: "Իմ նկարները տարածել են առանց թույլտվության",
+      en: "My photos have been shared without permission",
+    },
+    description: {
+      hy: "Իմ լուսանկարները օգտագործում են կամ տարածում են առանց իմ իմացության։",
+      en: "My photos are being used or distributed without my knowledge or consent."
+    }
+  },
+  {
+    icon: <img src="/assets/images/help-icons/help-icon-6.png" alt="help-icon" className="scale-[0.7]" />,
+    title: {
+      hy: "Ինձ վարկաբեկել են նկարներով, խմբագրված վիզուալներով",
+      en: "I've been defamed with photos or manipulated images",
+    },
+    description: {
+      hy: "Իմ նկարները կամ խմբագրված վիզուալները տարածել են՝ ինձ վատ ներկայացնելու համար։",
+      en: "My photos or edited visuals have been shared to damage my reputation."
+    }
+  },
+  {
+    icon: <img src="/assets/images/help-icons/help-icon-5.png" alt="help-icon" className="scale-[0.7]" />,
+    title: {
+      hy: "Անհանգստանում եմ երեխայի առցանց անվտանգության համար",
+      en: "I'm concerned about a child's online safety",
+    },
+    description: {
+      hy: "Ուզում եմ համոզվել, որ նա պաշտպանված է համացանցում։ Կա մտահոգություն, կամ պարզապես ուզում եմ ավելի ուշադիր լինել նրա օնլայն վարքին։",
+      en: "I want to ensure they're protected online. I have specific concerns or simply want to monitor their online activities more carefully."
+    }
+  },
   {
     icon: <img src="/assets/images/help-icons/help-icon-3.png" alt="help-icon" className="scale-[0.7]" />,
     title: {
@@ -175,9 +167,20 @@ export const helpItems = [
     },
     description: {
       hy: "Շրջապատս կամ այլոք ինձ ծաղրում են համացանցում։",
-      en: "People around me or others are mocking me online."
+      en: "People are harassing or mocking me online."
     }
-  }, 
+  },
+  {
+    icon: <img src="/assets/images/help-icons/help-icon-4.png" alt="help-icon" className="scale-[0.7]" />,
+    title: {
+      hy: "Սեռական հետապնդման եմ ենթարկվում",
+      en: "I am being sexually harassed",
+    },
+    description: {
+      hy: "Մեկը, ով դեռահաս է ձևացնում, փորձում է ընկերանալ, ստանալ վստահություն և հետո պահանջում է անձնական տվյալներ։",
+      en: "Someone is pretending to be a teenager to befriend me, gain my trust, and then demand personal information or inappropriate content."
+    }
+  },
   {
     icon: <img src="/assets/images/help-icons/help-icon-8.png" alt="help-icon" className="scale-[0.7]" />,
     title: {
@@ -186,7 +189,17 @@ export const helpItems = [
     },
     description: {
       hy: "Ունեմ մի այլ խնդիր կամ դեպք, որը այստեղ նշված չէ։",
-      en: "I have another problem or case that is not listed here."
+      en: "I have another problem or situation that isn't listed here."
     }
   },
 ];
+
+export type HelpItemType = {
+  icon: React.ReactNode;
+  title: {
+    [key in Language]: string;
+  };
+  description: {
+    [key in Language]: string;
+  };
+};
