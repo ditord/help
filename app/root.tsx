@@ -44,7 +44,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
-        <script src="/embedScript.js" async />
+        <script src="/assets/embedScript.js" async />
       </body>
     </html>
   );
