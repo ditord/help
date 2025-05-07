@@ -26,7 +26,7 @@ export const BlogsSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => 
           {
             Array.from(Array(4)).map((_, index) => (
               <div key={index}>
-                <div className="shadow-[0_20px_13px_0_#00000005] bg-white mb-6 p-6">
+                <div className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white mb-6 p-6">
                   <div className="w-full aspect-video bg-[#D9D9D9]" />
                   <div className="pt-6">
                     <p className="text-xl font-bold">{texts[lang].blogCommonTitle}</p>

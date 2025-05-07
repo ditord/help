@@ -72,7 +72,7 @@ const MobileHelpItem: React.FC<MobileHelpItemProps> = ({ item, index, lang = "hy
       className="w-72 flex-shrink-0"
       style={itemScrollStyles}
     >
-      <div className="hover:shadow-[0_20px_13px_0_#00000005] bg-white p-6 flex flex-col group cursor-pointer h-full">
+      <div className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white p-6 flex flex-col group cursor-pointer h-full">
         <ClipPathPanel width="w-20" height="h-20">{item.icon}</ClipPathPanel>
         <p className="font-medium text-lg mt-4">
           {item.title[lang]}
@@ -92,7 +92,7 @@ const DesktopHelpItem: React.FC<DesktopHelpItemProps> = ({ item, currentIndex, i
       key={`${currentIndex}-${itemIndex}`}
       className="w-70 flex-shrink-0"
     >
-      <div className="hover:shadow-[0_20px_13px_0_#00000005] bg-white p-6 flex flex-col group cursor-pointer h-full">
+      <div className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white p-6 flex flex-col group cursor-pointer h-full">
         <ClipPathPanel width="w-20" height="h-20">{item.icon}</ClipPathPanel>
         <p className="font-medium text-lg mt-4">
           {item.title[lang]}

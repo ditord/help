@@ -17,13 +17,13 @@ export const HelpItem = ({ item, lang, onClick }: HelpItemProps) => {
                  transition-shadow duration-300 ease-in-out rounded-sm"
     >
       <ClipPathPanel width="w-20" height="h-20">{item.icon}</ClipPathPanel>
-      <p className="font-medium text-lg mt-4">
+      <h3 className="font-medium text-lg mt-4 min-h-15">
         {item.title[lang]}
-      </p>
-      <p className="mt-4 text-gray-600 flex-grow">
+      </h3>
+      <h4 className="mt-4 text-gray-600 flex-grow">
         {item.description[lang]}
-      </p>
-      <div className="flex justify-end mt-6">
+      </h4>
+      <div className="flex justify-end">
         <img 
           src="/assets/images/arrow-right.svg" 
           alt="to help" 
