@@ -53,10 +53,10 @@ jobs:
         cd temp-deploy
 
         git init
-        git remote add origin https://github.com/${{ github.repository }}.git
         git checkout -b deploy
         git config user.name "github-actions"
         git config user.email "github-actions@github.com"
         git add .
         git commit -m "Deploy client build from main"
+        git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         git push --force origin deploy
