@@ -52,7 +52,7 @@ jobs:
     - name: Deploy /build/client folder to deploy branch
       run: |
         mkdir -p temp-deploy
-        cp -r build/client/* temp-deploy/
+        cp -r build/client/.* build/client/* temp-deploy/
         echo "Contents of temp-deploy:"
         ls -lR temp-deploy
         cd temp-deploy
