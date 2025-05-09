@@ -1,0 +1,1 @@
+import{o as r}from"./chunk-D4RADZKF-DlOLmyoh.js";import{H as o,F as t}from"./index-D9ueMi-d.js";function n({lang:s}){return r.jsxs(r.Fragment,{children:[r.jsx(o,{lang:s}),r.jsx("main",{}),r.jsx(t,{lang:s})]})}export{n as C};

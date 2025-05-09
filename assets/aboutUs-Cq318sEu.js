@@ -1,0 +1,1 @@
+import{w as o}from"./with-props-CXIJ_cBi.js";import{o as r}from"./chunk-D4RADZKF-DlOLmyoh.js";import{A as s}from"./AboutUsMain-BuQi1_Hn.js";import{m as a}from"./index-D9ueMi-d.js";import"./index-DM5JNF1J.js";const t="en";function f({}){return a.aboutUs[t]}const b=o(function(){return r.jsx(s,{lang:t})});export{b as default,f as meta};
