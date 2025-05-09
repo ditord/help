@@ -2,7 +2,9 @@
 window._storeEmbed_variables = { iframeURL: 'https://ada-embed-for-cyberhub.web.app/' };
 
 function checkAda() {
-  initialization();
+  setTimeout(() => {
+    initialization();
+  }, )
 }
 
 checkAda();

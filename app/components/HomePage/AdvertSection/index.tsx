@@ -50,14 +50,16 @@ export const AdvertSection: React.FC<{ lang?: Language }> = ({ lang = "en" }) =>
                 <span>{texts[lang].info2.description}</span>
               </p>
             </div>
-            <Link 
-              to="https://learning.babycef.am/courses/public"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-small w-fit mt-5"
-            >
-              {texts[lang].button}
-            </Link>
+            <div className="mt-5">
+              <Link 
+                to="https://learning.babycef.am/courses/public"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-small"
+              >
+                {texts[lang].button}
+              </Link>
+            </div>
           </div>
         </div>
       </div>

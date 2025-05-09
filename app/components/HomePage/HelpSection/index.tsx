@@ -17,6 +17,7 @@ const texts = {
 
 // Define types for our data and props
 type HelpItem = {
+  id: number;
   icon: React.ReactNode;
   title: {
     [key in Language]: string;
@@ -67,41 +68,43 @@ const MobileHelpItem: React.FC<MobileHelpItemProps> = ({ item, index, lang = "hy
   };
   
   return (
-    <div 
+    <Link 
       key={index} 
       className="w-72 flex-shrink-0"
       style={itemScrollStyles}
+      to={`/${lang}/help/?active=${item.id}`}
     >
-      <div className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white p-6 flex flex-col group cursor-pointer h-full">
+      <span className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white p-6 flex flex-col group cursor-pointer h-full">
         <ClipPathPanel width="w-20" height="h-20">{item.icon}</ClipPathPanel>
         <p className="font-medium text-lg mt-4">
           {item.title[lang]}
         </p>
-        <div className="flex justify-end mt-auto">
+        <span className="flex justify-end mt-auto">
           <img src="/assets/images/arrow-right.svg" alt="to help" className="w-10 transition-opacity group-hover:scale-[1.2] transform duration-300" />
-        </div>
-      </div>
-    </div>
+        </span>
+      </span>
+    </Link>
   );
 };
 
 // ------------------- DESKTOP HELP ITEM COMPONENT -------------------
 const DesktopHelpItem: React.FC<DesktopHelpItemProps> = ({ item, currentIndex, itemIndex, lang = "hy" }) => {
   return (
-    <div 
+    <Link 
       key={`${currentIndex}-${itemIndex}`}
       className="w-70 flex-shrink-0"
+      to={`/${lang}/help/?active=${item.id}`}
     >
-      <div className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white p-6 flex flex-col group cursor-pointer h-full">
+      <span className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white p-6 flex flex-col group cursor-pointer h-full">
         <ClipPathPanel width="w-20" height="h-20">{item.icon}</ClipPathPanel>
         <p className="font-medium text-lg mt-4">
           {item.title[lang]}
         </p>
-        <div className="flex justify-end mt-auto">
+        <span className="flex justify-end mt-auto">
           <img src="/assets/images/arrow-right.svg" alt="to help" className="w-10 transition-opacity group-hover:scale-[1.2] transform duration-300" />
-        </div>
-      </div>
-    </div>
+        </span>
+      </span>
+    </Link>
   );
 };
 

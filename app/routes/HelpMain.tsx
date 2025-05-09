@@ -1,9 +1,22 @@
+import { useSearchParams } from "react-router";
 import { Header, Footer, HelpItem } from "~/components";
 import { helpItems, type HelpItemType } from "~/config";
 import type { Language } from "~/Types";
 
 export default function HelpMain({ lang = "hy" }: { lang: Language }) {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const active = searchParams.get('active');
+
+  
   const handleItemClick = (item: HelpItemType) => {
+    const newParams = new URLSearchParams(searchParams);
+
+    if (active === item.id.toString()) {
+      newParams.delete("active");
+    } else {
+      newParams.set('active', item.id.toString());
+    }
+    setSearchParams(newParams, { replace: true, preventScrollReset: true });
   };
 
   return (
@@ -20,13 +33,15 @@ export default function HelpMain({ lang = "hy" }: { lang: Language }) {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
-              {helpItems.map((item, index) => (
-                <HelpItem 
-                  key={index} 
-                  item={item} 
-                  lang="hy"
-                  onClick={() => handleItemClick(item)}
-                />
+              {helpItems.map((item) => (
+                <div key={item.id.toString()}>
+                  <HelpItem
+                    item={item}
+                    activeItemId={typeof active === "string" ? Number(active) : undefined}
+                    lang="hy"
+                    onClick={() => handleItemClick(item)}
+                  />
+                </div>
               ))}
             </div>
           </div>

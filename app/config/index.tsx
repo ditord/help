@@ -105,6 +105,7 @@ export const helpContacts = {
 
 export const helpItems = [
   {
+    id: 1,
     icon: <img src="/assets/images/help-icons/help-icon-1.png" alt="help-icon" className="scale-[0.7]" />,
     title: {
       hy: "Կոտրել են օգտահաշիվս",
@@ -116,6 +117,7 @@ export const helpItems = [
     }
   },
   {
+    id: 2,
     icon: <img src="/assets/images/help-icons/help-icon-2.png" alt="help-icon" className="scale-[0.7]" />,
     title: {
       hy: "Կոտրել են օգտահաշիվս ու շանտաժի են ենթարկում",
@@ -127,6 +129,7 @@ export const helpItems = [
     }
   },
   {
+    id: 3,
     icon: <img src="/assets/images/help-icons/help-icon-7.png" alt="help-icon" className="scale-[0.7]" />,
     title: {
       hy: "Իմ նկարները տարածել են առանց թույլտվության",
@@ -138,6 +141,7 @@ export const helpItems = [
     }
   },
   {
+    id: 4,
     icon: <img src="/assets/images/help-icons/help-icon-6.png" alt="help-icon" className="scale-[0.7]" />,
     title: {
       hy: "Ինձ վարկաբեկել են նկարներով, խմբագրված վիզուալներով",
@@ -149,6 +153,7 @@ export const helpItems = [
     }
   },
   {
+    id: 5,
     icon: <img src="/assets/images/help-icons/help-icon-5.png" alt="help-icon" className="scale-[0.7]" />,
     title: {
       hy: "Անհանգստանում եմ երեխայի առցանց անվտանգության համար",
@@ -160,6 +165,7 @@ export const helpItems = [
     }
   },
   {
+    id: 6,
     icon: <img src="/assets/images/help-icons/help-icon-3.png" alt="help-icon" className="scale-[0.7]" />,
     title: {
       hy: "Կիբեռբուլինգի եմ ենթարկվում",
@@ -171,6 +177,7 @@ export const helpItems = [
     }
   },
   {
+    id: 7,
     icon: <img src="/assets/images/help-icons/help-icon-4.png" alt="help-icon" className="scale-[0.7]" />,
     title: {
       hy: "Սեռական հետապնդման եմ ենթարկվում",
@@ -182,6 +189,7 @@ export const helpItems = [
     }
   },
   {
+    id: 8,
     icon: <img src="/assets/images/help-icons/help-icon-8.png" alt="help-icon" className="scale-[0.7]" />,
     title: {
       hy: "Այլ իրավիճակ",
@@ -195,6 +203,7 @@ export const helpItems = [
 ];
 
 export type HelpItemType = {
+  id: number;
   icon: React.ReactNode;
   title: {
     [key in Language]: string;
