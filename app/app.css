@@ -22,6 +22,34 @@
   width: 100%;
 }
 
+@media (min-width: 576px) and (max-width: 991px) {
+  .help-items > div:nth-child(2n) > .help-options {
+    right: calc(100% - 20px);
+  }
+  .help-items > div:not(:nth-child(2n)) > .help-options {
+    left: calc(100% - 20px);
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1699px) {
+  .help-items > div:nth-child(3n) > .help-options {
+    right: calc(100% - 20px);
+  }
+  .help-items > div:not(:nth-child(3n)) > .help-options {
+    left: calc(100% - 20px);
+  }
+}
+
+@media (min-width: 1700px) {
+  .help-items > div:nth-child(4n) > .help-options {
+    right: calc(100% - 20px);
+  }
+  .help-items > div:not(:nth-child(4n)) > .help-options {
+    left: calc(100% - 20px);
+  }
+}
+
+
 @media (min-width: 576px) {
   .container {
       max-width: 540px;

@@ -102,7 +102,6 @@ export const helpContacts = {
   },
 };
 
-
 export const helpItems = [
   {
     id: 1,
@@ -114,7 +113,13 @@ export const helpItems = [
     description: {
       hy: "Ինստագրամ / ֆեյսբուք / Սնապչատ / Տիկտոկ / Վոթսափ / Վայբեր / Տելեգրամ / մեյլ / գուգլ դրայվ։",
       en: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / email / Google Drive."
-    }
+    },
+    options: [
+      {
+        text: "Կոտրել են օգտահաշիվս",
+        id: "Կոտրել_են_օգտահաշիվս",
+      },
+    ],
   },
   {
     id: 2,
@@ -126,7 +131,17 @@ export const helpItems = [
     description: {
       hy: "Ինստագրամ / ֆեյսբուք / Սնապչատ / Տիկտոկ / Վոթսափ / Վայբեր / Տելեգրամ / մեյլ / գուգլ դրայվ։",
       en: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / email / Google Drive."
-    }
+    },
+    options: [
+      {
+        text: "Ինձ համար շատ թանկ է հաշիվը",
+        id: "Ինձ_համար_շատ_թանկ_է_հաշիվը",
+      },
+      {
+        text: "Զգայուն տեղեկության հասանելիություն կա",
+        id: "Զգայուն_տեղեկության_հասանելիություն_կա",
+      },
+    ],
   },
   {
     id: 3,
@@ -138,7 +153,25 @@ export const helpItems = [
     description: {
       hy: "Իմ լուսանկարները օգտագործում են կամ տարածում են առանց իմ իմացության։",
       en: "My photos are being used or distributed without my knowledge or consent."
-    }
+    },
+    options: [
+      {
+        text: "Օգտագործում են կեղծ օգտահաշիվներում",
+        id: "Օգտագործում_են_կեղծ_օգտահաշիվներում",
+      },
+      {
+        text: "Կլոնավորել են իմ հաշիվը և գրում են իմ անունից",
+        id: "Կլոնավորել_են_իմ_հաշիվը_և_գրում_են_իմ_անունից",
+      },
+      {
+        text: "Օգտագործում են ինձ վարկաբեկելու կամ անհանգստացնելու համար",
+        id: "Օգտագործում_են_ինձ_վարկաբեկելու_կամ_անհանգստացնելու_համար",
+      },
+      {
+        text: "Տեղադրել են ատելության հրահրման խմբերում, որի անդամներն ինձ ճնշում են",
+        id: "Տեղադրել_են_ատելության_հրահրման_խմբերում_որի_անդամներն_ինձ_ճնշում_են",
+      },
+    ],
   },
   {
     id: 4,
@@ -150,7 +183,21 @@ export const helpItems = [
     description: {
       hy: "Իմ նկարները կամ խմբագրված վիզուալները տարածել են՝ ինձ վատ ներկայացնելու համար։",
       en: "My photos or edited visuals have been shared to damage my reputation."
-    }
+    },
+    options: [
+      {
+        text: "Տարածել են վարկաբեկման նպատակով",
+        id: "Տարածել_են_վարկաբեկման_նպատակով",
+      },
+      {
+        text: "Սպառնում կամ գումար են պահանջում՝ հրապարակման շանտաժով",
+        id: "Սպառնում_կամ_գումար_են_պահանջում_հրապարակման_շանտաժով",
+      },
+      {
+        text: "Ստեղծել են արհեստական պոռնոգրաֆիա (AI-ով)",
+        id: "Ստեղծել_են_արհեստական_պոռնոգրաֆիա",
+      },
+    ],
   },
   {
     id: 5,
@@ -162,7 +209,17 @@ export const helpItems = [
     description: {
       hy: "Ուզում եմ համոզվել, որ նա պաշտպանված է համացանցում։ Կա մտահոգություն, կամ պարզապես ուզում եմ ավելի ուշադիր լինել նրա օնլայն վարքին։",
       en: "I want to ensure they're protected online. I have specific concerns or simply want to monitor their online activities more carefully."
-    }
+    },
+    options: [
+      {
+        text: "Երեխան շփվում է վտանգավոր մարդկանց հետ կամ խաղում է կասկածելի խաղեր",
+        id: "Երեխան_շփվում_է_վտանգավոր_մարդկանց_հետ_կամ_խաղում_է_կասկածելի_խաղեր",
+      },
+      {
+        text: "Ուզում եմ վստահ լինել, որ երեխայի առցանց միջավայրը ապահով է",
+        id: "Ուզում_եմ_վստահ_լինել_որ_երեխայի_առցանց_միջավայրը_ապահով_է",
+      },
+    ],
   },
   {
     id: 6,
@@ -174,7 +231,13 @@ export const helpItems = [
     description: {
       hy: "Շրջապատս կամ այլոք ինձ ծաղրում են համացանցում։",
       en: "People are harassing or mocking me online."
-    }
+    },
+    options: [
+      {
+        text: "Շրջապատս և այլոք ծաղրում են ինձ",
+        id: "Շրջապատս_և_այլոք_ծաղրում_են_ինձ",
+      },
+    ],
   },
   {
     id: 7,
@@ -186,7 +249,13 @@ export const helpItems = [
     description: {
       hy: "Մեկը, ով դեռահաս է ձևացնում, փորձում է ընկերանալ, ստանալ վստահություն և հետո պահանջում է անձնական տվյալներ։",
       en: "Someone is pretending to be a teenager to befriend me, gain my trust, and then demand personal information or inappropriate content."
-    }
+    },
+    options: [
+      {
+        text: "Վստահությունս շահել են, ընկերացել ու տվյալներս օգտագործել են իմ դեմ",
+        id: "Վստահությունս_շահել_են_ընկերացել_ու_տվյալներս_օգտագործել_են_իմ_դեմ",
+      },
+    ],
   },
   {
     id: 8,
@@ -198,9 +267,21 @@ export const helpItems = [
     description: {
       hy: "Ունեմ մի այլ խնդիր կամ դեպք, որը այստեղ նշված չէ։",
       en: "I have another problem or situation that isn't listed here."
-    }
+    },
+    options: [
+      {
+        text: "Այլ իրավիճակ",
+        id: "Այլ_իրավիճակ",
+      },
+    ],
   },
 ];
+
+
+export type HelpItemOptionType = {
+  text: string;
+  id: string;
+}
 
 export type HelpItemType = {
   id: number;
@@ -211,4 +292,5 @@ export type HelpItemType = {
   description: {
     [key in Language]: string;
   };
+  options: HelpItemOptionType[];
 };

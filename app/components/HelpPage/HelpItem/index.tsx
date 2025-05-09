@@ -14,7 +14,7 @@ export const HelpItem = ({ item, lang, activeItemId, onClick }: HelpItemProps) =
 
   let dynamicWrapperClass = "cursor-pointer hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] group";
   if (disableClick) {
-    dynamicWrapperClass = "blur-[5px] bg-[#ddd] cursor-default";
+    dynamicWrapperClass = "sm:blur-[5px] sm:bg-[#ddd] sm:cursor-default";
   }
 
   return (

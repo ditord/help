@@ -1,23 +1,50 @@
+import { useEffect, useRef } from "react";
 import { useSearchParams } from "react-router";
-import { Header, Footer, HelpItem } from "~/components";
+import { Header, Footer, HelpItem, HelpDetails } from "~/components";
 import { helpItems, type HelpItemType } from "~/config";
 import type { Language } from "~/Types";
 
+interface ItemRefs {
+  [key: string]: HTMLDivElement | null;
+}
+
 export default function HelpMain({ lang = "hy" }: { lang: Language }) {
+  const itemRefs = useRef<ItemRefs>({});
   const [searchParams, setSearchParams] = useSearchParams();
   const active = searchParams.get('active');
 
   
-  const handleItemClick = (item: HelpItemType) => {
+  const handleItemClick = (item?: HelpItemType) => {
     const newParams = new URLSearchParams(searchParams);
 
-    if (active === item.id.toString()) {
+    if (active === item?.id?.toString()) {
       newParams.delete("active");
     } else {
-      newParams.set('active', item.id.toString());
+      newParams.set('active', item?.id?.toString() || "");
     }
     setSearchParams(newParams, { replace: true, preventScrollReset: true });
   };
+
+  const hasActive = typeof active === "string" && helpItems.some(item => item.id.toString() === active);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (active && itemRefs.current[active]) {
+        if (!itemRefs.current[active].contains(event.target as Node)) {
+          const newParams = new URLSearchParams(searchParams);
+          newParams.delete("active");
+          setSearchParams(newParams, { replace: true, preventScrollReset: true });
+        }
+      }
+    };
+
+    if (hasActive) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [hasActive, active])
 
   return (
     <>
@@ -32,15 +59,20 @@ export default function HelpMain({ lang = "hy" }: { lang: Language }) {
 
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
+            <div className="help-items sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6"
+            >
               {helpItems.map((item) => (
-                <div key={item.id.toString()}>
+                <div key={item.id.toString()} className="sm:relative" ref={(el: HTMLDivElement | null) => { itemRefs.current[item.id] = el; }}>
                   <HelpItem
                     item={item}
-                    activeItemId={typeof active === "string" ? Number(active) : undefined}
+                    activeItemId={hasActive ? Number(active) : undefined}
                     lang="hy"
                     onClick={() => handleItemClick(item)}
                   />
+
+                  <div className={`help-options sm:absolute top-[calc(100%-80px)] h-auto z-1 w-full ${(hasActive && Number(active) === item.id) ? "" : "hidden"}`}>
+                    <HelpDetails options={item.options} />
+                  </div>
                 </div>
               ))}
             </div>
