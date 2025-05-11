@@ -1,8 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, type MouseEvent as MouseEventReact } from "react";
 import { useSearchParams } from "react-router";
 import { UserTypePopup, Header, Footer, HelpItem, HelpDetails } from "~/components";
 import { helpItems, type HelpItemType } from "~/config";
-import { useWindowStore } from "~/store";
+import { useUserStore, useWindowStore } from "~/store";
 import type { Language } from "~/Types";
 
 interface ItemRefs {
@@ -11,6 +11,8 @@ interface ItemRefs {
 
 export default function HelpMain({ lang = "hy" }: { lang: Language }) {
   const itemRefs = useRef<ItemRefs>({});
+  const [link, setLink] = useState("");
+  const { userType } = useUserStore();
   const isMobile = useWindowStore(store => store.isMobile);
   const [searchParams, setSearchParams] = useSearchParams();
   const active = searchParams.get('active');
@@ -25,6 +27,14 @@ export default function HelpMain({ lang = "hy" }: { lang: Language }) {
       newParams.set('active', item?.id?.toString() || "");
     }
     setSearchParams(newParams, { replace: true, preventScrollReset: true });
+  };
+
+  const handleLinkClick = (e: MouseEventReact<HTMLAnchorElement>) => {
+    if (!userType) {
+      e.preventDefault();
+      const element = e.target as HTMLAnchorElement;
+      setLink(element.href);
+    }
   };
 
   const hasActive = typeof active === "string" && helpItems.some(item => item.id.toString() === active);
@@ -81,7 +91,7 @@ export default function HelpMain({ lang = "hy" }: { lang: Language }) {
                   {
                     (!isMobile && (hasActive && Number(active) === item.id)) ?
                       <div className="help-options max-md:hidden absolute top-[calc(100%-80px)] h-auto z-1 w-full">
-                        <HelpDetails options={item.options} />
+                        <HelpDetails options={item.options} onClick={handleLinkClick} />
                       </div> : null
                   }
                 </div>
@@ -91,7 +101,11 @@ export default function HelpMain({ lang = "hy" }: { lang: Language }) {
         </section>
       </main>
 
-      <UserTypePopup />
+      {
+        (!userType && link) ?
+          <UserTypePopup link={link} /> :
+          null
+      }
 
       <Footer lang={lang} />
     </>
