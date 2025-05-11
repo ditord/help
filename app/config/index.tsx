@@ -15,13 +15,9 @@ export const headerNavigation = {
       href: "/hy/help/",
     },
     {
-      text: "Բլոգ",
-      href: "/hy/blogs/",
+      text: "Ռեսուրսներ",
+      href: "/hy/resources/",
     },
-    {
-      text: "Հետադարձ կապ",
-      href: "/hy/contact-us/",
-    }
    ],
    en: [
     {
@@ -37,12 +33,8 @@ export const headerNavigation = {
       href: "/en/help/",
     },
     {
-      text: "Blog",
-      href: "/en/blogs/",
-    },
-    {
-      text: "Contact us",
-      href: "/en/contact-us/",
+      text: "Resources",
+      href: "/en/resources/",
     },
   ],
 };

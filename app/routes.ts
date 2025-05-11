@@ -1,4 +1,4 @@
-import { type RouteConfig, route } from "@react-router/dev/routes";
+import { type RouteConfig, route, layout } from "@react-router/dev/routes";
 
 export const metadata = {
   home: {
@@ -9,27 +9,26 @@ export const metadata = {
     en: [
       { title: "CyberHUB-AM — Դեռահասների կիբեռաջակցություն հարթակ" },
       // { name: "description", content: "Welcome to React Router!" },
-    ]
+    ],
   },
   aboutUs: { hy: [], en: [] },
   help: { hy: [], en: [] },
-  blogs: { hy: [], en: [] },
-  contactUs: { hy: [], en: [] },
+  resources: { hy: [], en: [] },
 };
 
 export default [
-  route("hy", "routes/hy/home.tsx"),
-  route("en", "routes/en/home.tsx"),
+  layout("layouts/mainLayout.tsx", [
+    { path: "hy", id: "hy-home", file: "routes/home.tsx" },
+    { path: "en", id: "en-home", file: "routes/home.tsx" },
 
-  route("hy/about-us", "routes/hy/aboutUs.tsx"),
-  route("en/about-us", "routes/en/aboutUs.tsx"),
+    { path: "hy/about-us", id: "hy-about-us", file: "routes/aboutUs.tsx" },
+    { path: "en/about-us", id: "en-about-us", file: "routes/aboutUs.tsx" },
 
-  route("hy/help", "routes/hy/help.tsx"),
-  route("en/help", "routes/en/help.tsx"),
+    { path: "hy/help", id: "hy-help", file: "routes/help.tsx" },
+    { path: "en/help", id: "en-help", file: "routes/help.tsx" },
 
-  route("hy/blogs", "routes/hy/blogs.tsx"),
-  route("en/blogs", "routes/en/blogs.tsx"),
+    { path: "hy/resources", id: "hy-resources", file: "routes/resources.tsx" },
+    { path: "en/resources", id: "en-resources", file: "routes/resources.tsx" },
+  ]),
 
-  route("hy/contact-us", "routes/hy/contactUs.tsx"),
-  route("en/contact-us", "routes/en/contactUs.tsx"),
 ] satisfies RouteConfig;

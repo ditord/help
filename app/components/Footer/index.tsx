@@ -10,10 +10,14 @@ import type { Language } from "~/Types";
 const texts = {
   hy: {
     title: "Հետադարձ կապ",
-    buttonDescription1: "Թեժ գիծ",
-    buttonDescription2: "WhatsApp զանգ",
-    buttonDescription3: "WhatsApp չատ",
-    buttonDescription4: "ԿիբեռՉատ",
+    buttonTitle1: "Թեժ գիծ",
+    buttonTitle2: "WhatsApp զանգ",
+    buttonTitle3: "WhatsApp չատ",
+    buttonTitle4: "ԿիբեռՉատ",
+    buttonDescription1: "Զանգի’ր մեզ 24/7",
+    buttonDescription2: "Զանգի’ր WhatsApp-ով",
+    buttonDescription3: <>Գրի’ր WhatsApp <br />չատբոտին</>,
+    buttonDescription4: <>Գրի’ր չատբոտին <br />անանուն</>,
     findUsSocial: "Գտիր մեզ առցանց",
     connectionInfo: "Մեզ կարող եք գրել էլ֊փոստով, կամ տոմս բացելով մեր աջակցության հարթակում կամ էլ զանգելով/գրելով մեզ Signal/Telegram/Whatsapp հավելվածներով։",
     pgpInfo: "Օգտագործեք հետևյալ PGP բանալին՝ գաղտնագրված նամակագրության համար։",
@@ -21,10 +25,14 @@ const texts = {
   },
   en: {
     title: "Contact us",
-    buttonDescription1: "Hotline",
-    buttonDescription2: "WhatsApp Call",
-    buttonDescription3: "WhatsApp Chat",
-    buttonDescription4: "Write to the chatbot anonymously",
+    buttonTitle1: "Hotline",
+    buttonTitle2: "WhatsApp Call",
+    buttonTitle3: "WhatsApp Chat",
+    buttonTitle4: "CyberChat",
+    buttonDescription1: "Call us 24/7",
+    buttonDescription2: "Call via WhatsApp",
+    buttonDescription3: <>Write to the WhatsApp<br />chatbot</>,
+    buttonDescription4: <>Write to the chatbot <br />anonymously</>,
     findUsSocial: "Find us online",
     connectionInfo: "Feel free to contact us by E-mail or by opening a ticket at our help-desk or by contacting us via Phone/Signal/Telegram/Whatsapp:",
     pgpInfo: "Use the following PGP key for encrypted correspondence",
@@ -46,9 +54,9 @@ export const Footer = ({ lang = "hy" }: { lang?: Language }) => {
               >
                 <img src="/assets/images/contact-icons/gridicons_phone.png" alt="phone" className="w-16" />
                 <div className="flex flex-col gap-2 items-center justify-between h-25">
-                  <span className="font-bold text-lg">{texts[lang].buttonDescription1}</span>
+                  <span className="font-bold text-lg">{texts[lang].buttonTitle1}</span>
                   <span className="text-lg">8016</span>
-                  <span className="text-[#828282] text-lg">Զանգի’ր մեզ 24/7</span>
+                  <span className="text-[#828282] text-lg">{texts[lang].buttonDescription1}</span>
                 </div>
               </Link>
               <Link
@@ -57,9 +65,9 @@ export const Footer = ({ lang = "hy" }: { lang?: Language }) => {
               >
                 <img src="/assets/images/contact-icons/whatsapp.png" alt="whatsapp" className="w-16" />
                 <div className="flex flex-col gap-2 items-center justify-between h-25">
-                  <span className="font-bold text-lg">{texts[lang].buttonDescription2}</span>
-                  <span className="text-lg">8016</span>
-                  <span className="text-[#828282] text-lg">Զանգի’ր WhatsApp-ով</span>
+                  <span className="font-bold text-lg">{texts[lang].buttonTitle2}</span>
+                  <span className="text-lg">055 555 555</span>
+                  <span className="text-[#828282] text-lg">{texts[lang].buttonDescription2}</span>
                 </div>
               </Link>
               <Link
@@ -68,8 +76,8 @@ export const Footer = ({ lang = "hy" }: { lang?: Language }) => {
               >
                 <img src="/assets/images/contact-icons/whatsapp.png" alt="whatsapp" className="w-16" />
                 <div className="flex flex-col gap-2 items-center justify-between h-25">
-                  <span className="font-bold text-lg">{texts[lang].buttonDescription3}</span>
-                  <span className="text-[#828282] text-lg text-center">Գրի’ր WhatsApp <br />չատբոտին</span>
+                  <span className="font-bold text-lg">{texts[lang].buttonTitle3}</span>
+                  <span className="text-[#828282] text-lg text-center">{texts[lang].buttonDescription3}</span>
                 </div>
               </Link>
               <Link
@@ -78,8 +86,8 @@ export const Footer = ({ lang = "hy" }: { lang?: Language }) => {
               >
                 <img src="/assets/images/contact-icons/chat_logo.png" alt="chat" className="w-16" />
                 <div className="flex flex-col gap-2 items-center justify-between h-25">
-                  <span className="font-bold text-lg">{texts[lang].buttonDescription4}</span>
-                  <span className="text-[#828282] text-lg text-center">Գրի’ր չատբոտին <br />անանուն</span>
+                  <span className="font-bold text-lg">{texts[lang].buttonTitle4}</span>
+                  <span className="text-[#828282] text-lg text-center">{texts[lang].buttonDescription4}</span>
                 </div>
               </Link>
             </div>

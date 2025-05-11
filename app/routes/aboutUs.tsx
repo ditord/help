@@ -1,11 +1,19 @@
-import { Header, Footer, PartnersSection } from "~/components";
+import type { Route } from "../routes/+types/aboutUs";
+import { metadata } from "~/routes";
+import { useLocation } from "react-router";
+import { PartnersSection } from "~/components";
 import type { Language } from "~/Types";
 
-export default function AboutUsMain({ lang }: { lang: Language }) {
-  return (
-    <>
-    <Header lang={lang} />
+export function meta({ location }: Route.MetaArgs) {
+  const lang: Language = location.pathname.includes("/hy") ? "hy" : "en";
 
+  return metadata.aboutUs[lang];
+}
+
+export default function AboutUs() {
+  const lang: Language = useLocation().pathname.includes("/hy") ? "hy" : "en";
+
+  return (
     <main>
       <div className="w-full h-30 bg-[linear-gradient(47.56deg,_#639BDF_0%,_#80C9EB_103.5%)]">
         <div className="container mx-auto items-center flex h-full px-4">
@@ -57,8 +65,5 @@ export default function AboutUsMain({ lang }: { lang: Language }) {
       </div>
       <PartnersSection lang={lang} />
     </main>
-
-    <Footer lang={lang} />
-    </>
   );
 }
