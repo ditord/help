@@ -39,10 +39,16 @@ export default function HelpMain({ lang = "hy" }: { lang: Language }) {
     };
 
     if (hasActive) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('mouseup', handleClickOutside);
+      const element = document.getElementById(`case-${active}`);
+      if (element) {
+        const yOffset = -100;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
     }
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('mouseup', handleClickOutside);
     };
   }, [hasActive, active])
 
@@ -59,10 +65,10 @@ export default function HelpMain({ lang = "hy" }: { lang: Language }) {
 
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="help-items sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6"
+            <div className="help-items md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6"
             >
               {helpItems.map((item) => (
-                <div key={item.id.toString()} className="sm:relative" ref={(el: HTMLDivElement | null) => { itemRefs.current[item.id] = el; }}>
+                <div key={item.id.toString()} className="md:relative" ref={(el: HTMLDivElement | null) => { itemRefs.current[item.id] = el; }}>
                   <HelpItem
                     item={item}
                     activeItemId={hasActive ? Number(active) : undefined}
@@ -70,7 +76,7 @@ export default function HelpMain({ lang = "hy" }: { lang: Language }) {
                     onClick={() => handleItemClick(item)}
                   />
 
-                  <div className={`help-options sm:absolute top-[calc(100%-80px)] h-auto z-1 w-full ${(hasActive && Number(active) === item.id) ? "" : "hidden"}`}>
+                  <div className={`help-options max-md:hidden absolute top-[calc(100%-80px)] h-auto z-1 w-full ${(hasActive && Number(active) === item.id) ? "" : "hidden"}`}>
                     <HelpDetails options={item.options} />
                   </div>
                 </div>

@@ -1,1 +1,0 @@
-import{w as o}from"./with-props-g9uxTVAI.js";import{o as r}from"./chunk-AYJ5UCUI-mw5IXckX.js";import{m as s}from"./index-BALkQh_e.js";import{A as a}from"./AboutUsMain-Cp0pHcNK.js";import"./index-3yiv78IY.js";const t="hy";function f({}){return s.aboutUs[t]}const b=o(function(){return r.jsx(a,{lang:t})});export{b as default,f as meta};

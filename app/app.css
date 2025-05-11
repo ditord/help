@@ -22,7 +22,7 @@
   width: 100%;
 }
 
-@media (min-width: 576px) and (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .help-items > div:nth-child(2n) > .help-options {
     right: calc(100% - 20px);
   }

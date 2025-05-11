@@ -33,7 +33,7 @@ export const AdvertSection: React.FC<{ lang?: Language }> = ({ lang = "en" }) =>
     <section id="advert" className="py-20">
       <div className="container mx-auto px-4 relative">
         <div className="flex max-lg:flex-col 2xl:gap-x-20 lg:gap-x-10 gap-y-5">
-          <img src="/assets/images/advert.webp" alt="Advert" className="grayscale aspect-video object-cover" />
+          <img src="/assets/images/promo.webp" alt="Advert" className="grayscale aspect-video object-cover" />
           <div className="flex flex-col flex-1">
             <p className="text-2xl font-bold leading-relaxed text-gray-700">
               {texts[lang].title}  

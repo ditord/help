@@ -1,1 +1,0 @@
-import{w as t}from"./with-props-g9uxTVAI.js";import{o as m}from"./chunk-AYJ5UCUI-mw5IXckX.js";import{m as r}from"./index-BALkQh_e.js";import{H as n}from"./HomeMain-CVx4tJKF.js";import"./index-3yiv78IY.js";const o="en";function u({}){return r.home[o]}const c=t(function(){return m.jsx(n,{lang:o})});export{c as default,u as meta};
