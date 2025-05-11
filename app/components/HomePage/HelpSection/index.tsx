@@ -74,7 +74,7 @@ const MobileHelpItem: React.FC<MobileHelpItemProps> = ({ item, index, lang = "hy
       style={itemScrollStyles}
       to={`/${lang}/help/?active=${item.id}`}
     >
-      <span className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white p-6 flex flex-col group cursor-pointer h-full">
+      <span className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white px-6 pt-6 pb-3 flex flex-col group cursor-pointer h-full">
         <ClipPathPanel width="w-20" height="h-20">{item.icon}</ClipPathPanel>
         <p className="font-medium text-lg mt-4">
           {item.title[lang]}
@@ -95,9 +95,9 @@ const DesktopHelpItem: React.FC<DesktopHelpItemProps> = ({ item, currentIndex, i
       className="w-70 flex-shrink-0"
       to={`/${lang}/help/?active=${item.id}`}
     >
-      <span className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white p-6 flex flex-col group cursor-pointer h-full">
+      <span className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white px-6 pt-6 pb-3 flex flex-col group cursor-pointer h-full">
         <ClipPathPanel width="w-20" height="h-20">{item.icon}</ClipPathPanel>
-        <p className="font-medium text-lg mt-4">
+        <p className="font-medium text-lg mt-4 min-h-21">
           {item.title[lang]}
         </p>
         <span className="flex justify-end mt-auto">
@@ -167,7 +167,7 @@ const MobileHelpSection: React.FC<MobileHelpSectionProps> = ({
         className="overflow-x-auto no-scrollbar"
         style={mobileScrollStyles}
       >
-        <div className="flex gap-x-4 px-10 min-w-max">
+        <div className="flex gap-x-4 px-10 pb-6 min-w-max">
           {helpItems.map((item, index) => (
             <MobileHelpItem key={index} item={item} index={index} lang={lang} />
           ))}
@@ -230,7 +230,7 @@ const DesktopHelpSection: React.FC<DesktopHelpSectionProps> = ({
           ref={scrollContainerRef}
           className="flex-1"
         >
-          <div className="flex justify-around space-x-4">
+          <div className="flex justify-around space-x-4 pb-6">
             {visibleItems.map((item, index) => (
               <DesktopHelpItem
                 lang={lang}
@@ -258,7 +258,7 @@ const DesktopHelpSection: React.FC<DesktopHelpSectionProps> = ({
       </div>
       
       {/* Pagination Dots */}
-      <div className="flex justify-center mt-6 space-x-2">
+      <div className="flex justify-center space-x-2">
         {Array.from({ length: totalPages }).map((_, index) => (
           <button
             key={index}

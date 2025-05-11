@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useSearchParams } from "react-router";
 import { Header, Footer, HelpItem, HelpDetails } from "~/components";
 import { helpItems, type HelpItemType } from "~/config";
+import { useWindowStore } from "~/store";
 import type { Language } from "~/Types";
 
 interface ItemRefs {
@@ -10,6 +11,7 @@ interface ItemRefs {
 
 export default function HelpMain({ lang = "hy" }: { lang: Language }) {
   const itemRefs = useRef<ItemRefs>({});
+  const isMobile = useWindowStore(store => store.isMobile);
   const [searchParams, setSearchParams] = useSearchParams();
   const active = searchParams.get('active');
 
@@ -73,12 +75,15 @@ export default function HelpMain({ lang = "hy" }: { lang: Language }) {
                     item={item}
                     activeItemId={hasActive ? Number(active) : undefined}
                     lang="hy"
-                    onClick={() => handleItemClick(item)}
+                    onClick={() => isMobile ? null : handleItemClick(item)}
                   />
 
-                  <div className={`help-options max-md:hidden absolute top-[calc(100%-80px)] h-auto z-1 w-full ${(hasActive && Number(active) === item.id) ? "" : "hidden"}`}>
-                    <HelpDetails options={item.options} />
-                  </div>
+                  {
+                    (!isMobile && (hasActive && Number(active) === item.id)) ?
+                      <div className="help-options max-md:hidden absolute top-[calc(100%-80px)] h-auto z-1 w-full">
+                        <HelpDetails options={item.options} />
+                      </div> : null
+                  }
                 </div>
               ))}
             </div>
