@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useSearchParams } from "react-router";
-import { Header, Footer, HelpItem, HelpDetails } from "~/components";
+import { UserTypePopup, Header, Footer, HelpItem, HelpDetails } from "~/components";
 import { helpItems, type HelpItemType } from "~/config";
 import { useWindowStore } from "~/store";
 import type { Language } from "~/Types";
@@ -90,6 +90,8 @@ export default function HelpMain({ lang = "hy" }: { lang: Language }) {
           </div>
         </section>
       </main>
+
+      <UserTypePopup />
 
       <Footer lang={lang} />
     </>
