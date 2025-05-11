@@ -36,7 +36,7 @@ export const UserTypePopup = ({ link = "/hy/" }) => {
           <Link
             to={link}
             onClick={() => handleSubmit('child')}
-            className="px-4 py-2 text-center text-lg font-medium rounded-sm text-[#5188D7] bg-[#EFF1F3] hover:text-white hover:bg-[#5188D7] transition-colors duration-300 whitespace-nowrap"
+            className="px-4 py-2 text-center text-lg font-medium rounded-sm text-[#5188D7] bg-[#EFF1F3] hover:text-white hover:bg-[linear-gradient(225deg,_#83ceec,_#598ddc)] transition-colors duration-300 whitespace-nowrap"
           >
             երեխա / դեռահաս
           </Link>
@@ -44,9 +44,9 @@ export const UserTypePopup = ({ link = "/hy/" }) => {
           <Link
             to={link}
             onClick={() => handleSubmit('parent')}
-            className="px-4 py-2 text-center text-lg font-medium rounded-sm text-[#5188D7] bg-[#EFF1F3] hover:text-white hover:bg-[#5188D7] transition-colors duration-300 whitespace-nowrap"
+            className="px-4 py-2 text-center text-lg font-medium rounded-sm text-[#5188D7] bg-[#EFF1F3] hover:text-white hover:bg-[linear-gradient(225deg,_#83ceec,_#598ddc)] transition-colors duration-300 whitespace-nowrap"
           >
-            ծնող / խնամակալ
+            ծնող / մեծահասակ
           </Link>
         </div>
       </div>

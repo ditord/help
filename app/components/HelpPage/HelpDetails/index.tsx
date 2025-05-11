@@ -7,6 +7,8 @@ type HelpItemProps = {
   onClick: (e: MouseEvent<HTMLAnchorElement>) => void
 };
 
+// help/child/case-1.1/psy
+
 export const HelpDetails = ({ options, onClick }: HelpItemProps) => {
   return (
     <div

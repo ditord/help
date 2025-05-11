@@ -1,5 +1,5 @@
 import { Copyright } from "./Copyright";
-import { ClipPathPanel, WhatsappIcon, PhoneIcon } from "~/elements";
+import { ClipPathPanel } from "~/elements";
 import MuiPhoneIcon from '@mui/icons-material/Phone';
 import MailIcon from '@mui/icons-material/Mail';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -10,11 +10,10 @@ import type { Language } from "~/Types";
 const texts = {
   hy: {
     title: "Հետադարձ կապ",
-    forHelp: "Օգնության համար",
-    buttonDescription1: "Զանգի'ր մեր թեժ գծին (24/7)",
-    buttonDescription2: "Զանգի'ր մեզ WhatsApp-ով",
-    buttonDescription3: "Կապվի'ր WhatsApp չատբոտին",
-    buttonDescription4: "Գրի'ր չատբոտին անանուն",
+    buttonDescription1: "Թեժ գիծ",
+    buttonDescription2: "WhatsApp զանգ",
+    buttonDescription3: "WhatsApp չատ",
+    buttonDescription4: "ԿիբեռՉատ",
     findUsSocial: "Գտիր մեզ առցանց",
     connectionInfo: "Մեզ կարող եք գրել էլ֊փոստով, կամ տոմս բացելով մեր աջակցության հարթակում կամ էլ զանգելով/գրելով մեզ Signal/Telegram/Whatsapp հավելվածներով։",
     pgpInfo: "Օգտագործեք հետևյալ PGP բանալին՝ գաղտնագրված նամակագրության համար։",
@@ -22,10 +21,9 @@ const texts = {
   },
   en: {
     title: "Contact us",
-    forHelp: "For help",
-    buttonDescription1: "Call our hotline (24/7)",
-    buttonDescription2: "Call us on WhatsApp",
-    buttonDescription3: "Connect with WhatsApp chatbot",
+    buttonDescription1: "Hotline",
+    buttonDescription2: "WhatsApp Call",
+    buttonDescription3: "WhatsApp Chat",
     buttonDescription4: "Write to the chatbot anonymously",
     findUsSocial: "Find us online",
     connectionInfo: "Feel free to contact us by E-mail or by opening a ticket at our help-desk or by contacting us via Phone/Signal/Telegram/Whatsapp:",
@@ -41,52 +39,49 @@ export const Footer = ({ lang = "hy" }: { lang?: Language }) => {
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-black mb-15 text-center">{texts[lang].title}</h2>
           <div className="mb-16">
-            <p className="text-2xl text-center mb-10">{texts[lang].forHelp}</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-              <div className="px-4 mb-4 text-center">
-                <p className="text-lg font-light lg:mb-4 mb-2 lg:hidden xl:inline-block whitespace-nowrap">{texts[lang].buttonDescription1}</p>
-
-                <Link
-                  className="hover:opacity-70 transform duration-300 flex items-center gap-2 rounded-4xl mx-auto border-2 px-6 py-3 w-fit max-lg:mx-auto border-[#2B2B30]"
-                  to={helpContacts.phone.link}
-                >
-                  <PhoneIcon className="text-[#2B2B30] w-8 h-8" />
-                  <span className="text-[#2B2B30]">{helpContacts.phone.text[lang]}</span>
-                </Link>
-              </div>
-              <div className="px-4 mb-4 text-center">
-                <p className="text-lg font-light lg:mb-4 mb-2 lg:hidden xl:inline-block whitespace-nowrap">{texts[lang].buttonDescription2}</p>
-
-                <Link
-                  className="hover:opacity-70 transform duration-300 flex items-center gap-2 rounded-4xl mx-auto border-2 border-[#1DA851] bg-[#1DA851] px-6 py-3 w-fit max-lg:mx-auto"
-                  to={helpContacts.whatsappPhone.link}
-                >
-                  <WhatsappIcon className="text-white w-8 h-8" />
-                  <span className="text-white">{helpContacts.whatsappPhone.text[lang]}</span>
-                </Link>
-              </div>
-              <div className="px-4 mb-4 text-center">
-                <p className="text-lg font-light lg:mb-4 mb-2 lg:hidden xl:inline-block whitespace-nowrap">{texts[lang].buttonDescription3}</p>
-
-                <Link
-                  className="hover:opacity-70 transform duration-300 flex items-center gap-2 rounded-4xl mx-auto border-2 border-[#1DA851] bg-[#1DA851] px-6 py-3 w-fit max-lg:mx-auto"
-                  to={helpContacts.whatsappAnonChat.link}
-                >
-                  <WhatsappIcon className="text-white w-8 h-8" />
-                  <span className="text-white">{helpContacts.whatsappAnonChat.text[lang]}</span>
-                </Link>
-              </div>
-              <div className="px-4 mb-4 text-center">
-                <p className="text-lg font-light lg:mb-4 mb-2 lg:hidden xl:inline-block whitespace-nowrap">{texts[lang].buttonDescription4}</p>
-
-                <Link
-                  className="hover:opacity-70 transform duration-300 flex items-center gap-2 rounded-4xl mx-auto border-2 border-[#5188D7] bg-[#5188D7] px-6 py-3 w-fit max-lg:mx-auto"
-                  to={helpContacts.anonChat.link}
-                >
-                  <WhatsappIcon className="text-white w-8 h-8" />
-                  <span className="text-white">{helpContacts.anonChat.text[lang]}</span>
-                </Link>
-              </div>
+            <div className="flex max-lg:flex-wrap justify-center lg:gap-6">
+              <Link
+                className="transform duration-300 hover:shadow-md scale-[0.9] hover:scale-[1] flex flex-col items-center justify-center gap-4 rounded-sm shadow-xs bg-white border-[#2B2B30] w-70 h-70"
+                to={helpContacts.phone.link}
+              >
+                <img src="/assets/images/contact-icons/gridicons_phone.png" alt="phone" className="w-16" />
+                <div className="flex flex-col gap-2 items-center justify-between h-25">
+                  <span className="font-bold text-lg">{texts[lang].buttonDescription1}</span>
+                  <span className="text-lg">8016</span>
+                  <span className="text-[#828282] text-lg">Զանգի’ր մեզ 24/7</span>
+                </div>
+              </Link>
+              <Link
+                className="transform duration-300 hover:shadow-md scale-[0.9] hover:scale-[1] flex flex-col items-center justify-center gap-4 rounded-sm shadow-xs bg-white border-[#2B2B30] w-70 h-70"
+                to={helpContacts.whatsappPhone.link}
+              >
+                <img src="/assets/images/contact-icons/whatsapp.png" alt="whatsapp" className="w-16" />
+                <div className="flex flex-col gap-2 items-center justify-between h-25">
+                  <span className="font-bold text-lg">{texts[lang].buttonDescription2}</span>
+                  <span className="text-lg">8016</span>
+                  <span className="text-[#828282] text-lg">Զանգի’ր WhatsApp-ով</span>
+                </div>
+              </Link>
+              <Link
+                className="transform duration-300 hover:shadow-md scale-[0.9] hover:scale-[1] flex flex-col items-center justify-center gap-4 rounded-sm shadow-xs bg-white border-[#2B2B30] w-70 h-70"
+                to={helpContacts.whatsappAnonChat.link}
+              >
+                <img src="/assets/images/contact-icons/whatsapp.png" alt="whatsapp" className="w-16" />
+                <div className="flex flex-col gap-2 items-center justify-between h-25">
+                  <span className="font-bold text-lg">{texts[lang].buttonDescription3}</span>
+                  <span className="text-[#828282] text-lg text-center">Գրի’ր WhatsApp <br />չատբոտին</span>
+                </div>
+              </Link>
+              <Link
+                className="transform duration-300 hover:shadow-md scale-[0.9] hover:scale-[1] flex flex-col items-center justify-center gap-4 rounded-sm shadow-xs bg-white border-[#2B2B30] w-70 h-70"
+                to={helpContacts.anonChat.link}
+              >
+                <img src="/assets/images/contact-icons/chat_logo.png" alt="chat" className="w-16" />
+                <div className="flex flex-col gap-2 items-center justify-between h-25">
+                  <span className="font-bold text-lg">{texts[lang].buttonDescription4}</span>
+                  <span className="text-[#828282] text-lg text-center">Գրի’ր չատբոտին <br />անանուն</span>
+                </div>
+              </Link>
             </div>
           </div>
           <div className="mb-20">

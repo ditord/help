@@ -12,7 +12,7 @@ interface ItemRefs {
 export default function HelpMain({ lang = "hy" }: { lang: Language }) {
   const itemRefs = useRef<ItemRefs>({});
   const [link, setLink] = useState("");
-  const { userType } = useUserStore();
+  const { userType, setUserType } = useUserStore();
   const isMobile = useWindowStore(store => store.isMobile);
   const [searchParams, setSearchParams] = useSearchParams();
   const active = searchParams.get('active');
@@ -31,6 +31,9 @@ export default function HelpMain({ lang = "hy" }: { lang: Language }) {
 
   const handleLinkClick = (e: MouseEventReact<HTMLAnchorElement>) => {
     if (!userType) {
+      const newParams = new URLSearchParams(searchParams);
+      newParams.delete("active");
+      setSearchParams(newParams, { replace: true, preventScrollReset: true });
       e.preventDefault();
       const element = e.target as HTMLAnchorElement;
       setLink(element.href);
@@ -68,14 +71,32 @@ export default function HelpMain({ lang = "hy" }: { lang: Language }) {
     <>
       <Header lang={lang} />
 
-      <main className="bg-[#fafafa]">
+      <main className="bg-white">
         <div className="w-full h-30 bg-[linear-gradient(47.56deg,_#639BDF_0%,_#80C9EB_103.5%)]">
           <div className="container mx-auto items-center flex h-full px-4">
             <h2 className="text-white font-bold text-3xl md:text-4xl uppercase">Ի՞նչ անել, եթե…</h2>
           </div>
         </div>
 
-        <section className="py-20">
+        <p className="text-center text-xl font-bold mt-4 px-4">Ումի՞ց է հարցը</p>
+        <p className="text-center text-lg font-light px-4 text-[#6D6D6D] pt-2">Նշիր ճիշտ տարբերակը։ Քո պատասխանը կօգնի մեզ աջակցել ճիշտ ձևով։</p>
+        <div className="flex justify-center px-4 mt-4">
+          <button
+            onClick={() => setUserType('child')}
+            className={`px-4 py-2 text-center text-lg font-medium rounded-l-sm transition-colors duration-300 whitespace-nowrap cursor-pointer ${userType === "child" ? "bg-[linear-gradient(225deg,_#83ceec,_#598ddc)] text-white" : "text-[#5188D7] bg-[#FAFAFA] hover:bg-[#EFF1F3]"}`}
+          >
+            երեխա / դեռահաս
+          </button>
+
+          <button
+            onClick={() => setUserType('parent')}
+            className={`px-4 py-2 text-center text-lg font-medium rounded-r-sm transition-colors duration-300 whitespace-nowrap cursor-pointer ${userType === "parent" ? "bg-[linear-gradient(225deg,_#83ceec,_#598ddc)] text-white" : "text-[#5188D7] bg-[#FAFAFA] hover:bg-[#EFF1F3]"}`}
+          >
+            ծնող / խնամակալ
+          </button>
+        </div>
+
+        <section className="pb-20 pt-10">
           <div className="container mx-auto px-4">
             <div className="help-items md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6"
             >
