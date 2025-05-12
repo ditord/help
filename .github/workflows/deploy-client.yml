@@ -59,8 +59,8 @@ jobs:
           cp -r build/client/. temp-deploy/
           
           # Copy .htaccess from public folder
-          if [ -f "public/.htaccess" ]; then
-            cp -f public/.htaccess temp-deploy/
+          if [ -f "public/assets/.htaccess" ]; then
+            cp -f public/assets/.htaccess temp-deploy/
             echo ".htaccess file copied from public folder"
           else
             echo "Warning: No .htaccess found in public folder"
@@ -93,4 +93,4 @@ jobs:
         else
           echo "Error: build/client directory does not exist"
           exit 1
-        fi
+        fig
