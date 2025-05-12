@@ -1,1 +1,0 @@
-import{o as e}from"./chunk-D4RADZKF-BvqgCGan.js";const n=({width:s="w-14",height:l="h-14",children:a})=>e.jsx("span",{className:`${s} ${l} block relative`,children:e.jsx("span",{className:"w-full h-full flex justify-center items-center clip-path-panel",children:e.jsx("span",{children:a})})});export{n as C};

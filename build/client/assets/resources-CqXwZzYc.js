@@ -1,1 +1,0 @@
-import{w as e}from"./with-props-DjAjX8vp.js";import{o as r}from"./chunk-D4RADZKF-BvqgCGan.js";import{m as n}from"./routes-Q2YNVsCs.js";import"./index-NGZOxyRd.js";function u({location:t}){const o=t.pathname.includes("/hy")?"hy":"en";return n.resources[o]}const c=e(function(){return r.jsx(r.Fragment,{children:r.jsx("main",{})})});export{c as default,u as meta};

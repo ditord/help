@@ -97,7 +97,7 @@ export const helpContacts = {
 export const helpItems = [
   {
     id: 1,
-    icon: <img src="/assets/images/help-icons/help-icon-1.png" alt="help-icon" className="scale-[0.7]" />,
+    icon: <img src="/assets/images/help-icons/help-icon-1.svg" alt="help-icon" className="scale-[0.7]" />,
     title: {
       hy: "Կոտրել են օգտահաշիվս",
       en: "My account has been hacked",
@@ -115,7 +115,7 @@ export const helpItems = [
   },
   {
     id: 2,
-    icon: <img src="/assets/images/help-icons/help-icon-2.png" alt="help-icon" className="scale-[0.7]" />,
+    icon: <img src="/assets/images/help-icons/help-icon-2.svg" alt="help-icon" className="scale-[0.7]" />,
     title: {
       hy: "Կոտրել են օգտահաշիվս ու շանտաժի են ենթարկում",
       en: "My account has been hacked and I'm being blackmailed",
@@ -137,7 +137,7 @@ export const helpItems = [
   },
   {
     id: 3,
-    icon: <img src="/assets/images/help-icons/help-icon-7.png" alt="help-icon" className="scale-[0.7]" />,
+    icon: <img src="/assets/images/help-icons/help-icon-7.svg" alt="help-icon" className="scale-[0.7]" />,
     title: {
       hy: "Իմ նկարները տարածել են առանց թույլտվության",
       en: "My photos have been shared without permission",
@@ -167,7 +167,7 @@ export const helpItems = [
   },
   {
     id: 4,
-    icon: <img src="/assets/images/help-icons/help-icon-6.png" alt="help-icon" className="scale-[0.7]" />,
+    icon: <img src="/assets/images/help-icons/help-icon-6.svg" alt="help-icon" className="scale-[0.7]" />,
     title: {
       hy: "Ինձ վարկաբեկել են նկարներով, խմբագրված վիզուալներով",
       en: "I've been defamed with photos or manipulated images",
@@ -193,7 +193,7 @@ export const helpItems = [
   },
   {
     id: 5,
-    icon: <img src="/assets/images/help-icons/help-icon-5.png" alt="help-icon" className="scale-[0.7]" />,
+    icon: <img src="/assets/images/help-icons/help-icon-5.svg" alt="help-icon" className="scale-[0.7]" />,
     title: {
       hy: "Անհանգստանում եմ երեխայի առցանց անվտանգության համար",
       en: "I'm concerned about a child's online safety",
@@ -215,7 +215,7 @@ export const helpItems = [
   },
   {
     id: 6,
-    icon: <img src="/assets/images/help-icons/help-icon-3.png" alt="help-icon" className="scale-[0.7]" />,
+    icon: <img src="/assets/images/help-icons/help-icon-3.svg" alt="help-icon" className="scale-[0.7]" />,
     title: {
       hy: "Կիբեռբուլինգի եմ ենթարկվում",
       en: "I am experiencing cyberbullying",
@@ -233,7 +233,7 @@ export const helpItems = [
   },
   {
     id: 7,
-    icon: <img src="/assets/images/help-icons/help-icon-4.png" alt="help-icon" className="scale-[0.7]" />,
+    icon: <img src="/assets/images/help-icons/help-icon-4.svg" alt="help-icon" className="scale-[0.7]" />,
     title: {
       hy: "Սեռական հետապնդման եմ ենթարկվում",
       en: "I am being sexually harassed",
@@ -251,7 +251,7 @@ export const helpItems = [
   },
   {
     id: 8,
-    icon: <img src="/assets/images/help-icons/help-icon-8.png" alt="help-icon" className="scale-[0.7]" />,
+    icon: <img src="/assets/images/help-icons/help-icon-8.svg" alt="help-icon" className="scale-[0.7]" />,
     title: {
       hy: "Այլ իրավիճակ",
       en: "Other situation",
