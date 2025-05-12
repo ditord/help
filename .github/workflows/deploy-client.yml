@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  contents: write  # 👈 REQUIRED to allow push to another branch
+  contents: write  # Required to allow push to another branch
 
 jobs:
   build-and-deploy:
@@ -16,13 +16,14 @@ jobs:
     - name: Checkout main branch
       uses: actions/checkout@v3
 
-    - name: Set up Node.js (use Node 20)
+    - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '20'
+        cache: 'npm'
 
     - name: Install dependencies
-      run: npm install
+      run: npm ci
 
     - name: Run build
       run: npm run build
@@ -49,20 +50,35 @@ jobs:
         git commit --allow-empty -m "Initialize deploy branch"
         git push origin deploy
 
-    - name: Deploy /build/client folder to deploy branch
+    - name: Deploy build/client folder to deploy branch
       run: |
+        # Create temporary deployment directory
         mkdir -p temp-deploy
-        cp -r build/client/.* build/client/* temp-deploy/
-        echo "Contents of temp-deploy:"
-        ls -lR temp-deploy
-        cd temp-deploy
-        git init
-        git checkout -b deploy
-        git config user.name "github-actions"
-        git config user.email "github-actions@github.com"
-        git add .
-        echo "Git status:"
-        git status
-        git commit -m "Deploy client build from main"
-        git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-        git push --force origin deploy
+        
+        # Copy all files (visible and hidden) from build/client directory
+        # Using "cp -r build/client/. temp-deploy/" instead of problematic "cp -r build/client/.* build/client/* temp-deploy/"
+        if [ -d "build/client" ]; then
+          cp -r build/client/. temp-deploy/
+          echo "Contents of temp-deploy:"
+          ls -la temp-deploy
+          
+          cd temp-deploy
+          git init
+          git checkout -b deploy
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          
+          # Only commit if there are changes
+          if git status --porcelain | grep .; then
+            git commit -m "Deploy client build from main"
+            git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+            git push --force origin deploy
+            echo "Deployment successful!"
+          else
+            echo "No changes to deploy"
+          fi
+        else
+          echo "Error: build/client directory does not exist"
+          exit 1
+        fi
