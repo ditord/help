@@ -1,3 +1,4 @@
+import type { MouseEvent } from "react";
 import { Link } from "react-router";
 import type { HelpItemType } from "~/config";
 import { ClipPathPanel } from "~/elements";
@@ -8,12 +9,12 @@ type HelpItemProps = {
   item: HelpItemType;
   lang: Language;
   onClick: () => void;
+  onLinkClick: (e: MouseEvent<HTMLAnchorElement>, linkEnd: string) => void;
   activeItemId?: number;
   userType: UserType;
 };
 
-export const HelpItem = ({ item, lang, activeItemId, onClick, userType }: HelpItemProps) => {
-  const link = userType ? `${userType}/` : "";
+export const HelpItem = ({ item, lang, activeItemId, onClick, userType, onLinkClick }: HelpItemProps) => {
   const disableClick = typeof activeItemId === "number" && activeItemId !== item.id;
 
   let dynamicWrapperClass = "cursor-pointer hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] group";
@@ -48,7 +49,8 @@ export const HelpItem = ({ item, lang, activeItemId, onClick, userType }: HelpIt
               Զարգացում {index + 1}
               <Link
                 className="flex justify-between gap-2 cursor-pointer text-[#5A8FDC] hover:underline"
-                to={`/hy/help/${link}case-${item.id}.${option.id}`}
+                to={userType ? `/${lang}/help/${userType}/case-${item.id}.${option.id}` : `/${lang}/help/`}
+                onClick={e => onLinkClick(e, `/case-${item.id}.${option.id}`)}
               >
                 {option.text}
                 <img 

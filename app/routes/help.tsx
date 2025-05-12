@@ -1,7 +1,7 @@
 import type { Route } from "../routes/+types/help";
 import { metadata } from "~/routes";
 import { useEffect, useRef, useState, type MouseEvent as MouseEventReact } from "react";
-import { useSearchParams } from "react-router";
+import { useSearchParams, useLocation } from "react-router";
 import { UserTypePopup, HelpItem, HelpDetails } from "~/components";
 import { helpItems, type HelpItemType } from "~/config";
 import { useUserStore, useWindowStore } from "~/store";
@@ -18,8 +18,9 @@ interface ItemRefs {
 }
 
 export default function Help() {
+  const lang: Language = useLocation().pathname.includes("/hy") ? "hy" : "en";
   const itemRefs = useRef<ItemRefs>({});
-  const [link, setLink] = useState("");
+  const [link, setLink] = useState(["", ""]);
   const { userType, setUserType } = useUserStore();
   const isMobile = useWindowStore(store => store.isMobile);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -37,14 +38,14 @@ export default function Help() {
     setSearchParams(newParams, { replace: true, preventScrollReset: true });
   };
 
-  const handleLinkClick = (e: MouseEventReact<HTMLAnchorElement>) => {
+  const handleLinkClick = (e: MouseEventReact<HTMLAnchorElement>, linkEnd: string) => {
     if (!userType) {
       const newParams = new URLSearchParams(searchParams);
       newParams.delete("active");
       setSearchParams(newParams, { replace: true, preventScrollReset: true });
       e.preventDefault();
       const element = e.target as HTMLAnchorElement;
-      setLink(element.href);
+      setLink([element.href, linkEnd]);
     }
   };
 
@@ -111,14 +112,21 @@ export default function Help() {
                   userType={userType}
                   item={item}
                   activeItemId={hasActive ? Number(active) : undefined}
-                  lang="hy"
+                  lang={lang}
                   onClick={() => isMobile ? null : handleItemClick(item)}
+                  onLinkClick={handleLinkClick}
                 />
 
                 {
                   (!isMobile && (hasActive && Number(active) === item.id)) ?
                     <div className="help-options max-md:hidden absolute top-[calc(100%-80px)] h-auto z-1 w-full">
-                      <HelpDetails itemId={item.id} options={item.options} onClick={handleLinkClick} userType={userType} />
+                      <HelpDetails
+                        itemId={item.id}
+                        options={item.options}
+                        onLinkClick={handleLinkClick}
+                        lang={lang}
+                        userType={userType}
+                      />
                     </div> : null
                 }
               </div>
@@ -128,7 +136,7 @@ export default function Help() {
       </section>
 
       {
-        (!userType && link) ?
+        (!userType && link[0] && link[1]) ?
           <UserTypePopup link={link} /> :
           null
       }

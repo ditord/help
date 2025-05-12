@@ -1,10 +1,12 @@
-import { type RouteConfig, route, layout } from "@react-router/dev/routes";
+import { type RouteConfig, layout } from "@react-router/dev/routes";
+import { helpItems } from "./config";
 
 export const metadata = {
   home: {
     hy: [
       { title: "CyberHUB-AM — Դեռահասների կիբեռաջակցություն հարթակ" },
       // { name: "description", content: "Welcome to React Router!" },
+      // { name: "keywords", content: "" },
     ],
     en: [
       { title: "CyberHUB-AM — Դեռահասների կիբեռաջակցություն հարթակ" },
@@ -16,19 +18,44 @@ export const metadata = {
   resources: { hy: [], en: [] },
 };
 
+type RouteEntryWithPath = {
+  path: string;
+  id: string;
+  file: string;
+};
+
 export default [
   layout("layouts/mainLayout.tsx", [
-    { path: "hy", id: "hy-home", file: "routes/home.tsx" },
-    { path: "en", id: "en-home", file: "routes/home.tsx" },
+    ...["hy", "en"].reduce<RouteEntryWithPath[]>(
+      (a, lang) => {
+        a.push({ path: lang, id: `${lang}-home`, file: "routes/home.tsx" });
+        a.push({ path: `${lang}/about-us`, id: `${lang}-about-us`, file: "routes/aboutUs.tsx" });
+        a.push({ path: `${lang}/help`, id: `${lang}-help`, file: "routes/help.tsx" });
+        a.push({ path: `${lang}/resources`, id: `${lang}-resources`, file: "routes/resources.tsx" });
+        return a;
+      }, 
+      []
+    ),
 
-    { path: "hy/about-us", id: "hy-about-us", file: "routes/aboutUs.tsx" },
-    { path: "en/about-us", id: "en-about-us", file: "routes/aboutUs.tsx" },
-
-    { path: "hy/help", id: "hy-help", file: "routes/help.tsx" },
-    { path: "en/help", id: "en-help", file: "routes/help.tsx" },
-
-    { path: "hy/resources", id: "hy-resources", file: "routes/resources.tsx" },
-    { path: "en/resources", id: "en-resources", file: "routes/resources.tsx" },
+    layout("layouts/helpDetailsLayout.tsx", [
+      ...["hy", "en"].reduce<RouteEntryWithPath[]>(
+        (a, lang) => {
+          ["child", "parent"].forEach(userType => {
+            helpItems.forEach(helpItem => {
+              helpItem.options.forEach(option => {
+                a.push({
+                  path: `${lang}/help/${userType}/case-${helpItem.id}.${option.id}`,
+                  id: `${lang}-${userType}-${helpItem.id}-${option.id}`,
+                  file: "routes/helpDetails.tsx",
+                });
+              });
+            });
+          });
+          return a;
+        }, 
+        []
+      ),
+    ]),
   ]),
 
 ] satisfies RouteConfig;

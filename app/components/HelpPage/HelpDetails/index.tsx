@@ -2,15 +2,17 @@ import type { MouseEvent } from "react";
 import { Link } from "react-router";
 import type { HelpItemOptionType } from "~/config";
 import { type UserType } from "~/store";
+import type { Language } from "~/Types";
 
 type HelpItemProps = {
   options: HelpItemOptionType[];
-  onClick: (e: MouseEvent<HTMLAnchorElement>) => void;
+  lang: Language;
+  onLinkClick: (e: MouseEvent<HTMLAnchorElement>, linkEnd: string) => void;
   itemId: number;
   userType: UserType;
 };
 
-export const HelpDetails = ({ options, onClick, itemId, userType }: HelpItemProps) => {
+export const HelpDetails = ({ options, onLinkClick, itemId, userType, lang }: HelpItemProps) => {
   const link = userType ? `${userType}/` : "";
 
   return (
@@ -22,8 +24,8 @@ export const HelpDetails = ({ options, onClick, itemId, userType }: HelpItemProp
           <h3 className="text-md group" key={option.id}>
             Զարգացում {index + 1}
             <Link
-              to={`/hy/help/${link}case-${itemId}.${option.id}`}
-              onClick={onClick}
+              to={userType ? `/${lang}/help/${userType}/case-${itemId}.${option.id}` : `/${lang}/help/`}
+              onClick={e => onLinkClick(e, `/case-${itemId}.${option.id}`)}
               className="flex justify-between gap-2 cursor-pointer text-[#5A8FDC] hover:underline"
             >
               {option.text}

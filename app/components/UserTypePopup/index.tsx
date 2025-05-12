@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router';
 import { useUserStore, type UserType } from '~/store';
 
-export const UserTypePopup = ({ link = "/hy/" }) => {
+export const UserTypePopup = ({ link = ["", ""] }) => {
   const { setUserType, userType } = useUserStore();
 
   const handleSubmit = (selectedType: UserType) => {
@@ -34,7 +34,7 @@ export const UserTypePopup = ({ link = "/hy/" }) => {
 
         <div className="flex justify-between max-sm:flex-col gap-4">
           <Link
-            to={link}
+            to={link[0] + "child" + link[1]}
             onClick={() => handleSubmit('child')}
             className="px-4 py-2 text-center text-lg font-medium rounded-sm text-[#5188D7] bg-[#EFF1F3] hover:text-white hover:bg-[linear-gradient(225deg,_#83ceec,_#598ddc)] transition-colors duration-300 whitespace-nowrap"
           >
@@ -42,7 +42,7 @@ export const UserTypePopup = ({ link = "/hy/" }) => {
           </Link>
 
           <Link
-            to={link}
+            to={link[0] + "parent" + link[1]}
             onClick={() => handleSubmit('parent')}
             className="px-4 py-2 text-center text-lg font-medium rounded-sm text-[#5188D7] bg-[#EFF1F3] hover:text-white hover:bg-[linear-gradient(225deg,_#83ceec,_#598ddc)] transition-colors duration-300 whitespace-nowrap"
           >
