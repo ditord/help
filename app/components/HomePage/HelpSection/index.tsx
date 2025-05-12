@@ -7,11 +7,11 @@ import type { Language } from "~/Types";
 const texts = {
   hy: {
     title: "Ի՞նչ անել, եթե…",
-    button: "Դիտել բոլորը",
+    button: "Դիտել մանրամասները",
   },
   en: {
     title: "What to do if...",
-    button: "View all",
+    button: "View Details",
   },
 }
 

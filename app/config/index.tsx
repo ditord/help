@@ -94,10 +94,12 @@ export const helpContacts = {
   },
 };
 
-export const helpItems = [
+export const helpItems: HelpItemType[] = [
   {
     id: 1,
     icon: <img src="/assets/images/help-icons/help-icon-1.svg" alt="help-icon" className="scale-[0.7]" />,
+    iconInactive: <img src="/assets/images/help-icons/help-inactive-1.svg" alt="help-icon-inactive" className="w-full" />,
+    iconActive: <img src="/assets/images/help-icons/help-active-1.svg" alt="help-icon-active" className="w-full" />,
     title: {
       hy: "Կոտրել են օգտահաշիվս",
       en: "My account has been hacked",
@@ -116,6 +118,8 @@ export const helpItems = [
   {
     id: 2,
     icon: <img src="/assets/images/help-icons/help-icon-2.svg" alt="help-icon" className="scale-[0.7]" />,
+    iconInactive: <img src="/assets/images/help-icons/help-inactive-2.svg" alt="help-icon-inactive" className="w-full" />,
+    iconActive: <img src="/assets/images/help-icons/help-active-2.svg" alt="help-icon-active" className="w-full" />,
     title: {
       hy: "Կոտրել են օգտահաշիվս ու շանտաժի են ենթարկում",
       en: "My account has been hacked and I'm being blackmailed",
@@ -138,6 +142,8 @@ export const helpItems = [
   {
     id: 3,
     icon: <img src="/assets/images/help-icons/help-icon-7.svg" alt="help-icon" className="scale-[0.7]" />,
+    iconInactive: <img src="/assets/images/help-icons/help-inactive-7.svg" alt="help-icon-inactive" className="w-full" />,
+    iconActive: <img src="/assets/images/help-icons/help-active-7.svg" alt="help-icon-active" className="w-full" />,
     title: {
       hy: "Իմ նկարները տարածել են առանց թույլտվության",
       en: "My photos have been shared without permission",
@@ -168,6 +174,8 @@ export const helpItems = [
   {
     id: 4,
     icon: <img src="/assets/images/help-icons/help-icon-6.svg" alt="help-icon" className="scale-[0.7]" />,
+    iconInactive: <img src="/assets/images/help-icons/help-inactive-6.svg" alt="help-icon-inactive" className="w-full" />,
+    iconActive: <img src="/assets/images/help-icons/help-active-6.svg" alt="help-icon-active" className="w-full" />,
     title: {
       hy: "Ինձ վարկաբեկել են նկարներով, խմբագրված վիզուալներով",
       en: "I've been defamed with photos or manipulated images",
@@ -194,6 +202,8 @@ export const helpItems = [
   {
     id: 5,
     icon: <img src="/assets/images/help-icons/help-icon-5.svg" alt="help-icon" className="scale-[0.7]" />,
+    iconInactive: <img src="/assets/images/help-icons/help-inactive-5.svg" alt="help-icon-inactive" className="w-full" />,
+    iconActive: <img src="/assets/images/help-icons/help-active-5.svg" alt="help-icon-active" className="w-full" />,
     title: {
       hy: "Անհանգստանում եմ երեխայի առցանց անվտանգության համար",
       en: "I'm concerned about a child's online safety",
@@ -216,6 +226,8 @@ export const helpItems = [
   {
     id: 6,
     icon: <img src="/assets/images/help-icons/help-icon-3.svg" alt="help-icon" className="scale-[0.7]" />,
+    iconInactive: <img src="/assets/images/help-icons/help-inactive-3.svg" alt="help-icon-inactive" className="w-full" />,
+    iconActive: <img src="/assets/images/help-icons/help-active-3.svg" alt="help-icon-active" className="w-full" />,
     title: {
       hy: "Կիբեռբուլինգի եմ ենթարկվում",
       en: "I am experiencing cyberbullying",
@@ -234,6 +246,8 @@ export const helpItems = [
   {
     id: 7,
     icon: <img src="/assets/images/help-icons/help-icon-4.svg" alt="help-icon" className="scale-[0.7]" />,
+    iconInactive: <img src="/assets/images/help-icons/help-inactive-4.svg" alt="help-icon-inactive" className="w-full" />,
+    iconActive: <img src="/assets/images/help-icons/help-active-4.svg" alt="help-icon-active" className="w-full" />,
     title: {
       hy: "Սեռական հետապնդման եմ ենթարկվում",
       en: "I am being sexually harassed",
@@ -252,6 +266,8 @@ export const helpItems = [
   {
     id: 8,
     icon: <img src="/assets/images/help-icons/help-icon-8.svg" alt="help-icon" className="scale-[0.7]" />,
+    iconInactive: <img src="/assets/images/help-icons/help-inactive-8.svg" alt="help-icon-inactive" className="w-full" />,
+    iconActive: <img src="/assets/images/help-icons/help-active-8.svg" alt="help-icon-active" className="w-full" />,
     title: {
       hy: "Այլ իրավիճակ",
       en: "Other situation",
@@ -278,6 +294,8 @@ export type HelpItemOptionType = {
 export type HelpItemType = {
   id: number;
   icon: React.ReactNode;
+  iconInactive: React.ReactNode;
+  iconActive: React.ReactNode;
   title: {
     [key in Language]: string;
   };

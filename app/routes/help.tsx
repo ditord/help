@@ -74,7 +74,7 @@ export default function Help() {
     return () => {
       document.removeEventListener('mouseup', handleClickOutside);
     };
-  }, [hasActive, active])
+  }, [hasActive, active]);
 
   return (
     <main className="bg-white">

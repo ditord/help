@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  contents: write  # Required to allow push to another branch
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -52,13 +52,17 @@ jobs:
 
     - name: Deploy build/client folder to deploy branch
       run: |
-        # Create temporary deployment directory
         mkdir -p temp-deploy
         
-        # Copy all files (visible and hidden) from build/client directory
-        # Using "cp -r build/client/. temp-deploy/" instead of problematic "cp -r build/client/.* build/client/* temp-deploy/"
         if [ -d "build/client" ]; then
           cp -r build/client/. temp-deploy/
+          
+          if [ -f "build/client/.htaccess" ]; then
+            echo ".htaccess file found and copied"
+          else
+            echo "Warning: .htaccess file not found in build/client directory"
+          fi
+          
           echo "Contents of temp-deploy:"
           ls -la temp-deploy
           
@@ -69,7 +73,6 @@ jobs:
           git config user.email "github-actions@github.com"
           git add .
           
-          # Only commit if there are changes
           if git status --porcelain | grep .; then
             git commit -m "Deploy client build from main"
             git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
