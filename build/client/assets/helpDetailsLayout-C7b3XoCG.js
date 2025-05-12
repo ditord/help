@@ -1,0 +1,1 @@
+import{w as e}from"./with-props-DjAjX8vp.js";import{t as o,o as t,O as s}from"./chunk-D4RADZKF-BvqgCGan.js";const i=e(function(){return o().pathname.includes("/hy"),t.jsx(t.Fragment,{children:t.jsx(s,{})})});export{i as default};

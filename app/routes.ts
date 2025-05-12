@@ -22,6 +22,7 @@ type RouteEntryWithPath = {
   path: string;
   id: string;
   file: string;
+  loader?: any;
 };
 
 export default [
