@@ -70,25 +70,30 @@ export default function HelpDetailsLayout() {
         </div>
       </div>
 
-      <div className="flex my-20">
-        <div className="pr-4 pl-8 xl:pr-10 xl:pl-14 lg:block hidden">
-          <div className="h-25 flex items-center">
+      <div className="flex max-lg:flex-col mb-20 lg:mt-14 mt-0">
+        <div className="px-4 lg:pl-8 xl:pr-10 xl:pl-14">
+          <div className="h-25 flex items-center max-lg:justify-center">
             <Link
               to={`${lang}/help`}
-              className="px-4 py-2 text-center text-lg font-light text-[#5188D7] bg-[#EFF1F3] transition-colors duration-300 block"
+              className="px-4 py-2 text-center text-lg font-light text-[#5188D7] bg-[#EFF1F3] transition-colors duration-300 flex gap-2"
             >
+              <img
+                src="/assets/images/arrow-right.svg"
+                alt="to help" 
+                className="w-8 rotate-180"
+              />
               Դեպքեր
             </Link>
           </div>
-          <div className="flex flex-col gap-3 mt-10">
+          <div className="flex-col gap-3 mt-10 lg:flex hidden">
             {
               helpItems.map(item =>
                 <div
-                  className={`relative cursor-pointer ${item.id === caseId ? "h-22 w-22" : "h-18 w-18"}`}
+                  className={`relative ${item.id === caseId ? "h-22 w-22" : "h-18 w-18"}`}
                   key={item.id}
                   ref={(el: HTMLDivElement | null) => { itemRefs.current[item.id] = el; }}
                 >
-                  <div className="group">
+                  <div className="group cursor-pointer">
                     <div
                       className={`absolute inset-0 ${item.id === caseId || Number(active) === item.id ? "hidden" : "block group-hover:hidden"}`}
                       onClick={() => handleItemClick(item)}
@@ -142,8 +147,8 @@ export default function HelpDetailsLayout() {
 
         <div className="flex flex-1 flex-col px-4 md:pr-8 xl:pr-14">
           <div className="flex gap-5">
-            <ClipPathPanel width="min-w-25 max-w-25" height="min-h-25 max-h-25 md:block hidden">
-              <div className="scale-120">
+            <ClipPathPanel width="md:min-w-25 md:max-w-25 min-w-18 max-w-18" height="md:min-h-25 md:max-h-25 min-h-18 max-h-18">
+              <div className="md:scale-120">
                 {helpItem?.icon}
               </div>
             </ClipPathPanel>
@@ -153,7 +158,7 @@ export default function HelpDetailsLayout() {
             </div>
           </div>
           
-          <div className="flex justify-end">
+          <div className="flex md:justify-end justify-center">
             <div className="mt-4">
               <p className="text-center text-lg font-light text-[#6D6D6D] pt-2">Հարցնում եմ որպես։</p>
               <div className="flex mt-2">
@@ -176,41 +181,41 @@ export default function HelpDetailsLayout() {
 
           <div className="w-full mt-5 bg-[#FAFAFA] lg:p-10 p-4 flex xl:flex-row flex-col gap-10">
             <div className="flex-1 h-256 min-h-256 flex-col flex">
-              <div className="flex relative -bottom-[1.5px]">
+              <div className="flex relative -bottom-[1px]">
                 <button
                   onClick={() => setActiveTab("tec")}
-                  className={`px-5 py-3 cursor-pointer flex gap-2 font-medium text-[#5188D7] hover:bg-white rounded-t-md border-t border-l border-r ${activeTab === "tec" ? "bg-white border-[#8E8E93]" : "border-transparent"}`}
+                  className={`md:px-5 py-3 px-2 cursor-pointer flex gap-2 font-medium text-[#5188D7] hover:bg-white rounded-t-md border-t border-l border-r ${activeTab === "tec" ? "bg-white border-[#8E8E93]" : "border-transparent max-md:border-[#8E8E93]"}`}
                 >
                   <img src="/assets/images/help-sections/technical.svg" alt="technical" className="w-5" />
-                  ՏԵԽՆԻԿԱԿԱՆ ԼՈՒԾՈՒՄ
+                  <span className={activeTab === "tec" ? "" : "max-md:hidden"}>ՏԵԽՆԻԿԱԿԱՆ ԼՈՒԾՈՒՄ</span>
                 </button>
                 <button
                   onClick={() => setActiveTab("leg")}
-                  className={`px-5 py-3 cursor-pointer flex gap-2 font-medium text-[#5188D7] hover:bg-white rounded-t-md border-t border-l border-r ${activeTab === "leg" ? "bg-white border-[#8E8E93]" : "border-transparent"}`}
+                  className={`md:px-5 py-3 px-2 cursor-pointer flex gap-2 font-medium text-[#5188D7] hover:bg-white rounded-t-md border-t border-l border-r ${activeTab === "leg" ? "bg-white border-[#8E8E93]" : "border-transparent max-md:border-[#8E8E93]"}`}
                 >
                   <img src="/assets/images/help-sections/legal.svg" alt="legal" className="w-5" />
-                  ԻՐԱՎԱԿԱՆ ԼՈՒԾՈՒՄ
+                  <span className={activeTab === "leg" ? "" : "max-md:hidden"}>ԻՐԱՎԱԿԱՆ ԼՈՒԾՈՒՄ</span>
                 </button>
                 <button
                   onClick={() => setActiveTab("psy")}
-                  className={`px-5 py-3 cursor-pointer flex gap-2 font-medium text-[#5188D7] hover:bg-white rounded-t-md border-t border-l border-r ${activeTab === "psy" ? "bg-white border-[#8E8E93]" : "border-transparent"}`}
+                  className={`md:px-5 py-3 px-2 cursor-pointer flex gap-2 font-medium text-[#5188D7] hover:bg-white rounded-t-md border-t border-l border-r ${activeTab === "psy" ? "bg-white border-[#8E8E93]" : "border-transparent max-md:border-[#8E8E93]"}`}
                 >
                   <img src="/assets/images/help-sections/psychological.svg" alt="psychological" className="w-5" />
-                  ՀՈԳԵԲԱՆԱԿԱՆ ԼՈՒԾՈՒՄ
+                  <span className={activeTab === "psy" ? "" : "max-md:hidden"}>ՀՈԳԵԲԱՆԱԿԱՆ ԼՈՒԾՈՒՄ</span>
                 </button>
               </div>
               <div className="flex-1 h-full border border-[#8E8E93] bg-white">
                 <Outlet />
               </div>
             </div>
-            <div className="2xl:w-60 xl:w-50 flex xl:flex-col flex-row gap-10 mt-12">
-              <iframe className="aspect-[9/16] 2xl:w-60 xl:w-50 w-1/2" src="https://www.youtube.com/embed/sypdBtiH02E" title="YouTube video player" />
-              <iframe className="aspect-[9/16] 2xl:w-60 xl:w-50 w-1/2" src="https://www.youtube.com/embed/sypdBtiH02E" title="YouTube video player" />
+            <div className="2xl:w-60 xl:w-50 flex xl:flex-col md:flex-row flex-col gap-10 xl:mt-12">
+              <iframe className="aspect-[9/16] 2xl:w-60 xl:w-50 md:w-1/2" src="https://www.youtube.com/embed/sypdBtiH02E" title="YouTube video player" />
+              <iframe className="aspect-[9/16] 2xl:w-60 xl:w-50 md:w-1/2" src="https://www.youtube.com/embed/sypdBtiH02E" title="YouTube video player" />
             </div>
           </div>
-          <div className="mt-10">
+          {/* <div className="mt-10">
             <span>Եթե դեռ ունես հարցեր, կապ հաստատիր մեզ հետ։</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </main>
