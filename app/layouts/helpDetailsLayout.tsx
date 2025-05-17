@@ -75,14 +75,13 @@ export default function HelpDetailsLayout() {
           <div className="h-25 flex items-center max-lg:justify-center">
             <Link
               to={`${lang}/help`}
-              className="px-4 py-2 text-center text-lg font-light text-[#5188D7] bg-[#EFF1F3] transition-colors duration-300 flex gap-2"
+              className="px-4 py-2 text-center text-lg font-light text-[#5188D7] flex gap-2"
             >
-              <img
-                src="/assets/images/arrow-right.svg"
-                alt="to help" 
-                className="w-8 rotate-180"
-              />
-              Դեպքեր
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                <path d="M19 12.5H5" stroke="#5188D7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 19.5L5 12.5L12 5.5" stroke="#5188D7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              դեպքեր
             </Link>
           </div>
           <div className="flex-col gap-3 mt-10 lg:flex hidden">
