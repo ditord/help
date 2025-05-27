@@ -1,5 +1,5 @@
 import type { Route } from "../routes/+types/help";
-import { metadata } from "~/routes";
+import metadata from "~/metadata";
 import { useEffect, useRef, useState, type MouseEvent as MouseEventReact } from "react";
 import { useSearchParams, useLocation } from "react-router";
 import { UserTypePopup, HelpItem, HelpDetails } from "~/components";

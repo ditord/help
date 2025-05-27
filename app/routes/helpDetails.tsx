@@ -1,5 +1,5 @@
-// import type { Route } from "../routes/+types/helpDetails";
-// import { metadata } from "~/routes";
+import type { Route } from "../routes/+types/helpDetails";
+import metadata from "~/metadata";
 import { useLoaderData } from "react-router";
 import { json } from "@remix-run/node";
 import type { UserType } from "../store";
@@ -7,11 +7,17 @@ import type { Language } from "../Types";
 import { helpItems } from "../config";
 import { getStaticHelpContent } from "../helpDetailsData/helpDetailsUtils";
 
-// export function meta({ location }: Route.MetaArgs) {
-//   const lang: Language = location.pathname.includes("/hy") ? "hy" : "en";
+export function meta({ location }: Route.MetaArgs) {
+  const pathMatch = location.pathname.match(/\/(\w+)\/help\/(\w+)\/case-(\d+)\.(\d+)/);
+  if (!pathMatch) {
+    return undefined;
+  }
+  const [_, lang, userType, caseIdStr, optionIdStr] = pathMatch;
+  
+  const key = `${userType}/case-${caseIdStr}.${optionIdStr}`
 
-//   return metadata.helpDetails[lang];
-// }
+  return (metadata as Record<string, Record<string, any>>)[key]?.[lang];
+}
 
 export async function loader({ request }: { request: Request }) {
   const url = new URL(request.url);

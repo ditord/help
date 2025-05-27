@@ -1,23 +1,6 @@
 import { type RouteConfig, layout } from "@react-router/dev/routes";
 import { helpItems } from "./config";
 
-export const metadata = {
-  home: {
-    hy: [
-      { title: "CyberHUB-AM — Դեռահասների կիբեռաջակցություն հարթակ" },
-      // { name: "description", content: "Welcome to React Router!" },
-      // { name: "keywords", content: "" },
-    ],
-    en: [
-      { title: "CyberHUB-AM — Դեռահասների կիբեռաջակցություն հարթակ" },
-      // { name: "description", content: "Welcome to React Router!" },
-    ],
-  },
-  aboutUs: { hy: [], en: [] },
-  help: { hy: [], en: [] },
-  resources: { hy: [], en: [] },
-};
-
 type RouteEntryWithPath = {
   path: string;
   id: string;

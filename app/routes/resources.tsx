@@ -1,9 +1,9 @@
 import { useState } from "react";
 import type { Route } from "../routes/+types/resources";
-import { metadata } from "~/routes";
 import type { Language } from "~/Types";
 import dictionary from "../dictionary.json";
 import { Link } from "react-router";
+import metadata from "~/metadata";
 
 export function meta({ location }: Route.MetaArgs) {
   const lang: Language = location.pathname.includes("/hy") ? "hy" : "en";
@@ -18,46 +18,101 @@ const tabs: { [key in TabTypes]: { text: string, content: any[] } } = {
     text: "UNICEF",
     content: [
       {
-        img: "https://www.babycef.am/sites/default/files/styles/top_image/public/2024-06/BIA_20230322_0083.webp?itok=Ez5uvRG6",
-        description: "Ինչ է անհրաժեշտ իմանալ նախքան սոցցանցերում մեր երեխաների մասին հրապարակումներ տարածելը",
-        linkText: "կարդալ գրառումը",
-        link: "https://www.babycef.am/hy/positive-parenting/what-parents-need-to-know-before-sharing-photos-of-their-children-on-internet",
-      },
-      {
-        img: "https://www.babycef.am/sites/default/files/styles/top_image/public/2024-06/BIA_20230322_0083.webp?itok=Ez5uvRG6",
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/797A1056.jpg.webp?itok=2LKSOTZa",
         description: "10 պարզ կանոն, որոնք կօգնեն ձեզ համացանցում ավելի անվտանգ լինել",
         linkText: "կարդալ գրառումը",
-        link: "",
+        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/10-%D5%BA%D5%A1%D6%80%D5%A6-%D5%AF%D5%A1%D5%B6%D5%B8%D5%B6-%D5%B8%D6%80%D5%B8%D5%B6%D6%84-%D5%AF%D6%85%D5%A3%D5%B6%D5%A5%D5%B6-%D5%B1%D5%A5%D5%A6-%D5%B0%D5%A1%D5%B4%D5%A1%D6%81%D5%A1%D5%B6%D6%81%D5%B8%D6%82%D5%B4-%D5%A1%D5%BE%D5%A5%D5%AC%D5%AB-%D5%A1%D5%B6%D5%BE%D5%BF%D5%A1%D5%B6%D5%A3-%D5%AC%D5%AB%D5%B6%D5%A5%D5%AC",
       },
       {
-        img: "https://www.babycef.am/sites/default/files/styles/top_image/public/2024-06/BIA_20230322_0083.webp?itok=Ez5uvRG6",
-        description: "10 պարզ կանոն, որոնք կօգնեն ձեզ համացանցում ավելի անվտանգ լինել",
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/A94A6956-1.jpg.webp?itok=m5esJvWQ",
+        description: "Առցանց տիրույթում հոգեկան առողջությունը բարելավելու 5 եղանակ",
         linkText: "կարդալ գրառումը",
-        link: "",
+        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/%D5%A1%D5%BC%D6%81%D5%A1%D5%B6%D6%81-%D5%BF%D5%AB%D6%80%D5%B8%D6%82%D5%B5%D5%A9%D5%B8%D6%82%D5%B4-%D5%B0%D5%B8%D5%A3%D5%A5%D5%AF%D5%A1%D5%B6-%D5%A1%D5%BC%D5%B8%D5%B2%D5%BB%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%A8-%D5%A2%D5%A1%D6%80%D5%A5%D5%AC%D5%A1%D5%BE%D5%A5%D5%AC%D5%B8%D6%82-5-%D5%A5%D5%B2%D5%A1%D5%B6%D5%A1%D5%AF",
       },
       {
-        img: "https://www.babycef.am/sites/default/files/styles/top_image/public/2024-06/BIA_20230322_0083.webp?itok=Ez5uvRG6",
-        description: "Սոցիալական մեդիան և դեռահասները",
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/DSCF20806565656565.JPG.webp?itok=g6jtQVnb",
+        description: "Պատկերապատում (կոմիքս). Կիբեռ-նինձաները պայքարում են համացանցային վտանգների դեմ",
         linkText: "կարդալ գրառումը",
-        link: "",
+        link: "https://www.unicef.org/armenia/%D5%A6%D5%A5%D5%AF%D5%B8%D6%82%D5%B5%D6%81%D5%B6%D5%A5%D6%80/%D5%BA%D5%A1%D5%BF%D5%AF%D5%A5%D6%80%D5%A1%D5%BA%D5%A1%D5%BF%D5%B8%D6%82%D5%B4-%D5%AF%D5%B8%D5%B4%D5%AB%D6%84%D5%BD-%D5%AF%D5%AB%D5%A2%D5%A5%D5%BC-%D5%B6%D5%AB%D5%B6%D5%B1%D5%A1%D5%B6%D5%A5%D6%80%D5%A8-%D5%BA%D5%A1%D5%B5%D6%84%D5%A1%D6%80%D5%B8%D6%82%D5%B4-%D5%A5%D5%B6-%D5%B0%D5%A1%D5%B4%D5%A1%D6%81%D5%A1%D5%B6%D6%81%D5%A1%D5%B5%D5%AB%D5%B6-%D5%BE%D5%BF%D5%A1%D5%B6%D5%A3%D5%B6%D5%A5%D6%80%D5%AB-%D5%A4%D5%A5%D5%B4",
       },
       {
-        img: "https://www.babycef.am/sites/default/files/styles/top_image/public/2024-06/BIA_20230322_0083.webp?itok=Ez5uvRG6",
-        description: "Ինչ է Ֆիշինգը և ինչպես պաշտպանվել դրանից",
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/UNI363750_0.jpg.webp?itok=RhmmEJa7",
+        description: "Ինչպես ապահովել երեխայի անվտանգությունն առցանց տիրույթում",
         linkText: "կարդալ գրառումը",
-        link: "",
+        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/%D5%AB%D5%B6%D5%B9%D5%BA%D5%A5%D5%BD-%D5%A1%D5%BA%D5%A1%D5%B0%D5%B8%D5%BE%D5%A5%D5%AC-%D5%A5%D6%80%D5%A5%D5%AD%D5%A1%D5%B5%D5%AB-%D5%A1%D5%B6%D5%BE%D5%BF%D5%A1%D5%B6%D5%A3%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6-%D5%A1%D5%BC%D6%81%D5%A1%D5%B6%D6%81-%D5%BF%D5%AB%D6%80%D5%B8%D6%82%D5%B5%D5%A9%D5%B8%D6%82%D5%B4",
       },
       {
-        img: "https://www.babycef.am/sites/default/files/styles/top_image/public/2024-06/BIA_20230322_0083.webp?itok=Ez5uvRG6",
-        description: "Ինչ է Ֆիշինգը և ինչպես պաշտպանվել դրանից",
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/797A0707.jpg.webp?itok=5h75eCUa",
+        description: "Ինչ պետք է իմանա յուրաքանչյուր դեռահաս կիբերբուլիինգի մասին",
         linkText: "կարդալ գրառումը",
-        link: "",
-      }
+        link: "https://www.unicef.org/armenia/%D5%AB%D5%B6%D5%B9-%D5%BA%D5%A5%D5%BF%D6%84-%D5%A7-%D5%AB%D5%B4%D5%A1%D5%B6%D5%A1-%D5%B5%D5%B8%D6%82%D6%80%D5%A1%D6%84%D5%A1%D5%B6%D5%B9%D5%B5%D5%B8%D6%82%D6%80-%D5%A4%D5%A5%D5%BC%D5%A1%D5%B0%D5%A1%D5%BD-%D5%AF%D5%AB%D5%A2%D5%A5%D6%80%D5%A2%D5%B8%D6%82%D5%AC%D5%AB%D5%AB%D5%B6%D5%A3%D5%AB-%D5%B4%D5%A1%D5%BD%D5%AB%D5%B6",
+      },
+      {
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/2018.3.7_UNICEF_Children_002.jpg.webp?itok=2hbBmmUu",
+        description: "Ինչպե՞ս համացանցում ապահովել երեխաների անվտանգությունը",
+        linkText: "կարդալ գրառումը",
+        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/%D5%AB%D5%B6%D5%B9%D5%BA%D5%A5%D5%9E%D5%BD-%D5%B0%D5%A1%D5%B4%D5%A1%D6%81%D5%A1%D5%B6%D6%81%D5%B8%D6%82%D5%B4-%D5%A1%D5%BA%D5%A1%D5%B0%D5%B8%D5%BE%D5%A5%D5%AC-%D5%A5%D6%80%D5%A5%D5%AD%D5%A1%D5%B6%D5%A5%D6%80%D5%AB-%D5%A1%D5%B6%D5%BE%D5%BF%D5%A1%D5%B6%D5%A3%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%A8",
+      },
+      {
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/Gyumri%20Youth%20House_%20Collage%202.png.webp?itok=kePMlgtI",
+        description: "Ինչպես ավելի անվտանգ օգտվել համացանցից․ խորհուրդներ երիտասարդներից",
+        linkText: "կարդալ գրառումը",
+        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/%D5%AB%D5%B6%D5%B9%D5%BA%D5%A5%D5%BD-%D5%A1%D5%BE%D5%A5%D5%AC%D5%AB-%D5%A1%D5%B6%D5%BE%D5%BF%D5%A1%D5%B6%D5%A3-%D6%85%D5%A3%D5%BF%D5%BE%D5%A5%D5%AC-%D5%B0%D5%A1%D5%B4%D5%A1%D6%81%D5%A1%D5%B6%D6%81%D5%AB%D6%81%E2%80%A4-%D5%AD%D5%B8%D6%80%D5%B0%D5%B8%D6%82%D6%80%D5%A4%D5%B6%D5%A5%D6%80-%D5%A5%D6%80%D5%AB%D5%BF%D5%A1%D5%BD%D5%A1%D6%80%D5%A4%D5%B6%D5%A5%D6%80%D5%AB%D6%81",
+      },
     ],
   },
   unicef_youtube: {
     text: "UNICEF YouTube",
-    content: [],
+    content: [
+      {
+        img: "/assets/images/resources/unicef_youtube_1.jpeg",
+        description: "Սոցիալական մեդիան և դեռահասները",
+        linkText: "կարդալ գրառումը",
+        link: "https://www.youtube.com/watch?v=syRgXQHHPlw&list=PLbDvyHcSfcHHirO8bYvX8eMDW4W7DjFT9",
+      },
+      {
+        img: "/assets/images/resources/unicef_youtube_7.jpeg",
+        description: "Կիբերբուլինգ",
+        linkText: "կարդալ գրառումը",
+        link: "https://www.youtube.com/watch?v=xF_PPj9xh44&list=PLbDvyHcSfcHHirO8bYvX8eMDW4W7DjFT9&index=3",
+      },
+      {
+        img: "/assets/images/resources/unicef_youtube_8.jpeg",
+        description: "Համացանցը և դեռահասների հուզականությունը",
+        linkText: "կարդալ գրառումը",
+        link: "https://www.youtube.com/watch?v=zqmyBdPSlnw&list=PLbDvyHcSfcHHirO8bYvX8eMDW4W7DjFT9&index=3",
+      },
+      {
+        img: "/assets/images/resources/unicef_youtube_2.jpeg",
+        description: "Ծնողական ժողով 2 | Ինպե՞ս ձևավորել թվային առողջ սովորություններ տանը",
+        linkText: "կարդալ գրառումը",
+        link: "https://www.youtube.com/watch?v=lRgKKuJM8_c",
+      },
+      {
+        img: "/assets/images/resources/unicef_youtube_3.jpeg",
+        description: "Ինչպես օգնել երեխային կառավարել էկրանների առջև անցկացվող ժամանակը",
+        linkText: "կարդալ գրառումը",
+        link: "https://www.youtube.com/watch?v=os6Dk-XptA0",
+      },
+      {
+        img: "/assets/images/resources/unicef_youtube_4.jpeg",
+        description: "Ծնողական ժողով | Կախվածություն գաջեթներից",
+        linkText: "կարդալ գրառումը",
+        link: "https://www.youtube.com/watch?v=ewCnB8W3wOw",
+      },
+      {
+        img: "/assets/images/resources/unicef_youtube_5.jpeg",
+        description: "ՅՈՒՆԻՍԵՖ-ի անկյուն. ծնողի դպրոց | Երեխան և համացանցը",
+        linkText: "կարդալ գրառումը",
+        link: "https://www.youtube.com/watch?v=oklqkKL2Pg8",
+      },
+      {
+        img: "/assets/images/resources/unicef_youtube_6.jpeg",
+        description: "Սոցիալական ցանցերը և երեխաները | Ուղիղ եթեր",
+        linkText: "կարդալ գրառումը",
+        link: "https://www.youtube.com/watch?v=A_kVyYqFHRU&t=7s",
+      },
+    ],
   },
   babycef: {
     text: "Babycef",
@@ -98,12 +153,12 @@ export default function Resources() {
                   )
                 }
               </div>
-              <div className="flex-1 h-full border border-[#8E8E93] bg-white px-10 pt-10 xl:columns-2 columns-1 gap-10">
+              <div className="flex-1 h-full border border-[#8E8E93] bg-white px-10 pt-10 xl:pb-10 xl:columns-2 columns-1 gap-10">
                 {
                   tabs[activeTab].content.map((tabContent) =>
                     <div className="h-45 shadow-xs flex gap-3 mb-10 rounded-sm" key={tabContent.img}>
                       <img src={tabContent.img} className="aspect-[5/4] object-cover h-45 rounded-sm" />
-                      <div className="flex flex-col justify-between py-2">
+                      <div className="flex flex-col justify-between py-2 w-full">
                         <p className="font-bold">{tabContent.description}</p>
                         <Link
                           to={tabContent.link}

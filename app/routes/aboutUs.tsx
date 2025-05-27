@@ -1,5 +1,5 @@
 import type { Route } from "../routes/+types/aboutUs";
-import { metadata } from "~/routes";
+import metadata from "~/metadata";
 import { useLocation } from "react-router";
 import { PartnersSection } from "~/components";
 import type { Language } from "~/Types";
