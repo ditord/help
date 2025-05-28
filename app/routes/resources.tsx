@@ -208,7 +208,7 @@ export default function Resources() {
                   )
                 }
               </div>
-              <div className="flex-1 h-full border border-[#8E8E93] bg-white px-10 pt-10 xl:pb-10 gap-10 flex flex-wrap">
+              <div className="flex-1 h-full border border-[#8E8E93] bg-white px-5 pt-5 xl:pb-5 gap-5 flex flex-wrap">
                 {
                   tabs[activeTab].content.map((tabContent) =>
                     <div className="2xl:w-[calc(33.333%-27px)] xl:w-[calc(50%-20px)] w-full md:h-45 shadow-xs flex md:flex-row flex-col gap-3 rounded-sm" key={tabContent.img}>
