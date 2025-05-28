@@ -175,7 +175,80 @@ const tabs: { [key in TabTypes]: { text: string, content: any[] } } = {
   },
   cyberhub: {
     text: "CyberHUB",
-    content: [],
+    content: [
+      {
+        img: "https://cyberhub.am/wp-content/uploads/2021/02/mobile-phone-1087845_1920.jpg",
+        description: "Սոցցանցերը Հայաստանում․ հիմնական խնդիրները օգտատերերի համար",
+        linkText: "Ավելին",
+        link: "https://cyberhub.am/hy/blog/2021/02/22/social-media-main-issues-for-users-in-armenia/",
+      },
+      {
+        img: "https://cyberhub.am/wp-content/uploads/2023/02/vlcsnap-2023-02-07-11h57m02s700.png",
+        description: "Գաղտնաբառերի պաշտպանությունը և երկփուլային վավերացումը",
+        linkText: "Ավելին",
+        link: "https://cyberhub.am/hy/blog/2023/02/07/password-security-meta-facebook-cyberhub-sahakats/",
+      },
+      {
+        img: "https://cyberhub.am/wp-content/uploads/2023/02/vlcsnap-2023-02-13-00h02m51s495.png",
+        description: "Ինչ անել, եթե ձեր հաշիվը կոտրել են",
+        linkText: "Ավելին",
+        link: "https://cyberhub.am/hy/blog/2023/02/12/facebook-instagram-hacked/",
+      },
+      {
+        img: "https://cyberhub.am/wp-content/uploads/2023/02/vlcsnap-2023-02-13-00h06m12s230.png",
+        description: "WhatsApp-ի հաշվի պաշտպանությունը",
+        linkText: "Ավելին",
+        link: "https://cyberhub.am/hy/blog/2023/02/12/how-to-protect-whatsapp/",
+      },
+      {
+        img: "https://cyberhub.am/wp-content/uploads/2023/03/DiTORD_iphone_displaying_whatsapp_logo_and_a_hacker_in_the_back_fd9f4626-94c6-4a18-869b-e1d82de85ff6.png",
+        description: "Ինչպե՞ս վերականգնել Whatsapp-ի գողացված հաշիվը",
+        linkText: "Ավելին",
+        link: "https://cyberhub.am/hy/blog/2023/03/16/how-to-restore-hacked-whatsapp-accounts/",
+      },
+      {
+        img: "https://cyberhub.am/wp-content/uploads/2023/11/2023.11.15_Facebook-Phishing_AI-Photo1.jpg",
+        description: "Զգուշացե՛ք․ Հայաստանում տարածում է ստանում ֆեյսբուքյան ֆիշինգը",
+        linkText: "Ավելին",
+        link: "https://cyberhub.am/hy/blog/2023/11/27/facebook-phishing-spreads-in-armenia/",
+      },
+      {
+        img: "https://cyberhub.am/wp-content/uploads/2023/12/image003-1.png",
+        description: "Արդյո՞ք ձեր անձնական տվյալները վտանգի են ենթարկվել որևէ թվային հարթակում․ ստուգե՛նք միասին",
+        linkText: "Ավելին",
+        link: "https://cyberhub.am/hy/blog/2023/12/19/have_i_been_pwned_how_to/",
+      },
+      {
+        img: "https://cyberhub.am/wp-content/uploads/2024/07/2024.07.21_GIF_2FA_Photo_AI.jpeg",
+        description: "Ի՞նչ է երկգործոն վավերացման համակարգը և ինչո՞ւ է այն անհրաժեշտ",
+        linkText: "Ավելին",
+        link: "https://cyberhub.am/hy/blog/2024/07/22/what-is-2fa-and-why-do-you-need-it/",
+      },
+      {
+        img: "https://cyberhub.am/wp-content/uploads/2024/12/image.png",
+        description: "Ինչպես մուտք գործել և վերականգնել կոտրված Viber հաշիվը",
+        linkText: "Ավելին",
+        link: "https://cyberhub.am/hy/blog/2024/12/26/how-to-recover-hacked-viber-account/",
+      },
+      {
+        img: "https://cyberhub.am/wp-content/uploads/2020/05/password-manager-relaunch_2018.jpg",
+        description: "Գաղտնաբառերի պաշտպանության ծրագրեր, բիոմետրիկ անվտանգություն",
+        linkText: "Ավելին",
+        link: "https://cyberhub.am/hy/blog/2020/05/27/password-security-podcast-cyberweek/",
+      },
+      {
+        img: "https://cyberhub.am/wp-content/uploads/2019/12/Laptop-spying.jpg",
+        description: "Ի՞նչ անել ֆեյսբուքյան օգտահաշվի անվտանգությունը բարձրացնելու համար",
+        linkText: "Ավելին",
+        link: "https://cyberhub.am/hy/blog/2020/01/14/how-to-improve-facebook-account-security-arm/",
+      },
+      {
+        img: "https://cyberhub.am/wp-content/uploads/2019/10/phishing-threat-100691616-large.jpg",
+        description: "Ինչ է Ֆիշինգը և ինչպես պաշտպանվել դրանից",
+        linkText: "Ավելին",
+        link: "https://cyberhub.am/hy/blog/2019/10/25/what-is-phishing-and-how-to-protect-from-it-arm/",
+      },
+    ],
   },
 };
 
@@ -211,7 +284,7 @@ export default function Resources() {
               <div className="flex-1 h-full border border-[#8E8E93] bg-white px-5 pt-5 xl:pb-5 gap-5 flex flex-wrap">
                 {
                   tabs[activeTab].content.map((tabContent) =>
-                    <div className="2xl:w-[calc(33.333%-27px)] xl:w-[calc(50%-20px)] w-full md:h-45 shadow-xs flex md:flex-row flex-col gap-3 rounded-sm" key={tabContent.img}>
+                    <div className="2xl:w-[calc(33.333%-14px)] xl:w-[calc(50%-10px)] w-full md:h-45 shadow-xs flex md:flex-row flex-col gap-3 rounded-sm" key={tabContent.img}>
                       <img src={tabContent.img} className="md:aspect-[5/4] h-60 object-cover md:h-45 rounded-sm" />
                       <div className="flex flex-col justify-between py-2 w-full max-md:px-4">
                         <p className="font-bold">{tabContent.description}</p>
