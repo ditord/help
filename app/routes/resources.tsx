@@ -43,7 +43,7 @@ const tabs: { [key in TabTypes]: { text: string, content: any[] } } = {
       },
       {
         img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/797A0707.jpg.webp?itok=5h75eCUa",
-        description: "Ինչ պետք է իմանա յուրաքանչյուր դեռահաս կիբերբուլիինգի մասին",
+        description: "Ինչ պետք է իմանա յուրաքանչյուր դեռահաս կիբեռբուլիինգի մասին",
         linkText: "Ավելին",
         link: "https://www.unicef.org/armenia/%D5%AB%D5%B6%D5%B9-%D5%BA%D5%A5%D5%BF%D6%84-%D5%A7-%D5%AB%D5%B4%D5%A1%D5%B6%D5%A1-%D5%B5%D5%B8%D6%82%D6%80%D5%A1%D6%84%D5%A1%D5%B6%D5%B9%D5%B5%D5%B8%D6%82%D6%80-%D5%A4%D5%A5%D5%BC%D5%A1%D5%B0%D5%A1%D5%BD-%D5%AF%D5%AB%D5%A2%D5%A5%D6%80%D5%A2%D5%B8%D6%82%D5%AC%D5%AB%D5%AB%D5%B6%D5%A3%D5%AB-%D5%B4%D5%A1%D5%BD%D5%AB%D5%B6",
       },
@@ -72,7 +72,7 @@ const tabs: { [key in TabTypes]: { text: string, content: any[] } } = {
       },
       {
         img: "/assets/images/resources/unicef_youtube_7.jpeg",
-        description: "Կիբերբուլինգ",
+        description: "Կիբեռբուլինգ",
         linkText: "Ավելին",
         link: "https://www.youtube.com/watch?v=xF_PPj9xh44&list=PLbDvyHcSfcHHirO8bYvX8eMDW4W7DjFT9&index=3",
       },

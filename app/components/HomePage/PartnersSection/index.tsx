@@ -16,7 +16,7 @@ interface Partner {
   url: string;
 }
 
-const partners: Partner[] = [
+export const partners: Partner[] = [
   {
     name: "UK International Development",
     logo: "/assets/images/partners/ukid.png",

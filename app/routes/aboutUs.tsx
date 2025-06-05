@@ -1,8 +1,7 @@
 import type { Route } from "../routes/+types/aboutUs";
 import metadata from "~/metadata";
-import { useLocation } from "react-router";
-import { PartnersSection } from "~/components";
 import type { Language } from "~/Types";
+import { partners } from "~/components";
 
 export function meta({ location }: Route.MetaArgs) {
   const lang: Language = location.pathname.includes("/hy") ? "hy" : "en";
@@ -11,8 +10,6 @@ export function meta({ location }: Route.MetaArgs) {
 }
 
 export default function AboutUs() {
-  const lang: Language = useLocation().pathname.includes("/hy") ? "hy" : "en";
-
   return (
     <main>
       <div className="w-full h-30 bg-[linear-gradient(47.56deg,_#639BDF_0%,_#80C9EB_103.5%)]">
@@ -20,107 +17,130 @@ export default function AboutUs() {
           <h1 className="text-white font-bold text-3xl md:text-4xl uppercase">Մեր մասին</h1>
         </div>
       </div>
-      <div className="container xl:!max-w-[1200px] mx-auto px-4 my-20 flex flex-col gap-5">
-        <p className="mb-4 text-gray-700">
-          ԿիբեռՉատը նպատակ ունի օգնել մինչև 18 տարեկան երեխաներին և դեռահասներին, 
-          ինչպես նաև նրանց ծնողներին հասկանալ՝ ինչ վտանգներ կարող են սպասել առցանց 
-          միջավայրում և ինչպես պաշտպանվել դրանցից։
-        </p>
-        
-        <p className="mb-4 text-gray-700">
-          Մենք համատեղում ենք կանխարգելման և աջակցման գործիքներ, որպեսզի հնարավոր լինի 
-          ոչ միայն սովորել ու զգուշանալ, այլև ստանալ տեխնիկական, իրավական և հոգեբանական 
-          օգնություն, երբ արդեն խնդիր է առաջացել։
-        </p>
-        
-        <p className="mb-2 text-gray-700">Հարթակում կարելի է գտնել՝</p>
-        
-        <ul className="mb-6 list-disc list-inside space-y-2 text-gray-700">
-          <li className="flex">
-            <span className="mr-2">•</span>
-            <span>
-              ուսուցողական նյութեր, բացատրական տեսանյութեր, կրթական մոդուլներ (
-              <span className="px-1">Ռեսուրսներ</span>)
-            </span>
-          </li>
-          <li className="flex">
-            <span className="mr-2">•</span>
-            <span>
-              իրական դեպքեր, որոնցից հարկավոր է զգուշանալ և որոնց բախվելիս պետք է 
-              առաջնորդվել ներկայացված քայլերով (
-              <span className="px-1">Ինչ անել, եթե</span>),
-            </span>
-          </li>
-          <li className="flex">
-            <span className="mr-2">•</span>
-            <span>
-              աջակցություն՝ չատբոտի կամ թեժ գծի միջոցով (ցանկության դեպքում՝ անանուն), 
-              որը հասանելի է 24/7 շուրջօրյա ռեժիմով (
-              <span className="px-1">Հետադարձ կապ</span>)։
-            </span>
-          </li>
-        </ul>
-        
-        <p className="mb-4 text-gray-700">
-          Չաթբոտն առաջարկում է արագ ուղեցույց, ինչպես նաև անվտանգ, անանուն ու մատչելի 
-          եղանակով օգտատերերին ուղղորդում է համապատասխան ռեսուրսներին: Ավելի լուրջ կամ 
-          բարդ դեպքերում թեժ գիծը երեխաներին և դեռահասներին կապում է վերապատրաստված 
-          մասնագետների հետ, որոնք առաջարկում են տեխնիկական, իրավական, հոգեբանական աջակցություն:
-        </p>
-        
-        <p className="mb-4 text-gray-700">
-          Մեր թիմը բաղկացած է ոլորտի լավագույն մասնագետներից, որոնք աշխատում են առցանց 
-          տիրույթում տուժած անձանց աջակցելու ուղղությամբ։
-        </p>
-        
-        <p className="mb-2 text-gray-700">ԿիբեռՉատում աշխատում են՝</p>
-        
-        <ul className="mb-6 list-disc list-inside space-y-2 text-gray-700">
-          <li className="flex">
-            <span className="mr-2">•</span>
-            <span>
-              մեդիա փորձագետներ և տեխնիկական մասնագետներ, որոնք օգնում են հասկանալ 
-              տեխնիկական խնդիրները, դրանց հնարավոր լուծումներն ու առցանց հարթակների 
-              գործառույթները, օգտագործման պայմանները,
-            </span>
-          </li>
-          <li className="flex">
-            <span className="mr-2">•</span>
-            <span>
-              իրավաբաններ, որոնք օգնում են իրավական հարցերում և բացատրում քո 
-              իրավունքներն ու հնարավոր քայլերը,
-            </span>
-          </li>
-          <li className="flex">
-            <span className="mr-2">•</span>
-            <span>
-              հոգեբաններ, որոնք պատրաստ են լսել ու աջակցել՝ խուճապի, տագնապի ու 
-              լարված իրավիճակներում կողմնորոշվելու դիմագրավելու հարցում։
-            </span>
-          </li>
-        </ul>
-        
-        <p className="mb-8 text-gray-700">
-          Մեր գլխավոր նպատակն է բարձրացնել թվային գրագիտությունը և ապահովել, որ 
-          ոչ մի երեխա, դեռահաս, ծնող կամ խնամակալ մենակ չզգա իրեն թվային խնդիրների ժամանակ։
-        </p>
-        
-        <div className="border-t border-gray-200 pt-6 mt-6">
-          <p className="mb-4 text-gray-600 text-sm">
-            ԿիբեռՉատ հարթակը ստեղծվել է «Աջակցություն երեխաներին և դեռահասներին՝ 
-            կանխելու և արձագանքելու առցանց սպառնալիքները» ծրագրի շրջանակում։
-          </p>
-          
-          <p className="text-gray-600 text-sm">
-            Ծրագիրը ֆինանսավորվում է Միացյալ Թագավորության միջազգային զարգացման 
-            աջակցության շրջանակում՝ ՄԹ կառավարության կողմից: Հարթակում արտահայտված 
-            կարծիքները պատկանում են հեղինակներին և հնարավոր է չհամընկնեն ծրագիրն 
-            իրականացնող կազմակերպությունների, Միացյալ Թագավորության կառավարության 
-            պաշտոնական քաղաքականության կամ պաշտոնական դիրքորոշման հետ:
-          </p>
+      <div className="container mx-auto px-4 my-20 flex flex-col lg:gap-20 gap-10">
+        <div className="flex relative">
+          <div className="flex-1 lg:flex-3/4 backdrop-blur-[0.2rem] z-10">
+            <h3 className="text-3xl font-bold text-gray-700">Մեր նպատակը</h3>
+            <p className="mt-4 text-lg text-gray-700">
+              ԿիբեռՉատը նպատակ ունի օգնել մինչև 18 տարեկան երեխաներին, դեռահասներին, ինչպես նաև նրանց ծնողներին հասկանալ, թե ինչ վտանգներ կարող են սպասել առցանց միջավայրում և ինչպես պաշտպանվել դրանցից։
+            </p>
+            <p className="mt-4 text-lg text-gray-700">
+              Մենք համատեղում ենք կանխարգելման և աջակցման գործիքներ, որպեսզի հնարավոր լինի ոչ միայն սովորել ու զգուշանալ, այլև ստանալ տեխնիկական, իրավական և հոգեբանական օգնություն, երբ արդեն խնդիր է առաջացել։
+            </p>
+            <p className="mt-4 text-lg text-gray-700">
+              Մեր գլխավոր նպատակն է բարձրացնել թվային գրագիտությունը և ապահովել, որ ոչ մի երեխա, դեռահաս, ծնող կամ խնամակալ մենակ չզգա իրեն թվային խնդիրների ժամանակ։
+            </p>
+          </div>
+          <div className="lg:flex-1/4 items-center justify-center flex max-lg:absolute inset-0">
+            <img 
+              src="/assets/images/about-us/shield.svg" 
+              alt="scroll left"
+              className="lg:w-1/2 w-9/12 h-full max-lg:p-10" 
+            />
+          </div>
+        </div>
+        <div className="flex relative">
+          <div className="lg:flex-1/4 items-center justify-center flex max-lg:absolute inset-0">
+            <img 
+              src="/assets/images/about-us/question.svg" 
+              alt="scroll left" 
+              className="lg:w-1/2 w-9/12 h-full max-lg:p-10"
+            />
+          </div>
+          <div className="flex-1 lg:flex-3/4 backdrop-blur-[0.2rem] z-10">
+            <h3 className="text-3xl font-bold text-gray-700">Հարթակում կարելի է գտնել</h3>
+            <div className="mt-4 p-10 rounded-xl bg-[#F0F7FFCC]">
+              <p className="font-bold text-gray-700 text-lg">Ռեսուրսներ</p>
+              <p className="text-gray-700 text-lg mt-2">ուսուցողական նյութեր, բացատրական տեսանյութեր, տերմինների բառարան</p>
+            </div>
+            <div className="mt-4 p-10 rounded-xl bg-[#F0F7FFCC]">
+              <p className="font-bold text-gray-700 text-lg">Ի՞նչ անել, եթե...</p>
+              <p className="text-gray-700 text-lg mt-2">իրական դեպքեր, որոնցից հարկավոր է զգուշանալ և որոնց բախվելիս պետք է առաջնորդվել ներկայացված քայլերով</p>
+            </div>
+            <div className="mt-4 p-10 rounded-xl bg-[#F0F7FFCC]">
+              <p className="font-bold text-gray-700 text-lg">Հետադարձ կապ</p>
+              <p className="text-gray-700 text-lg mt-2">աջակցություն՝ չատբոտի կամ թեժ գծի միջոցով (ցանկության դեպքում՝ անանուն), որը հասանելի է 24/7 շուրջօրյա ռեժիմով</p>
+            </div>
+          </div>
+        </div>
+        <div className="flex relative">
+          <div className="flex-1 lg:flex-3/4 backdrop-blur-[0.2rem] z-10">
+            <h3 className="text-3xl font-bold text-gray-700">Չատբոտ և թեժ գիծ</h3>
+            <p className="mt-4 text-gray-700 text-lg">
+              Չաթբոտն առաջարկում է արագ ուղեցույց, ինչպես նաև անվտանգ, անանուն ու մատչելի եղանակով օգտատերերին ուղղորդում է համապատասխան ռեսուրսներին: Ավելի լուրջ կամ բարդ դեպքերում թեժ գիծը երեխաներին և դեռահասներին կապում է վերապատրաստված մասնագետների հետ, որոնք առաջարկում են տեխնիկական, իրավական, հոգեբանական աջակցություն:
+            </p>
+          </div>
+          <div className="lg:flex-1/4 items-center justify-center flex max-lg:absolute inset-0">
+            <img 
+              src="/assets/images/about-us/chat.svg" 
+              alt="scroll left"
+              className="lg:w-1/2 w-9/12 h-full max-lg:p-10 opacity-50" 
+            />
+          </div>
+        </div>
+        <div className="flex relative">
+          <div className="lg:flex-1/4 items-center justify-center flex max-lg:absolute inset-0">
+            <img 
+              src="/assets/images/about-us/team.svg" 
+              alt="scroll left" 
+              className="lg:w-1/2 w-9/12 h-full max-lg:p-10"
+            />
+          </div>
+          <div className="flex-1 lg:flex-3/4 backdrop-blur-[0.2rem] z-10">
+            <h3 className="text-3xl font-bold text-gray-700">Մեր թիմը</h3>
+            <p className="mt-4 text-gray-700 text-lg">Մեր թիմը բաղկացած է ոլորտի լավագույն մասնագետներից, որոնք աշխատում են առցանց տիրույթում տուժած անձանց աջակցելու ուղղությամբ։</p>
+            <p className="mt-4 text-gray-700 text-lg">ԿիբեռՉատում աշխատում են</p>
+            <div className="mt-4 p-10 rounded-xl bg-[#F0F7FFCC]">
+              <p className="font-bold text-gray-700 text-lg">Մեդիա փորձագետներ և տեխնիկական մասնագետներ</p>
+              <p className="text-gray-700 text-lg mt-2">օգնում են հասկանալ տեխնիկական խնդիրները, դրանց հնարավոր լուծումներն ու առցանց հարթակների գործառույթները, օգտագործման պայմանները</p>
+            </div>
+            <div className="mt-4 p-10 rounded-xl bg-[#F0F7FFCC]">
+              <p className="font-bold text-gray-700 text-lg">Իրավաբաններ</p>
+              <p className="text-gray-700 text-lg mt-2">օգնում են իրավական հարցերում և բացատրում քո իրավունքներն ու հնարավոր քայլերը</p>
+            </div>
+            <div className="mt-4 p-10 rounded-xl bg-[#F0F7FFCC]">
+              <p className="font-bold text-gray-700 text-lg">Հոգեբաններ</p>
+              <p className="text-gray-700 text-lg mt-2">պատրաստ են լսել ու աջակցել՝ խուճապի, տագնապի ու լարված իրավիճակներում կողմնորոշվելու դիմագրավելու հարցում</p>
+            </div>
+          </div>
+        </div>
+        <div className="flex max-lg:flex-col max-lg:gap-10">
+          <div className="lg:flex-1/2">
+            <h3 className="text-3xl font-bold text-gray-700">Ծրագրի մասին</h3>
+            <p className="mt-4 text-gray-700 text-lg">ԿիբեռՉատ հարթակը ստեղծվել է «Աջակցություն երեխաներին և դեռահասներին՝ կանխելու և արձագանքելու առցանց սպառնալիքները» ծրագրի շրջանակում։</p>
+            <p className="mt-4 text-gray-700 text-lg">Ծրագիրն իրականացվում է ՅՈՒՆԻՍԵՖ-ի, Բազմակողմանի տեղեկատվության ինստիտուտի և CyberHUB-ի կողմից՝ Միացյալ Թագավորության կառավարության ֆինանսավորմամբ և Հայաստանի կառավարության հետ համատեղ:</p>
+            <p className="mt-4 text-gray-700 text-lg">Ծրագիրը ֆինանսավորվում է Միացյալ Թագավորության միջազգային զարգացման աջակցության շրջանակում՝ ՄԹ կառավարության կողմից: Հարթակում արտահայտված կարծիքները պատկանում են հեղինակներին և հնարավոր է չհամընկնեն ծրագիրն իրականացնող կազմակերպությունների, Միացյալ Թագավորության կառավարության պաշտոնական քաղաքականության կամ պաշտոնական դիրքորոշման հետ:</p>
+          </div>
+          <div className="lg:flex-1/2 flex flex-col gap-10 justify-center items-center">
+            <div className="flex w-full justify-center items-center gap-10">
+              {partners.slice(0, 2).map((partner, index) => (
+                <div key={index} className="inline-flex justify-center items-center">
+                  <a href={partner.url} target="_blank" rel="noopener noreferrer" className="block">
+                    <img 
+                      src={partner.logo} 
+                      alt={`${partner.name} logo`} 
+                      className="h-20"
+                    />
+                  </a>
+                </div>
+              ))}
+            </div>
+            <div className="flex w-full justify-center items-center gap-10">
+              {partners.slice(2).map((partner, index) => (
+                <div key={index} className="inline-flex justify-center items-center">
+                  <a href={partner.url} target="_blank" rel="noopener noreferrer" className="block">
+                    <img 
+                      src={partner.logo} 
+                      alt={`${partner.name} logo`} 
+                      className="h-20"
+                    />
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-      <PartnersSection lang={lang} />
     </main>
   );
 }
