@@ -1,7 +1,7 @@
-import { Link, Outlet, useLocation, useSearchParams } from "react-router";
+import { Link, Outlet, useLocation } from "react-router";
 import { ClipPathPanel } from "~/elements";
 import { helpItems, type HelpItemType } from "~/config";
-import { useWindowStore, type UserType } from "~/store";
+import { useWindowStore, useCaseTabStore, type UserType } from "~/store";
 import type { Language } from "~/Types";
 import { useEffect, useRef, useState } from "react";
 
@@ -9,15 +9,13 @@ interface ItemRefs {
   [key: string]: HTMLDivElement | null;
 }
 
-type TabTypes = "tec" | "leg" | "psy"
-
 export default function HelpDetailsLayout() {
   const isMobile = useWindowStore(store => store.isMobile);
-  const [activeTab, setActiveTab] = useState<TabTypes>("tec");
+  const activeTab = useCaseTabStore(store => store.activeTab);
+  const [selectedTab, setSelectedTab] = useState('');
+  const setActiveTab = useCaseTabStore(store => store.setActiveTab);
   const { pathname } = useLocation();
-  const [searchParams, setSearchParams] = useSearchParams();
   const itemRefs = useRef<ItemRefs>({});
-  const active = searchParams.get('active');
 
   const match = pathname.match(/\/(\w+)\/help\/(\w+)\/case-(\d+)\.(\d+)/);
 
@@ -27,29 +25,22 @@ export default function HelpDetailsLayout() {
   const optionId = match ? parseInt(match[4], 10) : 1;
 
   const helpItem = helpItems.find(item => item.id === caseId);
-  const option = helpItem?.options.find(opt => opt.id === optionId);
-  
     
   const handleItemClick = (item?: HelpItemType) => {
-    const newParams = new URLSearchParams(searchParams);
-
-    if (active === item?.id?.toString()) {
-      newParams.delete("active");
+    if (selectedTab === item?.id?.toString()) {
+      setSelectedTab('')
     } else {
-      newParams.set('active', item?.id?.toString() || "");
+      setSelectedTab(item?.id?.toString() || "");
     }
-    setSearchParams(newParams, { replace: true, preventScrollReset: true });
   };
 
-  const hasActive = typeof active === "string" && helpItems.some(item => item.id.toString() === active);
+  const hasActive = helpItems.some(item => item.id.toString() === selectedTab);
   
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (active && itemRefs.current[active]) {
-        if (!itemRefs.current[active].contains(event.target as Node)) {
-          const newParams = new URLSearchParams(searchParams);
-          newParams.delete("active");
-          setSearchParams(newParams, { replace: true, preventScrollReset: true });
+      if (selectedTab && itemRefs.current[selectedTab]) {
+        if (!itemRefs.current[selectedTab].contains(event.target as Node)) {
+          setSelectedTab('');
         }
       }
     };
@@ -60,7 +51,7 @@ export default function HelpDetailsLayout() {
     return () => {
       document.removeEventListener('mouseup', handleClickOutside);
     };
-  }, [hasActive, active]);
+  }, [hasActive, selectedTab]);
 
   return (
     <main>
@@ -94,26 +85,26 @@ export default function HelpDetailsLayout() {
                 >
                   <div className="group cursor-pointer">
                     <div
-                      className={`absolute inset-0 ${item.id === caseId || Number(active) === item.id ? "hidden" : "block group-hover:hidden"}`}
+                      className={`absolute inset-0 ${item.id === caseId || Number(selectedTab) === item.id ? "hidden" : "block group-hover:hidden"}`}
                       onClick={() => handleItemClick(item)}
                     >
                       {item.iconInactive}
                     </div>
                     <div
-                      className={`absolute inset-0 ${item.id === caseId || Number(active) === item.id ? "block" : "hidden group-hover:block"}`}
+                      className={`absolute inset-0 ${item.id === caseId || Number(selectedTab) === item.id ? "block" : "hidden group-hover:block"}`}
                       onClick={() => handleItemClick(item)}
                     >
                       {item.iconActive}
                     </div>
                     {
-                      (!hasActive ||  Number(active) !== item.id) ?
+                      (!hasActive ||  Number(selectedTab) !== item.id) ?
                         <div className="absolute left-full top-1/2 -translate-y-1/2 ml-2 w-max bg-black text-white text-sm px-3 py-1 rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-100 whitespace-nowrap z-10">
                           {item.title[lang]}
                         </div> : null
                     }
                   </div>
                   {
-                    (!isMobile && (hasActive && Number(active) === item.id)) ?
+                    (!isMobile && (hasActive && Number(selectedTab) === item.id)) ?
                       <div
                         className="z-1 absolute left-full top-1/2 -translate-y-1/2 ml-2 shadow-md w-100 p-6 flex flex-col gap-5 transition-shadow duration-300 ease-in-out rounded-sm bg-white"
                       >
@@ -123,8 +114,10 @@ export default function HelpDetailsLayout() {
                             <h3 className="text-md" key={option.id}>
                               Զարգացում {index + 1}
                               <Link
-                                to={`/${lang}/help/${userType}/case-${active}.${option.id}`}
-                                className="flex justify-between gap-2 cursor-pointer text-[#5A8FDC] hover:underline group"
+                                to={`/${lang}/help/${userType}/case-${selectedTab}.${option.id}`}
+                                onClick={() => { setSelectedTab(''); setActiveTab("tec"); }}
+                                preventScrollReset
+                                className={`flex justify-between gap-2 cursor-pointer text-[#5A8FDC] hover:underline group ${Number(selectedTab) === caseId && optionId === option.id ? "pointer-events-none" : ""}`}
                               >
                                 {option.text}
                                 <img
@@ -153,7 +146,7 @@ export default function HelpDetailsLayout() {
             </ClipPathPanel>
             <div>
               <h1 className="md:text-3xl text-2xl font-bold">{helpItem?.title[lang]}</h1>
-              <h2 className="md:text-xl text-lg font-medium mt-3">{helpItem?.description[lang]}</h2>
+              <h2 className="md:text-xl text-lg font-medium mt-3">{helpItem?.options.find(option => option.id === optionId)?.text}</h2>
             </div>
           </div>
           
@@ -163,14 +156,14 @@ export default function HelpDetailsLayout() {
               <div className="flex mt-2">
                 <Link
                   to={`/${lang}/help/child/case-${caseId}.${optionId}`}
-                  className={`px-4 py-2 text-center text-lg font-medium rounded-l-sm transition-colors duration-300 whitespace-nowrap cursor-pointer ${userType === "child" ? "bg-[linear-gradient(225deg,_#83ceec,_#598ddc)] text-white" : "text-[#5188D7] bg-[#FAFAFA] hover:bg-[#EFF1F3]"}`}
+                  className={`px-4 py-2 text-center text-lg font-medium rounded-l-sm transition-colors duration-300 whitespace-nowrap cursor-pointer ${userType === "child" ? "pointer-events-none bg-[linear-gradient(225deg,_#83ceec,_#598ddc)] text-white" : "text-[#5188D7] bg-[#FAFAFA] hover:bg-[#EFF1F3]"}`}
                 >
                   երեխա / դեռահաս
                 </Link>
 
                 <Link
                   to={`/${lang}/help/parent/case-${caseId}.${optionId}`}
-                  className={`px-4 py-2 text-center text-lg font-medium rounded-r-sm transition-colors duration-300 whitespace-nowrap cursor-pointer ${userType === "parent" ? "bg-[linear-gradient(225deg,_#83ceec,_#598ddc)] text-white" : "text-[#5188D7] bg-[#FAFAFA] hover:bg-[#EFF1F3]"}`}
+                  className={`px-4 py-2 text-center text-lg font-medium rounded-r-sm transition-colors duration-300 whitespace-nowrap cursor-pointer ${userType === "parent" ? "pointer-events-none bg-[linear-gradient(225deg,_#83ceec,_#598ddc)] text-white" : "text-[#5188D7] bg-[#FAFAFA] hover:bg-[#EFF1F3]"}`}
                 >
                   ծնող / խնամակալ
                 </Link>
@@ -203,7 +196,7 @@ export default function HelpDetailsLayout() {
                   <span className={activeTab === "psy" ? "" : "max-md:hidden"}>ՀՈԳԵԲԱՆԱԿԱՆ ԼՈՒԾՈՒՄ</span>
                 </button>
               </div>
-              <div className="flex-1 h-full border border-[#8E8E93] bg-white">
+              <div className="flex-1 h-full border border-[#8E8E93] bg-white overflow-hidden">
                 <Outlet />
               </div>
             </div>

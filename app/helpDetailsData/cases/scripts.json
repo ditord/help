@@ -1,0 +1,3 @@
+{
+  "main": "\n\t\t<script>\n\t\t  function toggleSection(event, id) {\n\t\t    \tevent.preventDefault();\n\t\t\t  const sections = [\"instagram\", \"facebook\", \"snapchat\", \"tiktok\", \"whatsapp\", \"viber\", \"telegram\", \"gmail\", \"mail\"];\n\n\t\t\t  sections.forEach(sectionId => {\n\t\t\t    const section = document.getElementById(sectionId);\n\t\t\t    if (section && sectionId === id) {\n\t\t\t      section.style.display = 'block';\n\t\t\t    } else if (section) {\n\t\t\t      section.style.display = 'none';\n\t\t\t    }\n\t\t\t  });\n\n\t\t\t  document.querySelectorAll('.tab-btn').forEach(btn => {\n\t\t\t    btn.classList.remove('active');\n\t\t\t  });\n\n\t\t\t  event.currentTarget.classList.add('active');\n\t\t  }\n\t\t</script>\n\t\t"
+}

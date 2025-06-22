@@ -29,6 +29,7 @@ import childCase5Option2 from './cases/child/case-5.2.json';
 import childCase6Option1 from './cases/child/case-6.1.json';
 import childCase7Option1 from './cases/child/case-7.1.json';
 import childCase8Option1 from './cases/child/case-8.1.json';
+import { useNavigate } from 'react-router';
 
 export type ContentKey = 
   "parentCase1Option1" |

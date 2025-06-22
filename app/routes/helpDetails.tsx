@@ -1,11 +1,14 @@
 import type { Route } from "../routes/+types/helpDetails";
 import metadata from "~/metadata";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import { json } from "@remix-run/node";
-import type { UserType } from "../store";
-import type { Language } from "../Types";
-import { helpItems } from "../config";
-import { getStaticHelpContent } from "../helpDetailsData/helpDetailsUtils";
+import { useCaseTabStore } from "~/store";
+import { getStaticHelpContent } from "~/helpDetailsData/helpDetailsUtils";
+import { useEffect } from "react";
+import dictionary from "~/dictionary.json";
+import scripts from "~/helpDetailsData/cases/scripts.json";
+import { Tooltip } from "~/helpers";
+
 
 export function meta({ location }: Route.MetaArgs) {
   const pathMatch = location.pathname.match(/\/(\w+)\/help\/(\w+)\/case-(\d+)\.(\d+)/);
@@ -38,28 +41,60 @@ export async function loader({ request }: { request: Request }) {
     return json({ error: "Content not found" }, { status: 404 });
   }
 
-  return json({ content });
+  return json({ content, lang, caseId, optionId });
 }
 
 export default function HelpDetails() {
-  const { content, lang, userType, caseId, optionId, error } = 
+  const navigate = useNavigate();
+  const activeTab = useCaseTabStore(store => store.activeTab);
+  const { content, lang, caseId, optionId } = 
   useLoaderData<{ 
-    content?: any,
-    lang: Language, 
-    userType: UserType, 
-    caseId: number, 
-    optionId: number,
-    error?: string 
+    content?: any
+    lang: string;
+    caseId: number;
+    optionId: number;
   }>();
 
-  const helpItem = helpItems.find(item => item.id === caseId);
-  const option = helpItem?.options.find(opt => opt.id === optionId);
+  useEffect(() => {
+		const links = document?.getElementById('case-content')?.querySelectorAll('a');
+    if (links) {
+      links.forEach(link => {
+        if (link.href && link.href.startsWith('to:')) {
+          const newLink = link.href.replace('to:', `/${lang}`);
+          link.href = newLink;
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigate(newLink);
+          });
+        }
+      });
+    }
+    const dictionaryWords = document?.getElementById('case-content')?.querySelectorAll('[data-title]');
+    dictionaryWords?.forEach(word => {
+      const title = word.getAttribute('data-title');
+      const description = dictionary.find((item: any) => item.word === title)?.description || '';
+      word.classList.add('cursor-help');
+      if (description) new Tooltip(word as HTMLElement, description);
+    })
+  }, [activeTab, caseId, optionId, lang]);
 
   return (
-    <>
-    <main>
-      {content?.metadata?.description}
-    </main>
-    </>
+    <div className="w-full h-full flex flex-col">
+      {content[activeTab] && content[activeTab].navigation ? (
+        <div className="py-3 px-5">
+          <div
+            className="prose max-w-none"
+            dangerouslySetInnerHTML={{ __html: content[activeTab] && content[activeTab].navigation }}
+          />
+        </div>
+        ) : null
+      }
+      <main id="case-content" className="overflow-x-hidden overflow-y-scroll h-full px-5 py-4">
+        <div
+          className="prose max-w-none"
+          dangerouslySetInnerHTML={{ __html: content[activeTab] && content[activeTab].text + scripts.main }}
+        />
+      </main>
+    </div>
   );
 }
