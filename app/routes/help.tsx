@@ -28,6 +28,18 @@ export default function Help() {
 
   
   const handleItemClick = (item?: HelpItemType) => {
+    if (helpItems[helpItems.length - 1].id === item?.id) {
+      const targetElement = document.getElementById('contact');
+      const elementTop = targetElement?.offsetTop || 0;
+      const scrollPosition = elementTop - 40;
+
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: 'smooth'
+      });
+      return;
+    }
+    if (isMobile) return;
     const newParams = new URLSearchParams(searchParams);
 
     if (active === item?.id?.toString()) {
@@ -113,12 +125,12 @@ export default function Help() {
                   item={item}
                   activeItemId={hasActive ? Number(active) : undefined}
                   lang={lang}
-                  onClick={() => isMobile ? null : handleItemClick(item)}
+                  onClick={() => handleItemClick(item)}
                   onLinkClick={handleLinkClick}
                 />
 
                 {
-                  (!isMobile && (hasActive && Number(active) === item.id)) ?
+                  (!isMobile && (hasActive && Number(active) === item.id) && !(helpItems[helpItems.length - 1].id === item?.id)) ?
                     <div className="help-options max-md:hidden absolute top-[calc(100%-80px)] h-auto z-1 w-full">
                       <HelpDetails
                         itemId={item.id}

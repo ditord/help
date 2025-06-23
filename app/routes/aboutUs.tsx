@@ -113,26 +113,26 @@ export default function AboutUs() {
           </div>
           <div className="lg:flex-1/2 flex flex-col gap-10 justify-center items-center">
             <div className="flex w-full justify-center items-center gap-10">
-              {partners.slice(0, 2).map((partner, index) => (
+              {partners.slice(0, 3).map((partner, index) => (
                 <div key={index} className="inline-flex justify-center items-center">
                   <a href={partner.url} target="_blank" rel="noopener noreferrer" className="block">
                     <img 
                       src={partner.logo} 
                       alt={`${partner.name} logo`} 
-                      className="h-20"
+                      className="h-20 object-contain"
                     />
                   </a>
                 </div>
               ))}
             </div>
             <div className="flex w-full justify-center items-center gap-10">
-              {partners.slice(2).map((partner, index) => (
+              {partners.slice(3).map((partner, index) => (
                 <div key={index} className="inline-flex justify-center items-center">
                   <a href={partner.url} target="_blank" rel="noopener noreferrer" className="block">
                     <img 
                       src={partner.logo} 
                       alt={`${partner.name} logo`} 
-                      className="h-20"
+                      className="h-20 object-contain"
                     />
                   </a>
                 </div>

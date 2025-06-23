@@ -6,7 +6,6 @@ import { useCaseTabStore } from "~/store";
 import { getStaticHelpContent } from "~/helpDetailsData/helpDetailsUtils";
 import { useEffect } from "react";
 import dictionary from "~/dictionary.json";
-import scripts from "~/helpDetailsData/cases/scripts.json";
 import { Tooltip } from "~/helpers";
 
 
@@ -64,7 +63,7 @@ export default function HelpDetails() {
           link.href = newLink;
           link.addEventListener('click', (e) => {
             e.preventDefault();
-            navigate(newLink);
+            navigate(newLink, { preventScrollReset: true });
           });
         }
       });
@@ -92,7 +91,7 @@ export default function HelpDetails() {
       <main id="case-content" className="overflow-x-hidden overflow-y-scroll h-full px-5 py-4">
         <div
           className="prose max-w-none"
-          dangerouslySetInnerHTML={{ __html: content[activeTab] && content[activeTab].text + scripts.main }}
+          dangerouslySetInnerHTML={{ __html: content[activeTab] && content[activeTab].text }}
         />
       </main>
     </div>

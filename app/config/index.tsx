@@ -4,7 +4,7 @@ export const headerNavigation = {
   hy: [
     {
       text: "Գլխավոր",
-      href: ["/hy"],
+      href: "/hy",
     },
     {
       text: "Մեր մասին",
@@ -17,6 +17,10 @@ export const headerNavigation = {
     {
       text: "Ռեսուրսներ",
       href: "/hy/resources/",
+    },
+    {
+      text: "Հետադարձ կապ",
+      href: "/hy/#contact",
     },
    ],
    en: [
@@ -35,6 +39,10 @@ export const headerNavigation = {
     {
       text: "Resources",
       href: "/en/resources/",
+    },
+    {
+      text: "Contact",
+      href: "/hy/#contact",
     },
   ],
 };
@@ -55,27 +63,27 @@ export const mainContacts = {
     },
   },
   phone: {
-    link: "tel:+37495938363",
+    link: "tel:+37455228811",
     text: {
-      hy: "+374 95 93 83 63",
-      en: "+374 95 93 83 63",
+      hy: "055 22 88 11",
+      en: "055 22 88 11",
     },
   },
 };
 
 export const helpContacts = {
   phone: {
-    link: "tel:+37455555555",
+    link: "tel:+37455228811",
     text: {
-      hy: "055 555 555",
-      en: "055 555 555",
+      hy: "055 22 88 11",
+      en: "055 22 88 11",
     },
   },
   whatsappPhone: {
-    link: "tel:+37455555555",
+    link: "https://wa.me/055228811",
     text: {
-      hy: "055 555 555",
-      en: "055 555 555",
+      hy: "055 22 88 11",
+      en: "055 22 88 11",
     },
   },
   whatsappAnonChat: {

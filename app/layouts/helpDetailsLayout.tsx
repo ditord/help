@@ -25,13 +25,25 @@ export default function HelpDetailsLayout() {
   const optionId = match ? parseInt(match[4], 10) : 1;
 
   const helpItem = helpItems.find(item => item.id === caseId);
-    
+
   const handleItemClick = (item?: HelpItemType) => {
+    if (helpItems[helpItems.length - 1].id === item?.id) {
+      const targetElement = document.getElementById('contact');
+      const elementTop = targetElement?.offsetTop || 0;
+      const scrollPosition = elementTop - 40;
+
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: 'smooth'
+      });
+      return;
+    }
     if (selectedTab === item?.id?.toString()) {
       setSelectedTab('')
     } else {
       setSelectedTab(item?.id?.toString() || "");
     }
+    console.log(item?.id);
   };
 
   const hasActive = helpItems.some(item => item.id.toString() === selectedTab);
