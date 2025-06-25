@@ -65,8 +65,8 @@ export const mainContacts = {
   phone: {
     link: "tel:+37455228811",
     text: {
-      hy: "055 22 88 11",
-      en: "055 22 88 11",
+      hy: "+374 55 22 88 11",
+      en: "+374 55 22 88 11",
     },
   },
 };
@@ -75,31 +75,40 @@ export const helpContacts = {
   phone: {
     link: "tel:+37455228811",
     text: {
-      hy: "055 22 88 11",
-      en: "055 22 88 11",
+      hy: "+374 55 22 88 11",
+      en: "+374 55 22 88 11",
     },
   },
   whatsappPhone: {
-    link: "https://wa.me/055228811",
+    link: "https://wa.me/+37455228811",
     text: {
-      hy: "055 22 88 11",
-      en: "055 22 88 11",
+      hy: "+374 55 22 88 11",
+      en: "+374 55 22 88 11",
     },
   },
   whatsappAnonChat: {
-    link: "tel:+37455555555",
+    link: "https://wa.me/+37455228811",
     text: {
       hy: "WhatsApp չատ",
       en: "WhatsApp chat",
     },
   },
   anonChat: {
-    link: "tel:+37455555555",
+    link: "https://wa.me/+37455228811",
     text: {
       hy: "Անանուն չատ",
       en: "Anonymous chat",
     }
   },
+};
+
+export const socialContacts = {
+  linkedin: "https://www.linkedin.com/company/cyberhubam",
+  facebook: "https://www.facebook.com/cyberhubam/",
+  instagram: "https://www.instagram.com/cyberhubam/",
+  tiktok: "https://www.tiktok.com/@cyberhubam",
+  snapchat: "https://www.snapchat.com/add/cyberhubam",
+  youtube: "https://www.youtube.com/@cyberhubam",
 };
 
 export const helpItems: HelpItemType[] = [

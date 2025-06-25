@@ -26,13 +26,15 @@ export default [
         (a, lang) => {
           ["child", "parent"].forEach(userType => {
             helpItems.forEach(helpItem => {
-              helpItem.options.forEach(option => {
-                a.push({
-                  path: `${lang}/help/${userType}/case-${helpItem.id}.${option.id}`,
-                  id: `${lang}-${userType}-${helpItem.id}-${option.id}`,
-                  file: "routes/helpDetails.tsx",
+              if (helpItem.id !== 8) {
+                helpItem.options.forEach(option => {
+                  a.push({
+                    path: `${lang}/help/${userType}/case-${helpItem.id}.${option.id}`,
+                    id: `${lang}-${userType}-${helpItem.id}-${option.id}`,
+                    file: "routes/helpDetails.tsx",
+                  });
                 });
-              });
+              }
             });
           });
           return a;

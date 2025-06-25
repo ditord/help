@@ -4,7 +4,7 @@ import MuiPhoneIcon from '@mui/icons-material/Phone';
 import MailIcon from '@mui/icons-material/Mail';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { Link } from "react-router";
-import { mainContacts, helpContacts } from "~/config";
+import { mainContacts, helpContacts, socialContacts } from "~/config";
 import type { Language } from "~/Types";
 
 const texts = {
@@ -51,28 +51,34 @@ export const Footer = ({ lang = "hy" }: { lang?: Language }) => {
               <Link
                 className="transform duration-300 hover:shadow-md scale-[0.9] hover:scale-[1] flex flex-col items-center justify-center gap-4 rounded-sm shadow-xs bg-white border-[#2B2B30] w-70 h-70"
                 to={helpContacts.phone.link}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <img src="/assets/images/contact-icons/gridicons_phone.png" alt="phone" className="w-16" />
                 <div className="flex flex-col gap-2 items-center justify-between h-25">
                   <span className="font-bold text-lg">{texts[lang].buttonTitle1}</span>
-                  <span className="text-lg">8016</span>
+                  <span className="text-lg">{helpContacts.phone.text[lang]}</span>
                   <span className="text-[#828282] text-lg">{texts[lang].buttonDescription1}</span>
                 </div>
               </Link>
               <Link
                 className="transform duration-300 hover:shadow-md scale-[0.9] hover:scale-[1] flex flex-col items-center justify-center gap-4 rounded-sm shadow-xs bg-white border-[#2B2B30] w-70 h-70"
                 to={helpContacts.whatsappPhone.link}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <img src="/assets/images/contact-icons/whatsapp.png" alt="whatsapp" className="w-16" />
                 <div className="flex flex-col gap-2 items-center justify-between h-25">
                   <span className="font-bold text-lg">{texts[lang].buttonTitle2}</span>
-                  <span className="text-lg">055 555 555</span>
+                  <span className="text-lg">{helpContacts.whatsappPhone.text[lang]}</span>
                   <span className="text-[#828282] text-lg">{texts[lang].buttonDescription2}</span>
                 </div>
               </Link>
               <Link
                 className="transform duration-300 hover:shadow-md scale-[0.9] hover:scale-[1] flex flex-col items-center justify-center gap-4 rounded-sm shadow-xs bg-white border-[#2B2B30] w-70 h-70"
                 to={helpContacts.whatsappAnonChat.link}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <img src="/assets/images/contact-icons/whatsapp.png" alt="whatsapp" className="w-16" />
                 <div className="flex flex-col gap-2 items-center justify-between h-25">
@@ -83,6 +89,8 @@ export const Footer = ({ lang = "hy" }: { lang?: Language }) => {
               <Link
                 className="transform duration-300 hover:shadow-md scale-[0.9] hover:scale-[1] flex flex-col items-center justify-center gap-4 rounded-sm shadow-xs bg-white border-[#2B2B30] w-70 h-70"
                 to={helpContacts.anonChat.link}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <img src="/assets/images/contact-icons/chat_logo.png" alt="chat" className="w-16" />
                 <div className="flex flex-col gap-2 items-center justify-between h-25">
@@ -96,34 +104,34 @@ export const Footer = ({ lang = "hy" }: { lang?: Language }) => {
             <p className="text-2xl text-center mb-10">{texts[lang].findUsSocial}</p>
             <div className="flex max-md:flex-col justify-center items-center gap-x-12 gap-y-6">
               <div className="flex md:gap-x-12 gap-x-8 transition-transform duration-500 ease-in-out">
-                <Link to="#" className="relative w-11 h-11 group">
+                <Link to={socialContacts.linkedin} target="_blank" rel="noopener noreferrer" className="relative w-11 h-11 group">
                   <span className="absolute inset-0 bg-[url('/assets/images/linkedin.svg')] bg-no-repeat bg-center group-hover:opacity-0 transition-opacity" />
                   <span className="absolute inset-0 bg-[url('/assets/images/linkedin-hover.svg')] bg-no-repeat bg-center opacity-0 group-hover:opacity-100 transition-opacity group-hover:scale-[1.2] transform duration-300" />
                 </Link>
                 
-                <Link to="#" className="relative w-11 h-11 group">
+                <Link to={socialContacts.facebook} target="_blank" rel="noopener noreferrer" className="relative w-11 h-11 group">
                   <span className="absolute inset-0 bg-[url('/assets/images/facebook.svg')] bg-no-repeat bg-center group-hover:opacity-0 transition-opacity" />
                   <span className="absolute inset-0 bg-[url('/assets/images/facebook-hover.svg')] bg-no-repeat bg-center opacity-0 group-hover:opacity-100 transition-opacity group-hover:scale-[1.2] transform duration-300" />
                 </Link>
                 
-                <Link to="#" className="relative w-11 h-11 group">
+                <Link to={socialContacts.instagram} target="_blank" rel="noopener noreferrer" className="relative w-11 h-11 group">
                   <span className="absolute inset-0 bg-[url('/assets/images/instagram.svg')] bg-no-repeat bg-center group-hover:opacity-0 transition-opacity" />
                   <span className="absolute inset-0 bg-[url('/assets/images/instagram-hover.svg')] bg-no-repeat bg-center opacity-0 group-hover:opacity-100 transition-opacity group-hover:scale-[1.2] transform duration-300" />
                 </Link>
               </div>
               
               <div className="flex md:gap-x-12 gap-x-8">
-                <Link to="#" className="relative w-11 h-11 group">
+                <Link to={socialContacts.youtube} target="_blank" rel="noopener noreferrer" className="relative w-11 h-11 group">
                   <span className="absolute inset-0 bg-[url('/assets/images/youtube.svg')] bg-no-repeat bg-center group-hover:opacity-0 transition-opacity" />
                   <span className="absolute inset-0 bg-[url('/assets/images/youtube-hover.svg')] bg-no-repeat bg-center opacity-0 group-hover:opacity-100 transition-opacity group-hover:scale-[1.2] transform duration-300" />
                 </Link>
                 
-                <Link to="#" className="relative w-11 h-11 group">
+                <Link to={socialContacts.tiktok} target="_blank" rel="noopener noreferrer" className="relative w-11 h-11 group">
                   <span className="absolute inset-0 bg-[url('/assets/images/tiktok.svg')] bg-no-repeat bg-center group-hover:opacity-0 transition-opacity" />
                   <span className="absolute inset-0 bg-[url('/assets/images/tiktok-hover.svg')] bg-no-repeat bg-center opacity-0 group-hover:opacity-100 transition-opacity group-hover:scale-[1.2] transform duration-300" />
                 </Link>
                 
-                <Link to="#" className="relative w-11 h-11 group">
+                <Link to={socialContacts.snapchat} target="_blank" rel="noopener noreferrer" className="relative w-11 h-11 group">
                   <span className="absolute inset-0 bg-[url('/assets/images/snapchat.svg')] bg-no-repeat bg-center group-hover:opacity-0 transition-opacity" />
                   <span className="absolute inset-0 bg-[url('/assets/images/snapchat-hover.svg')] bg-no-repeat bg-center opacity-0 group-hover:opacity-100 transition-opacity group-hover:scale-[1.2] transform duration-300" />
                 </Link>
@@ -155,7 +163,7 @@ export const Footer = ({ lang = "hy" }: { lang?: Language }) => {
                     </Link>
                   </div>
                   <div className="block mb-5 min-h-16 ml-2">
-                    <Link to={mainContacts.phone.link} className="inline-flex items-center pr-4 group">
+                    <Link to={mainContacts.phone.link} className="inline-flex items-center pr-4 group" target="_blank" rel="noopener noreferrer">
                       <span className="mr-6">
                         <ClipPathPanel>
                           <MuiPhoneIcon className="text-white !w-7 !h-7" />
@@ -165,7 +173,7 @@ export const Footer = ({ lang = "hy" }: { lang?: Language }) => {
                     </Link>
                   </div>
                   <div className="block mb-5 min-h-16 ml-2">
-                    <Link to={mainContacts.mail.link} className="inline-flex items-center pr-4 group">
+                    <Link to={mainContacts.mail.link} className="inline-flex items-center pr-4 group" target="_blank" rel="noopener noreferrer">
                       <span className="mr-6">
                         <ClipPathPanel>
                           <MailIcon className="text-white !w-7 !h-7" />

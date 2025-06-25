@@ -1,16 +1,7 @@
 import { Link } from "react-router";
-import { WhatsappIcon, PhoneIcon } from "~/elements";
+import { WhatsappIcon } from "~/elements";
 import { mainContacts, helpContacts } from "~/config";
 import type { Language } from "~/Types";
-
-const texts = {
-  hy: {
-    emergency: "թեժ գիծ (24/7)",
-  },
-  en: {
-    emergency: "hotline (24/7)",
-  },
-}
 
 export const HeaderTop = ({ lang = "hy" }: { lang?: Language }) => {
   return (

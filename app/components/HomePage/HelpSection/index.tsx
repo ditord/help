@@ -15,17 +15,14 @@ const texts = {
   },
 }
 
-// Define types for our data and props
 type HelpItem = {
   id: number;
   icon: React.ReactNode;
   title: {
     [key in Language]: string;
   }
-  // Add any other properties from helpItems
 };
 
-// Props types for each component
 type MobileHelpItemProps = {
   item: HelpItem;
   index: number;
@@ -61,7 +58,6 @@ type DesktopHelpSectionProps = {
   lang?: Language;
 };
 
-// ------------------- MOBILE HELP ITEM COMPONENT -------------------
 const MobileHelpItem: React.FC<MobileHelpItemProps> = ({ item, index, lang = "hy" }) => {
   const itemScrollStyles: React.CSSProperties = {
     scrollSnapAlign: 'center'
@@ -87,7 +83,6 @@ const MobileHelpItem: React.FC<MobileHelpItemProps> = ({ item, index, lang = "hy
   );
 };
 
-// ------------------- DESKTOP HELP ITEM COMPONENT -------------------
 const DesktopHelpItem: React.FC<DesktopHelpItemProps> = ({ item, currentIndex, itemIndex, lang = "hy" }) => {
   return (
     <Link 
@@ -108,7 +103,6 @@ const DesktopHelpItem: React.FC<DesktopHelpItemProps> = ({ item, currentIndex, i
   );
 };
 
-// ------------------- MOBILE VIEW COMPONENT -------------------
 const MobileHelpSection: React.FC<MobileHelpSectionProps> = ({ 
   scrollContainerRef, 
   currentPage, 
@@ -122,12 +116,11 @@ const MobileHelpSection: React.FC<MobileHelpSectionProps> = ({
     WebkitOverflowScrolling: 'touch'
   };
 
-  // Register mobile scroll handling with no delay
   useEffect(() => {
     if (!scrollContainerRef.current) return;
     
     const container = scrollContainerRef.current;
-    const itemWidth = 288 + 16; // w-72 (288px) + margin-right (16px)
+    const itemWidth = 288 + 16;
     
     const updateActiveDot = (): void => {
       const scrollPosition = container.scrollLeft;
@@ -141,17 +134,14 @@ const MobileHelpSection: React.FC<MobileHelpSectionProps> = ({
       }
     };
     
-    // Using requestAnimationFrame for smoother updates
     let frameId: number;
     const handleScroll = (): void => {
       cancelAnimationFrame(frameId);
       frameId = requestAnimationFrame(updateActiveDot);
     };
     
-    // Initial calculation
     updateActiveDot();
     
-    // Add event listener
     container.addEventListener('scroll', handleScroll, { passive: true });
     
     return () => {
@@ -174,7 +164,6 @@ const MobileHelpSection: React.FC<MobileHelpSectionProps> = ({
         </div>
       </div>
       
-      {/* Pagination Dots */}
       <div className="container mx-auto px-4 relative">
         <div className="flex justify-center mt-6 space-x-2">
           {Array.from({ length: helpItems.length }).map((_, index) => (
@@ -195,7 +184,6 @@ const MobileHelpSection: React.FC<MobileHelpSectionProps> = ({
   );
 };
 
-// ------------------- DESKTOP VIEW COMPONENT -------------------
 const DesktopHelpSection: React.FC<DesktopHelpSectionProps> = ({ 
   scrollContainerRef, 
   visibleItems, 
@@ -212,7 +200,6 @@ const DesktopHelpSection: React.FC<DesktopHelpSectionProps> = ({
   return (
     <div className="container mx-auto px-10 relative">
       <div className="flex items-center relative">
-        {/* Left Arrow */}
         <button 
           onClick={scrollLeft}
           className={`cursor-pointer absolute -left-10 z-10 bg-white rounded-full w-10 h-10 shadow-md flex items-center justify-center hover:bg-gray-50 transition-all focus:outline-none ${showLeftArrow ? "" : "invisible"}`}
@@ -225,7 +212,6 @@ const DesktopHelpSection: React.FC<DesktopHelpSectionProps> = ({
           />
         </button>
 
-        {/* Content Container */}
         <div 
           ref={scrollContainerRef}
           className="flex-1"
@@ -243,7 +229,6 @@ const DesktopHelpSection: React.FC<DesktopHelpSectionProps> = ({
           </div>
         </div>
 
-        {/* Right Arrow */}
         <button 
           onClick={scrollRight}
           className={`cursor-pointer absolute -right-10 bg-white rounded-full w-10 h-10 shadow-md flex items-center justify-center hover:bg-gray-50 transition-all focus:outline-none ${showRightArrow ? "" : "invisible"}`}
@@ -257,7 +242,6 @@ const DesktopHelpSection: React.FC<DesktopHelpSectionProps> = ({
         </button>
       </div>
       
-      {/* Pagination Dots */}
       <div className="flex justify-center space-x-2">
         {Array.from({ length: totalPages }).map((_, index) => (
           <button
@@ -276,7 +260,6 @@ const DesktopHelpSection: React.FC<DesktopHelpSectionProps> = ({
   );
 };
 
-// ------------------- MAIN COMPONENT -------------------
 export const HelpSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState<boolean>(false);
@@ -286,10 +269,11 @@ export const HelpSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => {
   const [totalPages, setTotalPages] = useState<number>(1);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [isMobile, setIsMobile] = useState<boolean>(true);
+  const [windowWidth, setWindowWidth] = useState<number>(0);
 
-  // Detect mobile/desktop with requestAnimationFrame for smoother transitions
   useEffect(() => {
     const checkMobile = (): void => {
+      setWindowWidth(window.innerWidth);
       setIsMobile(window.innerWidth < 768);
     };
     
@@ -308,12 +292,11 @@ export const HelpSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => {
     };
   }, []);
 
-  // Calculate visible items for desktop view
   useLayoutEffect(() => {
     if (isMobile || !scrollContainerRef.current) return;
     
     const containerWidth = scrollContainerRef.current.clientWidth;
-    const itemWidth = 304;
+    const itemWidth = 288 + 16;
     const itemsToShow = Math.floor(containerWidth / itemWidth);
     
     const items = helpItems.slice(currentIndex, currentIndex + Math.max(1, itemsToShow));
@@ -326,9 +309,8 @@ export const HelpSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => {
     setTotalPages(Math.max(1, totalPositions));
 
     setCurrentPage(currentIndex);
-  }, [currentIndex, isMobile]);
+  }, [currentIndex, isMobile, windowWidth]);
 
-  // Navigation functions
   const scrollLeft = (): void => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
@@ -341,22 +323,17 @@ export const HelpSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => {
     }
   };
 
-  // Optimized goToPage function with no delay for mobile
   const goToPage = (positionIndex: number): void => {
     if (isMobile && scrollContainerRef.current) {
-      // Mobile navigation - instant scroll to position
       const itemWidth = 280 + 16;
       const container = scrollContainerRef.current;
       const viewportWidth = container.clientWidth;
       const targetPosition = (positionIndex * itemWidth) + (itemWidth/2) - (viewportWidth/2);
       
-      // Use scrollLeft for immediate response rather than scrollTo with smooth behavior
       container.scrollLeft = Math.max(0, targetPosition);
       
-      // Update page immediately
       setCurrentPage(positionIndex);
     } else {
-      // Desktop navigation - update index
       if (positionIndex >= 0 && positionIndex < totalPages) {
         setCurrentIndex(positionIndex);
       }
@@ -364,13 +341,11 @@ export const HelpSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => {
   };
 
   return (
-    <section id="blogs" className="py-20 bg-[#fafafa]">
-      {/* Title */}
+    <section id="blogs" className="py-20 bg-[#fafafa] overflow-hidden">
       <div className="container mx-auto px-4 relative">
         <p className="text-3xl md:text-4xl font-bold leading-tight mb-12">{texts[lang].title}</p>
       </div>
 
-      {/* Render either mobile or desktop view */}
       {isMobile ? (
         <MobileHelpSection
           lang={lang}
@@ -395,7 +370,6 @@ export const HelpSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => {
         />
       )}
 
-      {/* View All Link - Common for both views */}
       <div className="container mx-auto px-4 relative">
         <div className="text-center mt-6">
           <Link to={`/${lang}/help/`} className="btn btn-blue btn-small">
