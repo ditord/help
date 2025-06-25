@@ -55,6 +55,7 @@ export const Header = ({ lang = "hy" }: HeaderType) => {
             <HeaderNavigation
               className={`items-center justify-center flex-1 lg:flex bg-white max-lg:absolute left-0 right-0 top-[80px] z-[99] max-lg:shadow-[0_10px_10px_rgba(0,0,0,0.078)] transition-[height] duration-[350ms] ease-in-out max-lg:h-0 overflow-hidden ${isMenuOpen ? "max-lg:h-[calc(100vh-60px)]" : ""}`}
               lang={lang}
+              toggleMenu={toggleMenu}
             />
 
             <div className="flex items-center lg:pt-1 gap-2.5">

@@ -12,8 +12,8 @@ interface ItemRefs {
 export default function HelpDetailsLayout() {
   const isMobile = useWindowStore(store => store.isMobile);
   const activeTab = useCaseTabStore(store => store.activeTab);
-  const [selectedTab, setSelectedTab] = useState('');
   const setActiveTab = useCaseTabStore(store => store.setActiveTab);
+  const [selectedTab, setSelectedTab] = useState('');
   const { pathname } = useLocation();
   const itemRefs = useRef<ItemRefs>({});
 
@@ -64,6 +64,11 @@ export default function HelpDetailsLayout() {
       document.removeEventListener('mouseup', handleClickOutside);
     };
   }, [hasActive, selectedTab]);
+
+
+  useEffect(() => {
+    setActiveTab("tec");
+  }, [])
 
   return (
     <main>
@@ -168,6 +173,7 @@ export default function HelpDetailsLayout() {
               <div className="flex mt-2">
                 <Link
                   to={`/${lang}/help/child/case-${caseId}.${optionId}`}
+                  preventScrollReset
                   className={`px-4 py-2 text-center text-lg font-medium rounded-l-sm transition-colors duration-300 whitespace-nowrap cursor-pointer ${userType === "child" ? "pointer-events-none bg-[linear-gradient(225deg,_#83ceec,_#598ddc)] text-white" : "text-[#5188D7] bg-[#FAFAFA] hover:bg-[#EFF1F3]"}`}
                 >
                   երեխա / դեռահաս
@@ -175,6 +181,7 @@ export default function HelpDetailsLayout() {
 
                 <Link
                   to={`/${lang}/help/parent/case-${caseId}.${optionId}`}
+                  preventScrollReset
                   className={`px-4 py-2 text-center text-lg font-medium rounded-r-sm transition-colors duration-300 whitespace-nowrap cursor-pointer ${userType === "parent" ? "pointer-events-none bg-[linear-gradient(225deg,_#83ceec,_#598ddc)] text-white" : "text-[#5188D7] bg-[#FAFAFA] hover:bg-[#EFF1F3]"}`}
                 >
                   ծնող / խնամակալ

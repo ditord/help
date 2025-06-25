@@ -1,5 +1,7 @@
 function toggleSection(event, id) {
-    event.preventDefault();
+  const container = document.getElementById('case-content');
+  container?.scrollTo({ top: 0 });
+  event.preventDefault();
   const sections = ["instagram", "facebook", "snapchat", "tiktok", "whatsapp", "viber", "telegram", "gmail", "mail"];
 
   sections.forEach(sectionId => {

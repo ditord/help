@@ -5,13 +5,11 @@ const texts = {
   hy: {
     title: "Բլոգ",
     blogCommonTitle: "Վերնագիր",
-    blogCommonDescription: "Կարճ նկարագրություն",
     button: "Դիտել ավելին",
   },
   en: {
     title: "Blog",
     blogCommonTitle: "Title",
-    blogCommonDescription: "Short description",
     button: "See more",
   },
 };
@@ -26,11 +24,10 @@ export const BlogsSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => 
           {
             Array.from(Array(4)).map((_, index) => (
               <div key={index}>
-                <div className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white mb-6 p-6">
+                <div className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white mb-6 p-6 cursor-pointer">
                   <div className="w-full aspect-video bg-[#D9D9D9]" />
                   <div className="pt-6">
                     <p className="text-xl font-bold">{texts[lang].blogCommonTitle}</p>
-                    <p className="pt-6">{texts[lang].blogCommonDescription}</p>
                   </div>
                 </div>
               </div>
@@ -39,7 +36,7 @@ export const BlogsSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => 
         </div>
 
         <div className="text-center mt-6">
-          <Link to={`/${lang}/blogs/`} className="btn btn-small">
+          <Link to={`/${lang}/`} className="btn btn-small">
             {texts[lang].button}
           </Link>
         </div>

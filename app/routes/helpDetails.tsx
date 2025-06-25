@@ -55,7 +55,9 @@ export default function HelpDetails() {
   }>();
 
   useEffect(() => {
-		const links = document?.getElementById('case-content')?.querySelectorAll('a');
+    const container = document.getElementById('case-content');
+    container?.scrollTo({ top: 0 });
+		const links = container?.querySelectorAll('a');
     if (links) {
       links.forEach(link => {
         if (link.href && link.href.startsWith('to:')) {
@@ -68,11 +70,14 @@ export default function HelpDetails() {
         }
       });
     }
-    const dictionaryWords = document?.getElementById('case-content')?.querySelectorAll('[data-title]');
+    const dictionaryWords = container?.querySelectorAll('[data-title]');
     dictionaryWords?.forEach(word => {
       const title = word.getAttribute('data-title');
       const description = dictionary.find((item: any) => item.word === title)?.description || '';
       word.classList.add('cursor-help');
+      (word as HTMLElement).style.color = '#0662a2';
+      (word as HTMLElement).style.textDecoration = 'none';
+      (word as HTMLElement).style.fontWeight = 'bold';
       if (description) new Tooltip(word as HTMLElement, description);
     })
   }, [activeTab, caseId, optionId, lang]);

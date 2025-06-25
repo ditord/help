@@ -7,12 +7,14 @@ const normalizePath = (path: string) => path.replace(/\/+$/, '');
 type HeaderNavigationType = {
   className?: string
   lang?: Language
+  toggleMenu?: () => void
 };
 
-export const HeaderNavigation = ({ className = "", lang = "hy" }: HeaderNavigationType) => {
+export const HeaderNavigation = ({ className = "", lang = "hy", toggleMenu }: HeaderNavigationType) => {
   const location = useLocation();
 
   const onLinkClick = (e: any, href: string) => {
+    toggleMenu && toggleMenu();
     if (href.includes("#")) {
       e.preventDefault();
       const elementId = href.split("#")[1];

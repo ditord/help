@@ -12,7 +12,6 @@ import parentCase5Option1 from './cases/parent/case-5.1.json';
 import parentCase5Option2 from './cases/parent/case-5.2.json';
 import parentCase6Option1 from './cases/parent/case-6.1.json';
 import parentCase7Option1 from './cases/parent/case-7.1.json';
-import parentCase8Option1 from './cases/parent/case-8.1.json';
 
 import childCase1Option1 from './cases/child/case-1.1.json';
 import childCase2Option1 from './cases/child/case-2.1.json';
@@ -28,8 +27,6 @@ import childCase5Option1 from './cases/child/case-5.1.json';
 import childCase5Option2 from './cases/child/case-5.2.json';
 import childCase6Option1 from './cases/child/case-6.1.json';
 import childCase7Option1 from './cases/child/case-7.1.json';
-import childCase8Option1 from './cases/child/case-8.1.json';
-import { useNavigate } from 'react-router';
 
 export type ContentKey = 
   "parentCase1Option1" |
@@ -46,7 +43,6 @@ export type ContentKey =
   "parentCase5Option2" |
   "parentCase6Option1" |
   "parentCase7Option1" |
-  "parentCase8Option1" |
   "childCase1Option1" |
   "childCase2Option1" |
   "childCase2Option2" |
@@ -60,8 +56,7 @@ export type ContentKey =
   "childCase5Option1" |
   "childCase5Option2" |
   "childCase6Option1" |
-  "childCase7Option1" |
-  "childCase8Option1";
+  "childCase7Option1" ;
 
 export const contentData = {
   parentCase1Option1,
@@ -78,7 +73,6 @@ export const contentData = {
   parentCase5Option2,
   parentCase6Option1,
   parentCase7Option1,
-  parentCase8Option1,
   childCase1Option1,
   childCase2Option1,
   childCase2Option2,
@@ -93,7 +87,6 @@ export const contentData = {
   childCase5Option2,
   childCase6Option1,
   childCase7Option1,
-  childCase8Option1,
 };
 
 export function getStaticHelpContent(userType: string, caseId: number, optionId: number) {

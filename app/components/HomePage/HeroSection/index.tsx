@@ -47,7 +47,7 @@ export const HeroSection = ({ lang = "hy" }: { lang?: Language }) => {
                 {texts[lang].btn1}
               </Link>
               <Link 
-                to={`/${lang}/blogs/`}
+                to={`/${lang}/resources/`}
                 className="btn"
               >
                 {texts[lang].btn2}

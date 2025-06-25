@@ -113,7 +113,7 @@ export const helpItems: HelpItemType[] = [
       en: "My account has been hacked",
     },
     description: {
-      hy: "Ինստագրամ / ֆեյսբուք / Սնապչատ / Տիկտոկ / Վոթսափ / Վայբեր / Տելեգրամ / մեյլ / գուգլ դրայվ։",
+      hy: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / Gmail / Mail։",
       en: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / email / Google Drive."
     },
     options: [
@@ -133,7 +133,7 @@ export const helpItems: HelpItemType[] = [
       en: "My account has been hacked and I'm being blackmailed",
     },
     description: {
-      hy: "Ինստագրամ / ֆեյսբուք / Սնապչատ / Տիկտոկ / Վոթսափ / Վայբեր / Տելեգրամ / մեյլ / գուգլ դրայվ։",
+      hy: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / Gmail / Mail։",
       en: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / email / Google Drive."
     },
     options: [
