@@ -65,7 +65,7 @@ export const mainContacts = {
   phone: {
     link: "tel:+37455228811",
     text: {
-      hy: "+374 55 22 88 11",
+      hy: "055 228811",
       en: "+374 55 22 88 11",
     },
   },
@@ -75,14 +75,14 @@ export const helpContacts = {
   phone: {
     link: "tel:+37455228811",
     text: {
-      hy: "+374 55 22 88 11",
+      hy: "055 228811",
       en: "+374 55 22 88 11",
     },
   },
   whatsappPhone: {
     link: "https://wa.me/+37455228811",
     text: {
-      hy: "+374 55 22 88 11",
+      hy: "055 228811",
       en: "+374 55 22 88 11",
     },
   },

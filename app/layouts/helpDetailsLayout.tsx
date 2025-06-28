@@ -68,7 +68,7 @@ export default function HelpDetailsLayout() {
 
   useEffect(() => {
     setActiveTab("tec");
-  }, [])
+  }, [userType])
 
   return (
     <main>
@@ -220,8 +220,8 @@ export default function HelpDetailsLayout() {
               </div>
             </div>
             <div className="2xl:w-60 xl:w-50 flex xl:flex-col md:flex-row flex-col gap-10 xl:mt-12">
-              <iframe className="aspect-[9/16] 2xl:w-60 xl:w-50 md:w-1/2" src="https://www.youtube.com/embed/sypdBtiH02E" title="YouTube video player" />
-              <iframe className="aspect-[9/16] 2xl:w-60 xl:w-50 md:w-1/2" src="https://www.youtube.com/embed/sypdBtiH02E" title="YouTube video player" />
+              <iframe className="aspect-[9/16] 2xl:w-60 xl:w-50 md:w-1/2" src="https://youtube.com/embed/85UyTIfhDV0?si=OHRIqxD3KhSLkqB-" title="YouTube video player" />
+              <iframe className="aspect-[9/16] 2xl:w-60 xl:w-50 md:w-1/2" src="https://youtube.com/embed/5E2pyIGp7rI?si=KGEjVLMwg0lVpDbz" title="YouTube video player" />
             </div>
           </div>
           {/* <div className="mt-10">

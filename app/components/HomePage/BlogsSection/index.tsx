@@ -370,7 +370,7 @@ export const BlogsSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => 
 
       <div className="container mx-auto px-4 relative">
         <div className="text-center mt-6">
-          <Link to={`/${lang}/blog/`} className="btn btn-small">
+          <Link to="https://cyberhub.am/hy/blog/category/cyberchat/" target="_blank" rel="noopener noreferrer" className="btn btn-small">
             {texts[lang].button}
           </Link>
         </div>

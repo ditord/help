@@ -40,18 +40,19 @@ export async function loader({ request }: { request: Request }) {
     return json({ error: "Content not found" }, { status: 404 });
   }
 
-  return json({ content, lang, caseId, optionId });
+  return json({ content, lang, caseId, optionId, userType });
 }
 
 export default function HelpDetails() {
   const navigate = useNavigate();
   const activeTab = useCaseTabStore(store => store.activeTab);
-  const { content, lang, caseId, optionId } = 
+  const { content, lang, caseId, optionId, userType } = 
   useLoaderData<{ 
     content?: any
     lang: string;
     caseId: number;
     optionId: number;
+    userType: string;
   }>();
 
   useEffect(() => {
@@ -67,6 +68,9 @@ export default function HelpDetails() {
             e.preventDefault();
             navigate(newLink, { preventScrollReset: true });
           });
+        } else {
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
         }
       });
     }
@@ -80,7 +84,7 @@ export default function HelpDetails() {
       (word as HTMLElement).style.fontWeight = 'bold';
       if (description) new Tooltip(word as HTMLElement, description);
     })
-  }, [activeTab, caseId, optionId, lang]);
+  }, [activeTab, caseId, optionId, lang, userType]);
 
   return (
     <div className="w-full h-full flex flex-col">
