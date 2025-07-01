@@ -50,6 +50,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Scripts />
         <script src="/assets/embedScript.js" async />
         <script src="/assets/scripts.js" async />
+        <script type="text/javascript" id="hs-script-loader" async defer src="https://js-eu1.hs-scripts.com/146466967.js"></script>
       </body>
     </html>
   );
