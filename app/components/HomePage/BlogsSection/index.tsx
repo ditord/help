@@ -5,26 +5,19 @@ import type { Language } from "~/Types";
 const texts = {
   hy: {
     title: "Բլոգ",
-    blogCommonTitle: "Վերնագիր",
     button: "Դիտել ավելին",
   },
   en: {
     title: "Blog",
-    blogCommonTitle: "Title",
     button: "See more",
   },
 };
 
-const blogItems = Array.from(Array(4)).map((_, index) => ({
-  id: index + 1,
-  title: texts,
-  image: "/placeholder-image.jpg"
-}));
-
 type BlogItem = {
-  id: number;
-  title: typeof texts;
+  id: string;
+  title: string;
   image: string;
+  link: string;
 };
 
 type MobileBlogItemProps = {
@@ -46,6 +39,7 @@ type MobileBlogSectionProps = {
   setCurrentPage: (page: number) => void;
   goToPage: (index: number) => void;
   lang?: Language;
+  blogs: BlogItem[]
 };
 
 type DesktopBlogSectionProps = {
@@ -72,12 +66,14 @@ const MobileBlogItem: React.FC<MobileBlogItemProps> = ({ item, index, lang = "hy
       key={index} 
       className="w-72 flex-shrink-0"
       style={itemScrollStyles}
-      to={`/${lang}/blog/${item.id}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      to={item.link}
     >
-      <div className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white p-6 cursor-pointer h-full">
-        <div className="w-full aspect-video bg-[#D9D9D9] rounded" />
-        <div className="pt-6">
-          <p className="text-xl font-bold">{item.title[lang].blogCommonTitle}</p>
+      <div className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white p-3 cursor-pointer h-full flex flex-col">
+        <img src={item.image} alt="blog-img" className="object-cover aspect-5/4 rounded" />
+        <div className="pt-6 flex-1">
+          <p className="font-medium">{item.title}</p>
         </div>
       </div>
     </Link>
@@ -89,12 +85,14 @@ const DesktopBlogItem: React.FC<DesktopBlogItemProps> = ({ item, currentIndex, i
     <Link 
       key={`${currentIndex}-${itemIndex}`}
       className="w-70 flex-shrink-0"
-      to={`/${lang}/blog/${item.id}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      to={item.link}
     >
-      <div className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white p-6 cursor-pointer h-full">
-        <div className="w-full aspect-video bg-[#D9D9D9] rounded" />
-        <div className="pt-6">
-          <p className="text-xl font-bold">{item.title[lang].blogCommonTitle}</p>
+      <div className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white p-3 cursor-pointer h-full flex flex-col">
+        <img src={item.image} alt="blog-img" className="object-cover aspect-5/4 rounded" />
+        <div className="pt-6 flex-1">
+          <p className="font-medium">{item.title}</p>
         </div>
       </div>
     </Link>
@@ -106,7 +104,8 @@ const MobileBlogSection: React.FC<MobileBlogSectionProps> = ({
   currentPage, 
   setCurrentPage, 
   goToPage,
-  lang
+  lang,
+  blogs,
 }) => {
   const mobileScrollStyles: React.CSSProperties = {
     scrollSnapType: 'x mandatory',
@@ -125,7 +124,7 @@ const MobileBlogSection: React.FC<MobileBlogSectionProps> = ({
       const viewportWidth = container.clientWidth;
       const centerPosition = scrollPosition + (viewportWidth / 2);
       const activeItemIndex = Math.floor(centerPosition / itemWidth);
-      const boundedIndex = Math.max(0, Math.min(activeItemIndex, blogItems.length - 1));
+      const boundedIndex = Math.max(0, Math.min(activeItemIndex, blogs.length - 1));
       
       if (boundedIndex !== currentPage) {
         setCurrentPage(boundedIndex);
@@ -156,7 +155,7 @@ const MobileBlogSection: React.FC<MobileBlogSectionProps> = ({
         style={mobileScrollStyles}
       >
         <div className="flex gap-x-4 px-10 pb-6 min-w-max">
-          {blogItems.map((item, index) => (
+          {blogs.map((item, index) => (
             <MobileBlogItem key={index} item={item} index={index} lang={lang} />
           ))}
         </div>
@@ -164,7 +163,7 @@ const MobileBlogSection: React.FC<MobileBlogSectionProps> = ({
       
       <div className="container mx-auto px-4 relative">
         <div className="flex justify-center mt-6 space-x-2">
-          {Array.from({ length: blogItems.length }).map((_, index) => (
+          {Array.from({ length: blogs.length }).map((_, index) => (
             <button
               key={index}
               onClick={() => goToPage(index)}
@@ -193,7 +192,7 @@ const DesktopBlogSection: React.FC<DesktopBlogSectionProps> = ({
   scrollLeft, 
   scrollRight, 
   goToPage,
-  lang
+  lang,
 }) => {
   return (
     <div className="container mx-auto px-10 relative">
@@ -258,7 +257,7 @@ const DesktopBlogSection: React.FC<DesktopBlogSectionProps> = ({
   );
 };
 
-export const BlogsSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => {
+export const BlogsSection: React.FC<{ lang?: Language, blogs: BlogItem[] }> = ({ lang = "hy", blogs }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState<boolean>(false);
   const [showRightArrow, setShowRightArrow] = useState<boolean>(true);
@@ -297,13 +296,13 @@ export const BlogsSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => 
     const itemWidth = 288 + 16;
     const itemsToShow = Math.floor(containerWidth / itemWidth);
     
-    const items = blogItems.slice(currentIndex, currentIndex + Math.max(1, itemsToShow));
+    const items = blogs.slice(currentIndex, currentIndex + Math.max(1, itemsToShow));
     setVisibleItems(items);
     
     setShowLeftArrow(currentIndex > 0);
-    setShowRightArrow(currentIndex + itemsToShow < blogItems.length);
+    setShowRightArrow(currentIndex + itemsToShow < blogs.length);
 
-    const totalPositions = blogItems.length - Math.min(itemsToShow, blogItems.length) + 1;
+    const totalPositions = blogs.length - Math.min(itemsToShow, blogs.length) + 1;
     setTotalPages(Math.max(1, totalPositions));
 
     setCurrentPage(currentIndex);
@@ -316,7 +315,7 @@ export const BlogsSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => 
   };
 
   const scrollRight = (): void => {
-    if (currentIndex + visibleItems.length < blogItems.length) {
+    if (currentIndex + visibleItems.length < blogs.length) {
       setCurrentIndex(currentIndex + 1);
     }
   };
@@ -351,6 +350,7 @@ export const BlogsSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => 
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           goToPage={goToPage}
+          blogs={blogs}
         />
       ) : (
         <DesktopBlogSection
