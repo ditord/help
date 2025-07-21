@@ -86,11 +86,18 @@ export const helpContacts = {
       en: "+374 55 22 88 11",
     },
   },
-  whatsappAnonChat: {
-    link: "https://wa.me/+37455228811",
+  // whatsappAnonChat: {
+  //   link: "https://wa.me/37455228811?text=w41348019",
+  //   text: {
+  //     hy: "WhatsApp չատ",
+  //     en: "WhatsApp chat",
+  //   },
+  // },
+  telegramAnonChat: {
+    link: "https://t.me/cyberhubam_bot",
     text: {
-      hy: "WhatsApp չատ",
-      en: "WhatsApp chat",
+      hy: "Telegram չատ",
+      en: "Telegram chat",
     },
   },
   anonChat: {
@@ -147,7 +154,7 @@ export const helpItems: HelpItemType[] = [
     },
     options: [
       {
-        text: "Ինձ համար շատ թանկ է հաշիվը",
+        text: "Օգտահաշիվս շատ կարևոր է ինձ համար",
         id: 1,
       },
       {
@@ -171,7 +178,7 @@ export const helpItems: HelpItemType[] = [
     },
     options: [
       {
-        text: "Օգտագործում են կեղծ օգտահաշիվներում",
+        text: "Կրկնօրինակել են իմ օգտահաշիվը և գրում են իմ անունից",
         id: 1,
       },
       {
@@ -183,7 +190,7 @@ export const helpItems: HelpItemType[] = [
         id: 3,
       },
       {
-        text: "Տեղադրել են ատելության հրահրման խմբերում, որի անդամներն ինձ ճնշում են",
+        text: "Տեղադրել են ատելություն հրահրող խմբերում, որի անդամներն ինձ ճնշում են",
         id: 4,
       },
     ],
@@ -194,8 +201,8 @@ export const helpItems: HelpItemType[] = [
     iconInactive: <img src="/assets/images/help-icons/help-inactive-6.svg" alt="help-icon-inactive" className="w-full" />,
     iconActive: <img src="/assets/images/help-icons/help-active-6.svg" alt="help-icon-active" className="w-full" />,
     title: {
-      hy: "Ինձ վարկաբեկել են նկարներով, խմբագրված վիզուալներով",
-      en: "I've been defamed with photos or manipulated images",
+      hy: "Տարածել են ինձ վարկաբեկող լուսանկարներ, խմբագրված վիզուալ նյութեր",
+      en: "I've been defamed with manipulated photos or visual materials",
     },
     description: {
       hy: "Իմ նկարները կամ խմբագրված վիզուալները տարածել են՝ ինձ վատ ներկայացնելու համար։",
@@ -207,11 +214,11 @@ export const helpItems: HelpItemType[] = [
         id: 1,
       },
       {
-        text: "Սպառնում կամ գումար են պահանջում՝ հրապարակման շանտաժով",
+        text: "Ահաբեկում կամ գումար են պահանջում՝ իմ տվյալները հրապարակելու սպառնալիքով",
         id: 2,
       },
       {
-        text: "Ստեղծել են արհեստական պոռնոգրաֆիա (AI-ով)",
+        text: "Ստեղծել են իմ մասնակցությամբ պոռնոգրաֆիկ նյութեր՝ ԱԲ գործիքներով (AI)",
         id: 3,
       },
     ],
@@ -222,8 +229,8 @@ export const helpItems: HelpItemType[] = [
     iconInactive: <img src="/assets/images/help-icons/help-inactive-5.svg" alt="help-icon-inactive" className="w-full" />,
     iconActive: <img src="/assets/images/help-icons/help-active-5.svg" alt="help-icon-active" className="w-full" />,
     title: {
-      hy: "Անհանգստանում եմ երեխայի առցանց անվտանգության համար",
-      en: "I'm concerned about a child's online safety",
+      hy: "Անհանգստանում եմ առցանց տիրույթում երեխայի անվտանգության համար",
+      en: "I'm concerned about child's online safety",
     },
     description: {
       hy: "Ուզում եմ համոզվել, որ նա պաշտպանված է համացանցում։ Կա մտահոգություն, կամ պարզապես ուզում եմ ավելի ուշադիր լինել նրա օնլայն վարքին։",
@@ -235,7 +242,7 @@ export const helpItems: HelpItemType[] = [
         id: 1,
       },
       {
-        text: "Ուզում եմ վստահ լինել, որ երեխայի առցանց միջավայրը ապահով է",
+        text: "Ուզում եմ վստահ լինել, որ երեխայի առցանց միջավայրն ապահով է",
         id: 2,
       },
     ],
@@ -255,7 +262,7 @@ export const helpItems: HelpItemType[] = [
     },
     options: [
       {
-        text: "Շրջապատս և այլոք ծաղրում են ինձ",
+        text: "Իմ շրջապատում ծաղրում են ինձ",
         id: 1,
       },
     ],
@@ -275,7 +282,7 @@ export const helpItems: HelpItemType[] = [
     },
     options: [
       {
-        text: "Վստահությունս շահել են, ընկերացել ու տվյալներս օգտագործել են իմ դեմ",
+        text: "Վստահությունս շահել են, ընկերացել և տվյալներս օգտագործել են ինձ վնասելու նպատակով",
         id: 1,
       },
     ],

@@ -1,0 +1,66 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="Content-Style-Type" content="text/css">
+      <meta name="generator" content="Aspose.Words for .NET 17.1.0.0">
+      <title></title>
+   </head>
+   <body>
+      <div>
+         <p style="margin-top:0pt; text-align:justify; line-height:150%; font-size:11pt; background-color:#ffffff"><span style="font-family:Sylfaen">Եթե օգտահաշիվդ կոտրել են, այսինքն՝ քո սոցիալական կայքէջը ենթարկվել է հաքերային հարձակման, և քո </span><span style="font-family:Sylfaen; text-decoration:underline; color:#2a609d" data-title="Անձնական տվյալ">անձնական տվյալները</span><span style="font-family:Sylfaen"> հասանելի են դարձել որևէ մեկին, դա կարող է վախի տեղիք տալ, անորոշ մտքեր ու զգացողություններ առաջացնել։ Նման իրավիճակում բնական է շփոթվածություն կամ անապահովություն զգալը։ Ստեղծված իրավիճակում պետք է խոսել վստահելի մեծահասակի հետ (ծնող, ուսուցիչ կամ մեկ այլ վստահելի մարդ) և պատմել, թե ինչն է քեզ վախեցնում կամ անհանգստացնում։</span></p>
+      </div>
+
+
+      <script>
+		function convertPtToVwOnlyForSpacing() {
+		  const elements = document.querySelectorAll('[style]');
+		  // const vwPerPixel = 100 / window.innerWidth;
+		  const ptToPxFactor = 1;//1.333; // 1pt = 1.333px
+
+		  const spacingProps = ['margin', 'padding'];
+		  const removalProps = ['background', 'background-color', 'font-family'];
+
+		  elements.forEach(el => {
+		    let originalStyle = el.getAttribute('style');
+		    if (!originalStyle) return;
+
+		    const rules = originalStyle
+		      .split(';')
+		      .map(rule => rule.trim())
+		      .filter(Boolean);
+
+		    const newRules = rules
+		      .map(rule => {
+		        const [propertyRaw, valueRaw] = rule.split(':');
+		        if (!propertyRaw || !valueRaw) return null;
+
+		        const property = propertyRaw.trim().toLowerCase();
+		        let value = valueRaw.trim();
+
+		        // Remove unwanted properties
+		        if (removalProps.some(p => property.startsWith(p))) return null;
+
+		        // Convert pt to vw for spacing props
+		        if (spacingProps.some(p => property.startsWith(p)) && /pt/.test(value)) {
+		          value = value.replace(/(\d+(\.\d+)?)pt/gi, (_, ptVal) => {
+		            const px = parseFloat(ptVal) * ptToPxFactor;
+		            return `${parseInt(px)}px`;
+		            // const vw = px * vwPerPixel;
+		            // return `${vw.toFixed(3)}vw`;
+		          });
+		          return `${property}: ${value}`;
+		        }
+
+		        return `${property}: ${value}`;
+		      })
+		      .filter(Boolean);
+
+		    el.setAttribute('style', newRules.join('; '));
+		  });
+		}
+
+		convertPtToVwOnlyForSpacing();
+
+      </script>
+   </body>
+</html>

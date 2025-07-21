@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Style-Type" content="text/css">
+        <meta name="generator" content="Aspose.Words for .NET 17.1.0.0">
+        <title></title>
+    </head>
+    <body>
+        <div>
+            <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify; line-height:115%; font-size:11pt; background-color:#ffffff"><span style="font-family:Sylfaen">Երեխայի զարգացման ցանկացած փուլում կարևոր են վստահելի մեծահասակի ներգրավվածությունն ու աջակցությունը, որը պետք է համապատասխանաբար վերանայվի՝ հաշվի առնելով երեխայի տարիքը, կարիքներն ու հետաքրքրությունները։</span></p>
+            <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify; line-height:115%; font-size:11pt; background-color:#ffffff"><span style="font-family:Sylfaen">Վստահելի և սերտ հարաբերություններ ստեղծելու համար կարևոր է խրախուսել երեխայի ինքնուրույնությունն ու ազատությունը։</span></p>
+            <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify; line-height:115%; font-size:11pt; background-color:#ffffff"><span style="font-family:Sylfaen">Չափազանց վերահսկող ծնողական վերաբերմունքը կարող է խանգարել այս գործընթացին և ստեղծել անջրպետ Ձեր և երեխայի միջև։</span></p>
+            <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify; line-height:115%; font-size:11pt; background-color:#ffffff"><span style="font-family:Sylfaen">Փորձեք հաղթահարել վերահսկելու անհրաժեշտությունը և բացեիբաց խոսել երեխայի հետ Ձեր մտահոգությունների ու անհանգստությունների մասին։</span></p>
+        </div>
+      <script>
+		function normalizeHTML() {
+		  const allLinks = document.querySelectorAll('a');
+
+   		  allLinks.forEach(link => {
+		      link.setAttribute('target', '_blank');
+		      // Also add rel="noopener noreferrer" for security
+		      link.setAttribute('rel', 'noopener noreferrer');
+		  });
+
+		  const elements = document.querySelectorAll('[style]');
+		  // const vwPerPixel = 100 / window.innerWidth;
+		  const ptToPxFactor = 1;//1.333; // 1pt = 1.333px
+
+		  const spacingProps = ['margin', 'padding'];
+		  const removalProps = ['background', 'background-color', 'font-family', 'text-indent'];
+		  const lineHeightProps = 'line-height';
+
+		  elements.forEach(el => {
+		    let originalStyle = el.getAttribute('style');
+		    if (!originalStyle) return;
+
+		    const rules = originalStyle
+		      .split(';')
+		      .map(rule => rule.trim())
+		      .filter(Boolean);
+
+		    const newRules = rules
+		      .map(rule => {
+		        const [propertyRaw, valueRaw] = rule.split(':');
+		        if (!propertyRaw || !valueRaw) return null;
+
+		        const property = propertyRaw.trim().toLowerCase();
+		        let value = valueRaw.trim();
+
+		        // Remove unwanted properties
+		        if (removalProps.some(p => property.startsWith(p))) return null;
+
+		        // Change Line height property
+		        if (property === lineHeightProps) return `${property}: ${150}%`;
+
+		        // Convert pt to vw for spacing props
+		        if (spacingProps.some(p => property.startsWith(p)) && /pt/.test(value)) {
+		          value = value.replace(/(\d+(\.\d+)?)pt/gi, (_, ptVal) => {
+		            const px = parseFloat(ptVal) * ptToPxFactor;
+		            return `${parseInt(px)}px`;
+		            // const vw = px * vwPerPixel;
+		            // return `${vw.toFixed(3)}vw`;
+		          });
+		          return `${property}: ${value}`;
+		        }
+
+		        return `${property}: ${value}`;
+		      })
+		      .filter(Boolean);
+
+		    el.setAttribute('style', newRules.join('; '));
+		  });
+		}
+
+		normalizeHTML();
+
+      </script>
+    </body>
+</html>

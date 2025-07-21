@@ -1,0 +1,80 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="Content-Style-Type" content="text/css">
+      <meta name="generator" content="Aspose.Words for .NET 17.1.0.0">
+      <title></title>
+   </head>
+   <body>
+      <div>
+         <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify; line-height:115%; font-size:11pt; background-color:#ffffff"><span style="font-family:Sylfaen">Ծնողներիդ հետաքրքրվածությունը քո վիրտուալ կյանքով փորձիր ընկալել որպես հոգատարության, անհանգստության և քեզ պաշտպանելու ցանկության դրսևորում։ </span></p>
+         <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify; line-height:115%; font-size:11pt; background-color:#ffffff"><span style="font-family:Sylfaen">Այդ փաստը պետք չէ դիտարկել որպես միջամտություն քո անձնական կյանքին։ </span></p>
+         <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify; line-height:115%; font-size:11pt; background-color:#ffffff"><span style="font-family:Sylfaen">Փորձիր իրավիճակին նայել այլ տեսանկյունից</span><span style="font-family:Sylfaen">․</span><span style="font-family:Sylfaen"> ծնողի համար դա անվտանգության ապահովման առաջնահերթ միջոց է։ </span></p>
+         <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify; line-height:115%; font-size:11pt; background-color:#ffffff"><span style="font-family:Sylfaen">Կարևոր է գիտակցես՝ քո անհանգստությունների մասին առաջին հերթին ծնողիդ հայտնելը կարող է օգնել ավելի արագ և ճիշտ լուծումներ գտնելուն։ </span></p>
+         <p style="margin-top:0pt; margin-bottom:8pt; text-align:justify; line-height:115%; font-size:11pt; background-color:#ffffff"><span style="font-family:Sylfaen">Փորձեք հասկանալ միմյանց և միասին լուծել խնդիրները։</span></p>
+      </div>
+      <script>
+		function normalizeHTML() {
+		  const allLinks = document.querySelectorAll('a');
+
+   		  allLinks.forEach(link => {
+		      link.setAttribute('target', '_blank');
+		      // Also add rel="noopener noreferrer" for security
+		      link.setAttribute('rel', 'noopener noreferrer');
+		  });
+
+		  const elements = document.querySelectorAll('[style]');
+		  // const vwPerPixel = 100 / window.innerWidth;
+		  const ptToPxFactor = 1;//1.333; // 1pt = 1.333px
+
+		  const spacingProps = ['margin', 'padding'];
+		  const removalProps = ['background', 'background-color', 'font-family', 'text-indent'];
+		  const lineHeightProps = 'line-height';
+
+		  elements.forEach(el => {
+		    let originalStyle = el.getAttribute('style');
+		    if (!originalStyle) return;
+
+		    const rules = originalStyle
+		      .split(';')
+		      .map(rule => rule.trim())
+		      .filter(Boolean);
+
+		    const newRules = rules
+		      .map(rule => {
+		        const [propertyRaw, valueRaw] = rule.split(':');
+		        if (!propertyRaw || !valueRaw) return null;
+
+		        const property = propertyRaw.trim().toLowerCase();
+		        let value = valueRaw.trim();
+
+		        // Remove unwanted properties
+		        if (removalProps.some(p => property.startsWith(p))) return null;
+
+		        // Change Line height property
+		        if (property === lineHeightProps) return `${property}: ${150}%`;
+
+		        // Convert pt to vw for spacing props
+		        if (spacingProps.some(p => property.startsWith(p)) && /pt/.test(value)) {
+		          value = value.replace(/(\d+(\.\d+)?)pt/gi, (_, ptVal) => {
+		            const px = parseFloat(ptVal) * ptToPxFactor;
+		            return `${parseInt(px)}px`;
+		            // const vw = px * vwPerPixel;
+		            // return `${vw.toFixed(3)}vw`;
+		          });
+		          return `${property}: ${value}`;
+		        }
+
+		        return `${property}: ${value}`;
+		      })
+		      .filter(Boolean);
+
+		    el.setAttribute('style', newRules.join('; '));
+		  });
+		}
+
+		normalizeHTML();
+
+      </script>
+   </body>
+</html>

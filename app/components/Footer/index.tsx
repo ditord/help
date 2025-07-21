@@ -12,12 +12,12 @@ const texts = {
     title: "Հետադարձ կապ",
     buttonTitle1: "Թեժ գիծ",
     buttonTitle2: "WhatsApp զանգ",
-    buttonTitle3: "WhatsApp չատ",
+    buttonTitle3: "Telegram չատ",
     buttonTitle4: "ԿիբեռՉատ",
     buttonDescription1: "Զանգի’ր մեզ 24/7",
     buttonDescription2: "Զանգի’ր WhatsApp-ով",
-    buttonDescription3: <>Գրի’ր WhatsApp <br />չատբոտին</>,
-    buttonDescription4: <>Գրի’ր չատբոտին <br />անանուն</>,
+    buttonDescription3: <>Գրի’ր Telegram <br />չատբոտին</>,
+    buttonDescription4: <>Գրի’ր չատին <br />անանուն</>,
     findUsSocial: "Գտիր մեզ առցանց",
     connectionInfo: "Մեզ կարող եք գրել էլ֊փոստով, կամ տոմս բացելով մեր աջակցության հարթակում կամ էլ զանգելով/գրելով մեզ Signal/Telegram/Whatsapp հավելվածներով։",
     pgpInfo: "Օգտագործեք հետևյալ PGP բանալին՝ գաղտնագրված նամակագրության համար։",
@@ -27,12 +27,12 @@ const texts = {
     title: "Contact us",
     buttonTitle1: "Hotline",
     buttonTitle2: "WhatsApp Call",
-    buttonTitle3: "WhatsApp Chat",
+    buttonTitle3: "Telegram Chat",
     buttonTitle4: "CyberChat",
     buttonDescription1: "Call us 24/7",
     buttonDescription2: "Call via WhatsApp",
-    buttonDescription3: <>Write to the WhatsApp<br />chatbot</>,
-    buttonDescription4: <>Write to the chatbot <br />anonymously</>,
+    buttonDescription3: <>Write to the Telegram<br />chatbot</>,
+    buttonDescription4: <>Write to the chat <br />anonymously</>,
     findUsSocial: "Find us online",
     connectionInfo: "Feel free to contact us by E-mail or by opening a ticket at our help-desk or by contacting us via Phone/Signal/Telegram/Whatsapp:",
     pgpInfo: "Use the following PGP key for encrypted correspondence",
@@ -76,11 +76,11 @@ export const Footer = ({ lang = "hy" }: { lang?: Language }) => {
               </Link>
               <Link
                 className="transform duration-300 hover:shadow-md scale-[0.9] hover:scale-[1] flex flex-col items-center justify-center gap-4 rounded-sm shadow-xs bg-white border-[#2B2B30] w-70 h-70"
-                to={helpContacts.whatsappAnonChat.link}
+                to={helpContacts.telegramAnonChat.link}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src="/assets/images/contact-icons/whatsapp.png" alt="whatsapp" className="w-16" />
+                <img src="/assets/images/contact-icons/telegram.png" alt="telegram" className="w-16" />
                 <div className="flex flex-col gap-2 items-center justify-between h-25">
                   <span className="font-bold text-lg">{texts[lang].buttonTitle3}</span>
                   <span className="text-[#828282] text-lg text-center">{texts[lang].buttonDescription3}</span>

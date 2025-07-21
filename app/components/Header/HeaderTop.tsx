@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { WhatsappIcon } from "~/elements";
+import { WhatsappIcon, TelegramIcon } from "~/elements";
 import { mainContacts, helpContacts } from "~/config";
 import type { Language } from "~/Types";
 
@@ -36,9 +36,9 @@ export const HeaderTop = ({ lang = "hy" }: { lang?: Language }) => {
                 <WhatsappIcon className="text-[#8E8E93] w-7.5 h-7.5" />
                 <span>{helpContacts.whatsappPhone.text[lang]}</span>
               </Link>
-              <Link target="_blank" rel="noopener noreferrer" className="flex items-center gap-2" to={helpContacts.whatsappAnonChat.link}>
-                <WhatsappIcon className="text-[#8E8E93] w-7.5 h-7.5" />
-                <span>{helpContacts.whatsappAnonChat.text[lang]}</span>
+              <Link target="_blank" rel="noopener noreferrer" className="flex items-center gap-2" to={helpContacts.telegramAnonChat.link}>
+                <TelegramIcon className="text-[#8E8E93] w-7.5 h-7.5" />
+                <span>{helpContacts.telegramAnonChat.text[lang]}</span>
               </Link>
             </div>
           </div>
