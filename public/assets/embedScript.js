@@ -71,8 +71,8 @@ function initialization() {
       display: none;
       position: fixed;
       z-index: 99999999999;
-      left: 30px;
-      bottom: 30px;
+      left: 16px;
+      bottom: 16px;
     }
     #_ada-friendly-embed_ {
       display: none;
@@ -86,7 +86,7 @@ function initialization() {
       border: none;
     }
     ._ada-friendly-embed-button_ {
-      background: linear-gradient(90deg, #006be6, #0260dd, #0555d4, #0749cb, #093ec2) !important;
+      background: rgb(6, 98, 162) !important;
       width: 60px;
       height: 60px;
       border-radius: 30px;
