@@ -1,7 +1,40 @@
 import type { Route } from "../routes/+types/aboutUs";
 import metadata from "~/metadata";
 import type { Language } from "~/Types";
-import { partners } from "~/components";
+
+interface Partner {
+  name: string;
+  logo: string;
+  url: string;
+}
+
+export const partners: Partner[] = [
+  {
+    name: "UK International Development",
+    logo: "/assets/images/partners/ukid.png",
+    url: "https://www.gov.uk/government/organisations/foreign-commonwealth-office"
+  },
+  {
+    name: "Republic of Armenia",
+    logo: "/assets/images/partners/ra.png",
+    url: "https://www.gov.am"
+  },
+  {
+    name: "UNICEF",
+    logo: "/assets/images/partners/unicef.png",
+    url: "https://www.unicef.org/armenia/en"
+  },
+  {
+    name: "Media Diversity Institute",
+    logo: "/assets/images/partners/mdi.png",
+    url: "https://mdi.am"
+  },
+  {
+    name: "CyberHUB",
+    logo: "/assets/images/partners/cyberhub.png",
+    url: "https://cyberhub.am/"
+  },
+];
 
 export function meta({ location }: Route.MetaArgs) {
   const lang: Language = location.pathname.includes("/hy") ? "hy" : "en";

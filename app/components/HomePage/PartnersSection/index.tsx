@@ -28,11 +28,6 @@ export const partners: Partner[] = [
     url: "https://www.gov.am"
   },
   {
-    name: "UNICEF",
-    logo: "/assets/images/partners/unicef.png",
-    url: "https://www.unicef.org/armenia/en"
-  },
-  {
     name: "Media Diversity Institute",
     logo: "/assets/images/partners/mdi.png",
     url: "https://mdi.am"
@@ -41,6 +36,11 @@ export const partners: Partner[] = [
     name: "CyberHUB",
     logo: "/assets/images/partners/cyberhub.png",
     url: "https://cyberhub.am/"
+  },
+  {
+    name: "UNICEF",
+    logo: "/assets/images/partners/unicef.png",
+    url: "https://www.unicef.org/armenia/en"
   },
 ];
 
