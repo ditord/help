@@ -9,6 +9,23 @@ interface ItemRefs {
   [key: string]: HTMLDivElement | null;
 }
 
+const youtube_shorts: Record<`${number}-${number}`, string[]> = {
+  '1-1': ['https://www.youtube.com/embed/fYkapXfpUhk?si=k2GBR9ZEKkQ6cPiX', 'https://www.youtube.com/embed/cXKGZwkkRL0?si=uxyjh1tPgT9h-7M7'],
+  '2-1': ['https://www.youtube.com/embed/fYkapXfpUhk?si=bbNS9T5Cg56kth2H', 'https://www.youtube.com/embed/1jIc7lk2H6w?si=N1zWimISp2V7F-51'],
+  '2-2': ['https://www.youtube.com/embed/fYkapXfpUhk?si=Y_vyRB1uQocfPGhw', 'https://www.youtube.com/embed/1jIc7lk2H6w?si=cq3lpYGrH6EZYaqb'],
+  '3-1': ['https://www.youtube.com/embed/iEq71e_FcFs?si=iKpE6ht7oUcYH_Pz', 'https://www.youtube.com/embed/tMnSa-WNhNg?si=yZOCKrA-GQUSHl2u'],
+  '3-2': ['https://www.youtube.com/embed/xiTVzNjUGm8?si=Zfbd5sh5_01CsmdZ', 'https://www.youtube.com/embed/tMnSa-WNhNg?si=WLU7m4ZCrg6kW61h'],
+  '3-3': ['https://www.youtube.com/embed/iEq71e_FcFs?si=PYFiMD3qg-YqbOyv', 'https://www.youtube.com/embed/tMnSa-WNhNg?si=ip0yp9HkgE5zKp_l'],
+  '3-4': ['https://www.youtube.com/embed/iEq71e_FcFs?si=bqU4bSmKEym7q8LU', 'https://www.youtube.com/embed/tMnSa-WNhNg?si=m9UbcFhvNJkvCmUg'],
+  '4-1': ['https://www.youtube.com/embed/iEq71e_FcFs?si=p-2zezbAtgbiOl6g', 'https://www.youtube.com/embed/tMnSa-WNhNg?si=37d9wbymFRgwtuI6'],
+  '4-2': ['https://www.youtube.com/embed/iEq71e_FcFs?si=RdWUlOvmc66a1KC2', 'https://www.youtube.com/embed/tMnSa-WNhNg?si=CfUG9Y7eS__M9am_'],
+  '4-3': ['https://www.youtube.com/embed/iEq71e_FcFs?si=isdsZLSR8ZE8Qdq-', 'https://www.youtube.com/embed/tMnSa-WNhNg?si=Iv7CQql_9JG7IP2P'],
+  '5-1': ['https://www.youtube.com/embed/XdD5kwrX9bY?si=4T4hICHRWxsnjz9N', 'https://www.youtube.com/embed/p1aTj29v-JE?si=rhnOSYcoozzRma6y'],
+  '5-2': ['https://www.youtube.com/embed/XdD5kwrX9bY?si=c7ZTfr9B1YMjXorc', 'https://www.youtube.com/embed/p1aTj29v-JE?si=WeyDwkczA1RHAbso'],
+  '6-1': ['https://www.youtube.com/embed/Zz866nhDQT0?si=9v0JFH5XnF5q4SHm', 'https://www.youtube.com/embed/p1aTj29v-JE?si=qRfuJWk2dzBDYv0F'],
+  '7-1': ['https://www.youtube.com/embed/XdD5kwrX9bY?si=hOP01YfVAB6ZvUJ2', 'https://www.youtube.com/embed/p1aTj29v-JE?si=D1kRZMxF_xbRD09_'],
+};
+
 export default function HelpDetailsLayout() {
   const isMobile = useWindowStore(store => store.isMobile);
   const activeTab = useCaseTabStore(store => store.activeTab);
@@ -23,7 +40,6 @@ export default function HelpDetailsLayout() {
   const userType = match ? match[2] as UserType : "child";
   const caseId = match ? parseInt(match[3], 10) : 1;
   const optionId = match ? parseInt(match[4], 10) : 1;
-
   const helpItem = helpItems.find(item => item.id === caseId);
 
   const handleItemClick = (item?: HelpItemType) => {
@@ -220,8 +236,11 @@ export default function HelpDetailsLayout() {
               </div>
             </div>
             <div className="2xl:w-60 xl:w-50 flex xl:flex-col md:flex-row flex-col gap-10 xl:mt-12">
-              <iframe className="aspect-[9/16] 2xl:w-60 xl:w-50 md:w-1/2" src="https://youtube.com/embed/85UyTIfhDV0?si=OHRIqxD3KhSLkqB-" title="YouTube video player" />
-              <iframe className="aspect-[9/16] 2xl:w-60 xl:w-50 md:w-1/2" src="https://youtube.com/embed/5E2pyIGp7rI?si=KGEjVLMwg0lVpDbz" title="YouTube video player" />
+              {
+                youtube_shorts[`${caseId}-${optionId}`]?.map(link =>
+                  <iframe className="aspect-[9/16] 2xl:w-60 xl:w-50 md:w-1/2" src={link} title="YouTube video player" key={link} />
+                )
+              }
             </div>
           </div>
           {/* <div className="mt-10">
