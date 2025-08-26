@@ -43,6 +43,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <link rel="manifest" href="/assets/images/favicon/manifest.json" />
         <Meta />
         <Links />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YZ7RWL4Y8" />
+        <script src="/assets/googleAnalyticsInit.js" />
       </head>
       <body className="text-[#2b2b30] bg-white">
         {children}
