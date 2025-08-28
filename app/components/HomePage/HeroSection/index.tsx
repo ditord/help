@@ -60,6 +60,18 @@ export const HeroSection = ({ lang = "hy" }: { lang?: Language }) => {
             <div className="w-full aspect-video bg-gray-200 z-10 animate-pulse" />
           )}
           <iframe
+            className={`w-full aspect-video ${isLoading ? "hidden" : "block"}`}
+            src="https://www.youtube.com/embed/FOD_DCYDYVY?feature=oembed&rel=0&modestbranding=1&iv_load_policy=3"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            onLoad={handleIframeLoad}
+            onError={handleIframeError}
+            style={{ opacity: isLoading ? 0 : 1 }}
+            allowFullScreen
+          />
+          {/* <iframe
             key={iframeKey}
             className={`w-full aspect-video ${isLoading ? "hidden" : "block"}`}
             src="https://www.youtube-nocookie.com/embed/C_T0loN8J04?si=uVRRydpXiGtwYBWW" 
@@ -69,7 +81,7 @@ export const HeroSection = ({ lang = "hy" }: { lang?: Language }) => {
             onError={handleIframeError}
             style={{ opacity: isLoading ? 0 : 1 }}
             allowFullScreen
-          />
+          /> */}
         </div>
       </div>
     </section>
