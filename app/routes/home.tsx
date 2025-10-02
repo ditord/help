@@ -22,8 +22,6 @@ export default function Home() {
   const lang: Language = useLocation().pathname.includes("/hy") ? "hy" : "en";
   const [blogs, setBlogs] = useState<Blog[] | null>(null);
 
-  console.log(blogs);
-
   useEffect(() => {
     fetch('https://cyberhub.am/wp-json/wp/v2/posts?categories=399&per_page=10&_embed')
       .then(res => res.json())

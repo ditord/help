@@ -13,7 +13,7 @@ const texts = {
   en: {
     title: "CyberChat",
     description: "Support platform for children and adolescents",
-    description2: "Implemented by UNICEF, the Institute for Comprehensive Information and CyberHUB, with funding from the UK government and in cooperation with the Government of Armenia.",
+    description2: "Implemented by UNICEF, Media Diversity Institute and CyberHUB, with funding from the UK government and in cooperation with the Government of Armenia.",
     btn1: "I have a problem",
     btn2: "Useful materials",
   }
@@ -71,17 +71,6 @@ export const HeroSection = ({ lang = "hy" }: { lang?: Language }) => {
             style={{ opacity: isLoading ? 0 : 1 }}
             allowFullScreen
           />
-          {/* <iframe
-            key={iframeKey}
-            className={`w-full aspect-video ${isLoading ? "hidden" : "block"}`}
-            src="https://www.youtube-nocookie.com/embed/C_T0loN8J04?si=uVRRydpXiGtwYBWW" 
-            // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            // referrerPolicy="strict-origin-when-cross-origin"
-            onLoad={handleIframeLoad}
-            onError={handleIframeError}
-            style={{ opacity: isLoading ? 0 : 1 }}
-            allowFullScreen
-          /> */}
         </div>
       </div>
     </section>
