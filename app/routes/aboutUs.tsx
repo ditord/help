@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import type { Route } from "../routes/+types/aboutUs";
 import metadata from "~/metadata";
 import type { Language } from "~/Types";
@@ -51,6 +52,41 @@ export default function AboutUs() {
         </div>
       </div>
       <div className="container mx-auto px-4 my-20 flex flex-col lg:gap-20 gap-10">
+        <div className="flex max-lg:p-4 max-lg:shadow-[0_4px_10px_rgba(0,0,0,0.05)] rounded-md">
+          <div className="xxl:w-3/4 mx-auto flex-col flex gap-3 lg:flex-row">
+            <div className="max-lg:text-center">
+              <img 
+                src="/assets/images/about-us/file-icon.svg" 
+                alt="scroll left"
+                className="lg:max-w-[100px] max-lg:max-w-[60px] inline-block"
+              />
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold text-gray-700">ԿիբեռՉատ պորտֆոլիո</h3>
+              <p className="text-lg text-gray-700">Ծանոթացեք մեր գործունեության ազդեցության, վիճակագրության, մեզ աջակցելու և այլ մանրամասներին։</p>
+              <div className="h-px bg-gray-500 opacity-20 mt-2" />
+              <h3 className="text-3xl font-bold text-gray-700 mt-2">CyberChat portfolio</h3>
+              <p className="text-lg text-gray-700">Learn about the impact of our activities, statistics, how to support us, and other details.</p>
+            </div>
+            <div className="m-4 max-lg:text-center">
+              <a
+                href="/assets/docs/Portfolio.pdf"
+                download="Portfolio.pdf"
+                className="py-4 px-5 text-center text-lg font-medium rounded-l-sm transition-colors duration-300 whitespace-nowrap cursor-pointer bg-[linear-gradient(225deg,_#83ceec,_#598ddc)] text-white gap-3 inline"
+              >
+                <img
+                  src="/assets/images/download.svg" 
+                  alt="scroll left"
+                  className="inline-block mr-2"
+                />
+                <span>
+                  ԲԵՌՆԵԼ / DOWNLOAD
+                </span>
+              </a>
+              <div className="mt-4 text-gray-500 text-xs text-center">PDF, 12.6 MB</div>
+            </div>
+          </div>
+        </div>
         <div className="flex relative">
           <div className="flex-1 lg:flex-3/4 backdrop-blur-[0.2rem] z-10">
             <h3 className="text-3xl font-bold text-gray-700">Մեր նպատակը</h3>

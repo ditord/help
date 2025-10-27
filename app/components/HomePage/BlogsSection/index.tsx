@@ -60,7 +60,7 @@ const MobileBlogItem: React.FC<MobileBlogItemProps> = ({ item, index, lang = "hy
   const itemScrollStyles: React.CSSProperties = {
     scrollSnapAlign: 'center'
   };
-  
+
   return (
     <Link 
       key={index} 

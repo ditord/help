@@ -29,7 +29,7 @@ export default function Home() {
       .then(res => setBlogs(res.map((res: any) => (
         {
           title: res?.title?.rendered,
-          image: res?._embedded["wp:featuredmedia"][0].media_details.sizes['featured-thumb'].source_url,
+          image: res?._embedded["wp:featuredmedia"][0]?.media_details?.sizes['featured-thumb']?.source_url,
           id: res?.id,
           link: res?.link,
         }
