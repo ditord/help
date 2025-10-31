@@ -51,7 +51,7 @@ export default function AboutUs() {
           <h1 className="text-white font-bold text-3xl md:text-4xl uppercase">Մեր մասին</h1>
         </div>
       </div>
-      <div className="container mx-auto px-4 my-20 flex flex-col lg:gap-20 gap-10">
+      <div className="container mx-auto px-4 mt-10 lg:mt-20 mb-20 flex flex-col lg:gap-20 gap-10">
         <div className="flex max-lg:p-4 max-lg:shadow-[0_4px_10px_rgba(0,0,0,0.05)] rounded-md">
           <div className="xxl:w-3/4 mx-auto flex-col flex gap-3 lg:flex-row">
             <div className="max-lg:text-center">
@@ -71,8 +71,8 @@ export default function AboutUs() {
             <div className="m-4 max-lg:text-center">
               <a
                 href="/assets/docs/Portfolio.pdf"
-                download="Portfolio.pdf"
-                className="py-4 px-5 text-center text-lg font-medium rounded-l-sm transition-colors duration-300 whitespace-nowrap cursor-pointer bg-[linear-gradient(225deg,_#83ceec,_#598ddc)] text-white gap-3 inline"
+                target='_blank'
+                className="btn btn-blue btn-small"
               >
                 <img
                   src="/assets/images/download.svg" 
