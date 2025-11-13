@@ -94,7 +94,7 @@ export const helpContacts = {
   //   },
   // },
   telegramAnonChat: {
-    link: "https://t.me/cyberhubam_bot",
+    link: "http://t.me/cyberhub_am",
     text: {
       hy: "Telegram չատ",
       en: "Telegram chat",
