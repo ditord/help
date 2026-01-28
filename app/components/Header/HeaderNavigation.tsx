@@ -47,7 +47,7 @@ export const HeaderNavigation = ({ className = "", lang = "hy", toggleMenu }: He
                 <Link
                   to={navItem.href}
                   onClick={(e) => onLinkClick(e, navItem.href)}
-                  className={`hover:text-[#5a8fdc] text-md uppercase font-medium lg:text-sm ${isActive ? "text-[#5a8fdc]" : "text-gray-800"}`}
+                  className={`hover:text-[#5a8fdc] text-md uppercase flex flex-1 font-medium lg:text-sm ${isActive ? "text-[#5a8fdc]" : "text-gray-800"}`}
                 >
                   {navItem.text}
                 </Link>

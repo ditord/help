@@ -38,6 +38,11 @@ export const partners: Partner[] = [
     url: "https://cyberhub.am/"
   },
   {
+    name: "Meta",
+    logo: "/assets/images/partners/meta.png",
+    url: "https://www.meta.com/about/"
+  },
+  {
     name: "UNICEF",
     logo: "/assets/images/partners/unicef.png",
     url: "https://www.unicef.org/armenia/en"
@@ -123,8 +128,8 @@ export const PartnersSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) 
       <h2 className="text-3xl md:text-4xl font-black mb-15 text-center">{texts[lang].title}</h2>
       
       {!isMobile && (
-        <div className="hidden md:flex max-lg:flex-wrap items-center justify-center xl:gap-x-20">
-          <div className="flex items-center justify-center xl:gap-x-20 max-md:flex-col">
+        <div className="hidden md:flex flex-wrap items-center justify-center xl:gap-x-20">
+          <div className="flex items-center max-lg:justify-between justify-center xl:gap-x-20 max-md:flex-col">
             {partners.slice(0, 3).map((partner, index) => (
               <a key={index} href={partner.url} target="_blank" rel="noopener noreferrer" className='group'>
                 <img 
@@ -135,13 +140,13 @@ export const PartnersSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) 
               </a>
             ))}
           </div>
-          <div className="flex items-center justify-center xl:gap-x-20 max-md:flex-col">
+          <div className="flex items-center max-lg:justify-between justify-center xl:gap-x-20 max-md:flex-col">
             {partners.slice(3).map((partner, index) => (
               <a key={index + 3} href={partner.url} target="_blank" rel="noopener noreferrer" className='group'>
                 <img 
                   src={partner.logo} 
                   alt={`${partner.name} logo`} 
-                  className="scale-[0.6] transition duration-300 ease-in-out group-hover:scale-[0.8]" 
+                  className="scale-[0.6] transition duration-300 ease-in-out group-hover:scale-[0.8]"
                 />
               </a>
             ))}
@@ -167,7 +172,7 @@ export const PartnersSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) 
                     <img 
                       src={partner.logo} 
                       alt={`${partner.name} logo`} 
-                      className="max-h-32" 
+                      className={`${partner.name === "Meta" ? "max-h-10" : "max-h-32"} object-contain`}   
                     />
                   </a>
                 </div>

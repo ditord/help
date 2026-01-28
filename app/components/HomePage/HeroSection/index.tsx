@@ -37,8 +37,8 @@ export const HeroSection = ({ lang = "hy" }: { lang?: Language }) => {
         <div className="flex flex-1 h-full items-center px-4">
           <div className="flex flex-col gap-12">
             <h1 className="text-5xl font-black">{texts[lang].title}</h1>
-            <h2 className="text-4xl font-extralight">{texts[lang].description}</h2>
-            <h3 className="text-2xl font-extralight">{texts[lang].description2}</h3>
+            <h2 className="text-3xl md:text-4xl font-light">{texts[lang].description}</h2>
+            <h3 className="text-xl md:text-2xl font-light">{texts[lang].description2}</h3>
             <div className="flex gap-8 max-md:flex-col items-start">
               <Link
                 to={`/${lang}/help/`}

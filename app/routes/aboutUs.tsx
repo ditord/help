@@ -35,6 +35,11 @@ export const partners: Partner[] = [
     logo: "/assets/images/partners/cyberhub.png",
     url: "https://cyberhub.am/"
   },
+  {
+    name: "Meta",
+    logo: "/assets/images/partners/meta.png",
+    url: "https://www.meta.com/about/"
+  },
 ];
 
 export function meta({ location }: Route.MetaArgs) {
@@ -53,8 +58,8 @@ export default function AboutUs() {
       </div>
       <div className="container mx-auto px-4 mt-10 lg:mt-20 mb-20 flex flex-col lg:gap-20 gap-10">
         <div className="flex max-lg:p-4 max-lg:shadow-[0_4px_10px_rgba(0,0,0,0.05)] rounded-md">
-          <div className="xxl:w-3/4 mx-auto flex-col flex gap-3 lg:flex-row">
-            <div className="max-lg:text-center">
+          <div className="xxl:w-3/4 mx-auto flex-col flex gap-5 lg:flex-row">
+            <div className="content-center items-center xl:flex text-center">
               <img 
                 src="/assets/images/about-us/file-icon.svg" 
                 alt="scroll left"
@@ -68,22 +73,24 @@ export default function AboutUs() {
               <h3 className="text-3xl font-bold text-gray-700 mt-2">CyberChat portfolio</h3>
               <p className="text-lg text-gray-700">Learn about the impact of our activities, statistics, how to support us, and other details.</p>
             </div>
-            <div className="m-4 max-lg:text-center">
-              <a
-                href="/assets/docs/Portfolio.pdf"
-                target='_blank'
-                className="btn btn-blue btn-small"
-              >
-                <img
-                  src="/assets/images/download.svg" 
-                  alt="scroll left"
-                  className="inline-block mr-2"
-                />
-                <span>
-                  ԲԵՌՆԵԼ / DOWNLOAD
-                </span>
-              </a>
-              <div className="mt-4 text-gray-500 text-xs text-center">PDF, 12.6 MB</div>
+            <div className="m-4 max-lg:text-center flex">
+              <div className="m-auto">
+                <a
+                  href="/assets/docs/Portfolio.pdf"
+                  target='_blank'
+                  className="btn btn-blue"
+                >
+                  <img
+                    src="/assets/images/download.svg" 
+                    alt="scroll left"
+                    className="inline-block mr-2 relative top-[-2px]"
+                  />
+                  <span>
+                    ԲԵՌՆԵԼ / DOWNLOAD
+                  </span>
+                </a>
+                <div className="mt-5 text-gray-500 text-xs text-center">PDF, 12.6 MB</div>
+              </div>
             </div>
           </div>
         </div>
@@ -201,7 +208,7 @@ export default function AboutUs() {
                     <img 
                       src={partner.logo} 
                       alt={`${partner.name} logo`} 
-                      className="h-20 object-contain"
+                      className={`${partner.name === "Meta" ? "h-6" : "h-20"} object-contain`}
                     />
                   </a>
                 </div>
