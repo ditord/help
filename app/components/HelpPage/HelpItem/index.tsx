@@ -1,6 +1,7 @@
 import type { MouseEvent } from "react";
 import { Link } from "react-router";
 import type { HelpItemType } from "~/config";
+import { helpItems } from "~/config";
 import { ClipPathPanel } from "~/elements";
 import type { Language } from "~/Types";
 import { type UserType } from "~/store";
@@ -35,14 +36,14 @@ export const HelpItem = ({ item, lang, activeItemId, onClick, userType, onLinkCl
       <h4 className="mt-4 text-gray-600 flex-grow">
         {item.description[lang]}
       </h4>
-      <p className="flex justify-end max-md:hidden">
+      <p className={`flex justify-end ${helpItems[helpItems.length - 1].id === item.id ? "hidden" : "max-md:hidden"}`}>
         <img 
           src="/assets/images/arrow-right.svg" 
           alt="to help" 
           className="w-10 transition-all group-hover:scale-[1.2] transform duration-300" 
         />
       </p>
-      <div className="mt-5 md:hidden">
+      <div className={`mt-5 ${helpItems[helpItems.length - 1].id === item.id ? "hidden" : "md:hidden"}`}>
         {
           item.options.map((option, index) =>
             <h3 className="text-md group mt-2" key={option.id}>

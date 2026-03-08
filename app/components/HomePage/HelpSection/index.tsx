@@ -27,6 +27,7 @@ type MobileHelpItemProps = {
   item: HelpItem;
   index: number;
   lang?: Language;
+  goToAbout: () => void;
 };
 
 type DesktopHelpItemProps = {
@@ -34,6 +35,7 @@ type DesktopHelpItemProps = {
   currentIndex: number;
   itemIndex: number;
   lang?: Language;
+  goToAbout: () => void;
 };
 
 type MobileHelpSectionProps = {
@@ -41,6 +43,7 @@ type MobileHelpSectionProps = {
   currentPage: number;
   setCurrentPage: (page: number) => void;
   goToPage: (index: number) => void;
+  goToAbout: () => void;
   lang?: Language;
 };
 
@@ -55,59 +58,98 @@ type DesktopHelpSectionProps = {
   scrollLeft: () => void;
   scrollRight: () => void;
   goToPage: (index: number) => void;
+  goToAbout: () => void;
   lang?: Language;
 };
 
-const MobileHelpItem: React.FC<MobileHelpItemProps> = ({ item, index, lang = "hy" }) => {
+const MobileHelpItem: React.FC<MobileHelpItemProps> = ({ item, index, lang = "hy", goToAbout }) => {
   const itemScrollStyles: React.CSSProperties = {
     scrollSnapAlign: 'center'
   };
-  
+
+  const isLastItem = helpItems[helpItems.length - 1].id === item.id;
+
+  const innerContent = (
+    <span className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white px-6 pt-6 pb-3 flex flex-col group cursor-pointer h-full">
+      <ClipPathPanel width="w-20" height="h-20">{item.icon}</ClipPathPanel>
+      <p className="font-medium text-lg mt-4">
+        {item.title[lang]}
+      </p>
+      {!isLastItem && (
+        <span className="flex justify-end mt-auto">
+          <img src="/assets/images/arrow-right.svg" alt="to help" className="w-10 transition-opacity group-hover:scale-[1.2] transform duration-300" />
+        </span>
+      )}
+    </span>
+  );
+
+  if (isLastItem) {
+    return (
+      <div
+        key={index}
+        className="w-72 flex-shrink-0"
+        style={itemScrollStyles}
+        onClick={goToAbout}
+      >
+        {innerContent}
+      </div>
+    );
+  }
+
   return (
-    <Link 
-      key={index} 
+    <Link
+      key={index}
       className="w-72 flex-shrink-0"
       style={itemScrollStyles}
       to={`/${lang}/help/?active=${item.id}`}
     >
-      <span className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white px-6 pt-6 pb-3 flex flex-col group cursor-pointer h-full">
-        <ClipPathPanel width="w-20" height="h-20">{item.icon}</ClipPathPanel>
-        <p className="font-medium text-lg mt-4">
-          {item.title[lang]}
-        </p>
-        <span className="flex justify-end mt-auto">
-          <img src="/assets/images/arrow-right.svg" alt="to help" className="w-10 transition-opacity group-hover:scale-[1.2] transform duration-300" />
-        </span>
-      </span>
+      {innerContent}
     </Link>
   );
 };
 
-const DesktopHelpItem: React.FC<DesktopHelpItemProps> = ({ item, currentIndex, itemIndex, lang = "hy" }) => {
+const DesktopHelpItem: React.FC<DesktopHelpItemProps> = ({ item, currentIndex, itemIndex, lang = "hy", goToAbout }) => {
+  const isLastItem = helpItems[helpItems.length - 1].id === item?.id;
+
+  const innerContent = (
+    <span className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white px-6 pt-6 pb-3 flex flex-col group cursor-pointer h-full">
+      <ClipPathPanel width="w-20" height="h-20">{item.icon}</ClipPathPanel>
+      <p className="font-medium text-lg mt-4 min-h-21">
+        {item.title[lang]}
+      </p>
+      {!isLastItem && (
+        <span className="flex justify-end mt-auto">
+          <img src="/assets/images/arrow-right.svg" alt="to help" className="w-10 transition-opacity group-hover:scale-[1.2] transform duration-300" />
+        </span>
+      )}
+    </span>
+  );
+
+  if (isLastItem) {
+    return (
+      <div key={`${currentIndex}-${itemIndex}`} className="w-70 flex-shrink-0" onClick={goToAbout}>
+        {innerContent}
+      </div>
+    );
+  }
+
   return (
-    <Link 
+    <Link
       key={`${currentIndex}-${itemIndex}`}
       className="w-70 flex-shrink-0"
       to={`/${lang}/help/?active=${item.id}`}
     >
-      <span className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white px-6 pt-6 pb-3 flex flex-col group cursor-pointer h-full">
-        <ClipPathPanel width="w-20" height="h-20">{item.icon}</ClipPathPanel>
-        <p className="font-medium text-lg mt-4 min-h-21">
-          {item.title[lang]}
-        </p>
-        <span className="flex justify-end mt-auto">
-          <img src="/assets/images/arrow-right.svg" alt="to help" className="w-10 transition-opacity group-hover:scale-[1.2] transform duration-300" />
-        </span>
-      </span>
+      {innerContent}
     </Link>
   );
 };
 
-const MobileHelpSection: React.FC<MobileHelpSectionProps> = ({ 
-  scrollContainerRef, 
-  currentPage, 
-  setCurrentPage, 
+const MobileHelpSection: React.FC<MobileHelpSectionProps> = ({
+  scrollContainerRef,
+  currentPage,
+  setCurrentPage,
   goToPage,
+  goToAbout,
   lang
 }) => {
   const mobileScrollStyles: React.CSSProperties = {
@@ -159,7 +201,7 @@ const MobileHelpSection: React.FC<MobileHelpSectionProps> = ({
       >
         <div className="flex gap-x-4 px-10 pb-6 min-w-max">
           {helpItems.map((item, index) => (
-            <MobileHelpItem key={index} item={item} index={index} lang={lang} />
+            <MobileHelpItem key={index} item={item} index={index} lang={lang} goToAbout={goToAbout} />
           ))}
         </div>
       </div>
@@ -184,17 +226,18 @@ const MobileHelpSection: React.FC<MobileHelpSectionProps> = ({
   );
 };
 
-const DesktopHelpSection: React.FC<DesktopHelpSectionProps> = ({ 
-  scrollContainerRef, 
-  visibleItems, 
-  currentIndex, 
-  showLeftArrow, 
-  showRightArrow, 
-  totalPages, 
+const DesktopHelpSection: React.FC<DesktopHelpSectionProps> = ({
+  scrollContainerRef,
+  visibleItems,
+  currentIndex,
+  showLeftArrow,
+  showRightArrow,
+  totalPages,
   currentPage,
-  scrollLeft, 
-  scrollRight, 
+  scrollLeft,
+  scrollRight,
   goToPage,
+  goToAbout,
   lang
 }) => {
   return (
@@ -220,10 +263,11 @@ const DesktopHelpSection: React.FC<DesktopHelpSectionProps> = ({
             {visibleItems.map((item, index) => (
               <DesktopHelpItem
                 lang={lang}
-                key={`${currentIndex}-${index}`} 
-                item={item} 
-                currentIndex={currentIndex} 
-                itemIndex={index} 
+                key={`${currentIndex}-${index}`}
+                item={item}
+                currentIndex={currentIndex}
+                itemIndex={index}
+                goToAbout={goToAbout}
               />
             ))}
           </div>
@@ -323,6 +367,18 @@ export const HelpSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => {
     }
   };
 
+  const goToAbout = (): void => {
+    const targetElement = document.getElementById('contact');
+    const elementTop = targetElement?.offsetTop || 0;
+    const scrollPosition = elementTop - 40;
+
+    window.scrollTo({
+      top: scrollPosition,
+      behavior: 'smooth'
+    });
+    return;
+  }
+
   const goToPage = (positionIndex: number): void => {
     if (isMobile && scrollContainerRef.current) {
       const itemWidth = 280 + 16;
@@ -353,6 +409,7 @@ export const HelpSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => {
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           goToPage={goToPage}
+          goToAbout={goToAbout}
         />
       ) : (
         <DesktopHelpSection
@@ -367,6 +424,7 @@ export const HelpSection: React.FC<{ lang?: Language }> = ({ lang = "hy" }) => {
           scrollLeft={scrollLeft}
           scrollRight={scrollRight}
           goToPage={goToPage}
+          goToAbout={goToAbout}
         />
       )}
 

@@ -2,10 +2,10 @@ import type { Language } from "~/Types";
 
 const texts = {
   hy: {
-    copyright: "©2025 — CyberHUB-AM | Բոլոր իրավունքները պաշտպանված են։",
+    copyright: "©2026 — CyberHUB-AM | Բոլոր իրավունքները պաշտպանված են։",
   },
   en: {
-    copyright: "©2025 — CyberHUB-AM | All rights reserved.",
+    copyright: "©2026 — CyberHUB-AM | All rights reserved.",
   },
 };
 
