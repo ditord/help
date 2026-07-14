@@ -46,14 +46,6 @@ const texts = {
   },
 };
 
-const LogoMark = () => (
-  <img
-    src="/assets/images/contact-icons/chat_logo.png"
-    alt=""
-    aria-hidden="true"
-    className="w-16 h-16 sm:w-20 sm:h-20 object-contain"
-  />
-);
 
 const ShieldIcon = ({ className = 'w-[26px] h-[26px]' }) => (
   <img src="/assets/images/user-type/shield.svg" alt="" aria-hidden="true" className={className} />
@@ -151,17 +143,18 @@ export const UserTypeOverlay = ({ lang = 'hy' }: { lang?: Language }) => {
       {/* Contact bar — same as the site header top */}
       <HeaderTop lang={lang} />
 
-      <div className="relative z-10 flex min-h-[calc(100%-62px)] flex-col items-center justify-center px-4 py-8">
+      <div className="relative z-10 flex min-h-[calc(100%-62px)] flex-col items-center justify-center px-4 pt-8 pb-24">
         {/* Brand */}
-        <div className="flex items-center gap-4">
-          <LogoMark />
-          <span className="text-3xl sm:text-4xl leading-none font-black text-[#0B5FB0]">{t.title}</span>
-        </div>
-        <p className="mt-4 text-[#2B2B30] font-bold text-center text-sm sm:text-base">{t.tagline}</p>
+        <img
+          src="/assets/images/logo.svg"
+          alt={t.title}
+          className="h-16 w-auto"
+        />
+        <p className="mt-6 text-[#2B2B30] font-bold text-center text-sm sm:text-base">{t.tagline}</p>
 
         {/* Feature row — fixed grid: 2 cols on mobile (2x2), 4 cols on desktop (single row).
             Left divider on every cell EXCEPT the first of each row (nth-child by column count). */}
-        <div className="mt-8 w-full max-w-4xl px-6 sm:px-0">
+        <div className="mt-12 w-full max-w-4xl px-6 sm:px-0">
           <div className="grid grid-cols-2 justify-center gap-x-4 gap-y-5 md:grid-cols-4 md:gap-x-0 [&>*:nth-child(2n+1)]:border-l-0 md:[&>*:nth-child(2n+1)]:border-l md:[&>*:nth-child(4n+1)]:border-l-0">
             {featureIcons.map((Icon, i) => (
               <div
@@ -180,15 +173,15 @@ export const UserTypeOverlay = ({ lang = 'hy' }: { lang?: Language }) => {
         </div>
 
         {/* Heading */}
-        <h2 className="mt-10 text-2xl sm:text-3xl font-bold text-center text-[#2B2B30]">{t.heading}</h2>
-        <p className="mt-4 text-center text-[#2B2B30] font-bold text-sm sm:text-base max-w-2xl">
+        <h2 className="mt-18 text-2xl sm:text-3xl font-bold text-center text-[#2B2B30]">{t.heading}</h2>
+        <p className="mt-6 text-center text-[#2B2B30] font-bold text-sm sm:text-base max-w-2xl">
           {t.subheading[0]}
           <br />
           {t.subheading[1]}
         </p>
 
         {/* Cards */}
-        <div className="mt-8 w-full max-w-3xl flex flex-col sm:flex-row gap-4 sm:gap-6">
+        <div className="mt-12 w-full max-w-3xl flex flex-col sm:flex-row gap-4 sm:gap-6">
           <Card
             icon={<PersonIcon />}
             title={t.child.title}
@@ -212,7 +205,7 @@ export const UserTypeOverlay = ({ lang = 'hy' }: { lang?: Language }) => {
           type="button"
           onClick={handleContinue}
           disabled={!selected}
-          className={`btn btn-small group mt-8 inline-flex items-center justify-center gap-2 !min-w-[270px] hover:!opacity-100 ${
+          className={`btn btn-small group mt-12 inline-flex items-center justify-center gap-2 !min-w-[270px] hover:!opacity-100 ${
             selected
               ? 'btn-blue cursor-pointer'
               : 'cursor-not-allowed pointer-events-none !text-[#808080] bg-[#EFEFEF] [&:after]:bg-[#EFEFEF]'
@@ -229,7 +222,7 @@ export const UserTypeOverlay = ({ lang = 'hy' }: { lang?: Language }) => {
           />
         </button>
 
-        <p className="mt-5 text-center text-[#9A9A9A] font-light text-base">{t.note}</p>
+        <p className="mt-7 text-center text-[#9A9A9A] font-light text-base">{t.note}</p>
       </div>
     </div>
   );

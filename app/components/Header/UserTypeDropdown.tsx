@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
 import { useUserStore } from '~/store';
-import { CyberChatIcon } from './CyberChatIcon';
 import type { Language } from "~/Types";
 
 type Choice = 'child' | 'parent';
@@ -64,9 +63,14 @@ export const UserTypeDropdown = ({ lang = "hy" }: { lang: Language }) => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => toggleDropdown()}
-        className="relative bg-[linear-gradient(47.56deg,#5188D7_0%,#80C9EB_103.5%)] shadow-[0_16px_20px_-12px_rgba(63,105,150,0.32)] pr-8 pl-3 h-9 w-14 flex items-center cursor-pointer"
+        className="relative bg-[linear-gradient(47.56deg,#5188D7_0%,#80C9EB_103.5%)] shadow-[0_16px_20px_-12px_rgba(63,105,150,0.32)] pr-8 pl-2 h-9 w-16 flex items-center cursor-pointer"
       >
-        <CyberChatIcon className="h-5 w-auto text-white" />
+        <img
+          src={`/assets/images/user-type-dropdown/${userType === 'parent' ? 'parent' : 'child'}.svg`}
+          alt=""
+          aria-hidden="true"
+          className="h-9 brightness-0 invert"
+        />
         <span className="block border-none w-6 h-6 top-1.5 right-[6px] absolute bg-[url('/assets/images/down-white.svg')] bg-no-repeat bg-center bg-[length:10px_6px]" />
       </button>
 
@@ -80,8 +84,8 @@ export const UserTypeDropdown = ({ lang = "hy" }: { lang: Language }) => {
           onClick={() => handleSelect('child')}
           className={`block w-full py-2.5 text-center text-sm font-bold cursor-pointer transition-colors duration-300 ${
             userType === 'child'
-              ? 'bg-[linear-gradient(47.56deg,#5188D7_0%,#80C9EB_103.5%)] text-white'
-              : 'text-[#5188D7] hover:bg-gray-50'
+              ? 'bg-[linear-gradient(47.56deg,#5188D7_0%,#80C9EB_103.5%)] text-white hover:brightness-95'
+              : 'text-[#5188D7] hover:bg-gray-100'
           }`}
         >
           {t.child}
@@ -92,8 +96,8 @@ export const UserTypeDropdown = ({ lang = "hy" }: { lang: Language }) => {
           onClick={() => handleSelect('parent')}
           className={`block w-full py-2.5 text-center text-sm font-bold cursor-pointer transition-colors duration-300 ${
             userType === 'parent'
-              ? 'bg-[linear-gradient(47.56deg,#5188D7_0%,#80C9EB_103.5%)] text-white'
-              : 'text-[#5188D7] hover:bg-gray-50'
+              ? 'bg-[linear-gradient(47.56deg,#5188D7_0%,#80C9EB_103.5%)] text-white hover:brightness-95'
+              : 'text-[#5188D7] hover:bg-gray-100'
           }`}
         >
           {t.parent}
