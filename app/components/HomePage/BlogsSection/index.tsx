@@ -338,7 +338,7 @@ export const BlogsSection: React.FC<{ lang?: Language, blogs: BlogItem[] }> = ({
   };
 
   return (
-    <section id="blogs" className="py-20 bg-[#fafafa] overflow-hidden">
+    <section id="blogs" className="py-20 overflow-hidden">
       <div className="container mx-auto px-4 relative">
         <p className="text-3xl md:text-4xl font-bold leading-tight mb-12">{texts[lang].title}</p>
       </div>

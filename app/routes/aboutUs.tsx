@@ -9,21 +9,11 @@ interface Partner {
   url: string;
 }
 
-export const partners: Partner[] = [
+export const founders: Partner[] = [
   {
     name: "UK International Development",
     logo: "/assets/images/partners/ukid.png",
     url: "https://www.gov.uk/government/organisations/foreign-commonwealth-office"
-  },
-  {
-    name: "Republic of Armenia",
-    logo: "/assets/images/partners/ra.png",
-    url: "https://www.gov.am"
-  },
-  {
-    name: "UNICEF",
-    logo: "/assets/images/partners/unicef.png",
-    url: "https://www.unicef.org/armenia/en"
   },
   {
     name: "Media Diversity Institute",
@@ -34,6 +24,24 @@ export const partners: Partner[] = [
     name: "CyberHUB",
     logo: "/assets/images/partners/cyberhub.png",
     url: "https://cyberhub.am/"
+  },
+  {
+    name: "UNICEF",
+    logo: "/assets/images/partners/unicef.png",
+    url: "https://www.unicef.org/armenia/en"
+  },
+];
+
+export const supporters: Partner[] = [
+  {
+    name: "Republic of Armenia",
+    logo: "/assets/images/partners/ra.png",
+    url: "https://www.gov.am"
+  },
+  {
+    name: "Izmirlian Foundation",
+    logo: "/assets/images/partners/izmirlian.png",
+    url: "https://www.izmirlianfoundation.am/"
   },
   {
     name: "Meta",
@@ -147,17 +155,17 @@ export default function AboutUs() {
             </p>
           </div>
           <div className="lg:flex-1/4 items-center justify-center flex max-lg:absolute inset-0">
-            <img 
-              src="/assets/images/about-us/chat.svg" 
+            <img
+              src="/assets/images/about-us/chat.svg"
               alt="scroll left"
-              className="lg:w-1/2 w-9/12 h-full max-lg:p-10 opacity-50" 
+              className="lg:w-1/2 w-9/12 h-full max-lg:p-10 opacity-50"
             />
           </div>
         </div>
         <div className="flex relative">
           <div className="lg:flex-1/4 items-center justify-center flex max-lg:absolute inset-0">
-            <img 
-              src="/assets/images/about-us/team.svg" 
+            <img
+              src="/assets/images/about-us/team.svg"
               alt="scroll left" 
               className="lg:w-1/2 w-9/12 h-full max-lg:p-10"
             />
@@ -180,40 +188,57 @@ export default function AboutUs() {
             </div>
           </div>
         </div>
-        <div className="flex max-lg:flex-col max-lg:gap-10">
-          <div className="lg:flex-1/2">
-            <h3 className="text-3xl font-bold text-gray-700">Ծրագրի մասին</h3>
-            <p className="mt-4 text-gray-700 text-lg">ԿիբեռՉատ հարթակը ստեղծվել է «Աջակցություն երեխաներին և դեռահասներին՝ կանխելու և արձագանքելու առցանց սպառնալիքները» ծրագրի շրջանակում։</p>
-            <p className="mt-4 text-gray-700 text-lg">Ծրագիրն իրականացվում է ՅՈՒՆԻՍԵՖ-ի, Բազմակողմանի տեղեկատվության ինստիտուտի և CyberHUB-ի կողմից՝ Միացյալ Թագավորության կառավարության ֆինանսավորմամբ և Հայաստանի կառավարության հետ համատեղ:</p>
-            <p className="mt-4 text-gray-700 text-lg">Ծրագիրը ֆինանսավորվում է Միացյալ Թագավորության միջազգային զարգացման աջակցության շրջանակում՝ ՄԹ կառավարության կողմից: Հարթակում արտահայտված կարծիքները պատկանում են հեղինակներին և հնարավոր է չհամընկնեն ծրագիրն իրականացնող կազմակերպությունների, Միացյալ Թագավորության կառավարության պաշտոնական քաղաքականության կամ պաշտոնական դիրքորոշման հետ:</p>
+        <div className="flex relative">
+          <div className="flex-1 lg:flex-3/4 backdrop-blur-[0.2rem] z-10">
+            <h3 className="text-3xl font-bold text-gray-700">Գործընկերների մասին</h3>
+            <p className="mt-4 text-gray-700 text-lg">
+              Հարթակում արտահայտված տեսակետները պատկանում են հեղինակներին և կարող են չհամընկնել աջակից կազմակերպությունների պաշտոնական դիրքորոշման հետ։
+            </p>
           </div>
-          <div className="lg:flex-1/2 flex flex-col gap-10 justify-center items-center">
-            <div className="flex w-full justify-center items-center gap-10">
-              {partners.slice(0, 3).map((partner, index) => (
-                <div key={index} className="inline-flex justify-center items-center">
-                  <a href={partner.url} target="_blank" rel="noopener noreferrer" className="block">
-                    <img 
-                      src={partner.logo} 
-                      alt={`${partner.name} logo`} 
-                      className="h-20 object-contain"
-                    />
-                  </a>
-                </div>
-              ))}
-            </div>
-            <div className="flex w-full justify-center items-center gap-10">
-              {partners.slice(3).map((partner, index) => (
-                <div key={index} className="inline-flex justify-center items-center">
-                  <a href={partner.url} target="_blank" rel="noopener noreferrer" className="block">
-                    <img 
-                      src={partner.logo} 
-                      alt={`${partner.name} logo`} 
-                      className={`${partner.name === "Meta" ? "h-6" : "h-20"} object-contain`}
-                    />
-                  </a>
-                </div>
-              ))}
-            </div>
+          <div className="lg:flex-1/4 items-center justify-center flex max-lg:absolute inset-0">
+            <svg viewBox="0 0 246 246" fill="none" xmlns="http://www.w3.org/2000/svg" className="lg:w-1/2 w-9/12 h-full max-lg:p-10">
+              <g opacity="0.5">
+                <path d="M112.75 61.5H143.5L177.223 27.675C178.175 26.7143 179.309 25.9517 180.558 25.4314C181.807 24.911 183.147 24.6431 184.5 24.6431C185.853 24.6431 187.193 24.911 188.442 25.4314C189.691 25.9517 190.825 26.7143 191.777 27.675L218.223 54.2225C220.132 56.143 221.203 58.7408 221.203 61.4487C221.203 64.1567 220.132 66.7545 218.223 68.675L194.75 92.25H112.75V112.75C112.75 115.468 111.67 118.076 109.748 119.998C107.826 121.92 105.218 123 102.5 123C99.7815 123 97.1744 121.92 95.2522 119.998C93.3299 118.076 92.25 115.468 92.25 112.75V82C92.25 76.5631 94.4098 71.3488 98.2543 67.5043C102.099 63.6598 107.313 61.5 112.75 61.5ZM51.25 112.75V153.75L27.7775 177.223C25.8684 179.143 24.7969 181.741 24.7969 184.449C24.7969 187.157 25.8684 189.755 27.7775 191.675L54.2225 218.223C55.1754 219.183 56.309 219.946 57.5581 220.466C58.8071 220.987 60.1469 221.254 61.5 221.254C62.8531 221.254 64.1929 220.987 65.4419 220.466C66.691 219.946 67.8246 219.183 68.7775 218.223L112.75 174.25H153.75C156.468 174.25 159.076 173.17 160.998 171.248C162.92 169.326 164 166.718 164 164V153.75H174.25C176.968 153.75 179.576 152.67 181.498 150.748C183.42 148.826 184.5 146.218 184.5 143.5V133.25H194.75C197.468 133.25 200.076 132.17 201.998 130.248C203.92 128.326 205 125.718 205 123V112.75H133.25V123C133.25 128.437 131.09 133.651 127.246 137.496C123.401 141.34 118.187 143.5 112.75 143.5H92.25C86.8131 143.5 81.5988 141.34 77.7543 137.496C73.9098 133.651 71.75 128.437 71.75 123V92.25L51.25 112.75Z" fill="url(#paint0_linear_2838_988)" />
+              </g>
+              <defs>
+                <linearGradient id="paint0_linear_2838_988" x1="24.7969" y1="221.254" x2="236.949" y2="27.4593" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#5188D7" />
+                  <stop offset="1" stopColor="#80C9EB" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+        <div className="flex flex-col gap-6">
+          <h3 className="text-2xl font-bold text-gray-700 text-center">ՀԻՄՆԱԴԻՐՆԵՐ</h3>
+          <div className="flex justify-center items-center gap-8">
+            {founders.map((partner, index) => (
+              <div key={index} className="min-w-0 shrink flex justify-center items-center">
+                <a href={partner.url} target="_blank" rel="noopener noreferrer" className="block max-w-full">
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    className="h-20 max-w-full object-contain"
+                  />
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="flex flex-col gap-6">
+          <h3 className="text-2xl font-bold text-gray-700 text-center">ԳՈՐԾԸՆԿԵՐՆԵՐ ԵՎ ԱՋԱԿԻՑՆԵՐ</h3>
+          <div className="flex justify-center items-center gap-8">
+            {supporters.map((partner, index) => (
+              <div key={index} className="min-w-0 shrink flex justify-center items-center">
+                <a href={partner.url} target="_blank" rel="noopener noreferrer" className="block max-w-full">
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    className={`${partner.name === "Meta" ? "h-6" : partner.name === "Izmirlian Foundation" ? "h-14" : "h-20"} max-w-full object-contain`}
+                  />
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </div>

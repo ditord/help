@@ -1,6 +1,6 @@
 export * from "./Header";
 
-export * from "./UserTypePopup";
+export * from "./UserTypeOverlay";
 
 export * from "./HomePage";
 export * from "./HelpPage";

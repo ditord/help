@@ -1,12 +1,14 @@
 import { useEffect } from 'react';
 import { Outlet, useLocation, useNavigate } from "react-router";
-import { Header, Footer } from "~/components";
+import { Header, Footer, UserTypeOverlay } from "~/components";
+import { useUserStore } from "~/store";
 import type { Language } from "~/Types";
 
 
 export default function MainLayout() {
   const location = useLocation();
   const lang: Language = location.pathname.includes("/hy") ? "hy" : "en";
+  const userType = useUserStore((s) => s.userType);
 
   useEffect(() => {
     const handleHashScroll = () => {
@@ -40,6 +42,8 @@ export default function MainLayout() {
     <Outlet />
 
     <Footer lang={lang} />
+
+    {!userType && <UserTypeOverlay lang={lang} />}
     </>
   );
 }

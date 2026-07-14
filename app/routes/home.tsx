@@ -2,6 +2,7 @@ import type { Route } from "../routes/+types/home";
 import metadata from "~/metadata";
 import { useLocation } from "react-router";
 import { HeroSection, PartnersSection, AdvertSection, BlogsSection, HelpSection } from "~/components";
+import { useUserStore } from "~/store";
 import type { Language } from "~/Types";
 import { useEffect, useState } from "react";
 
@@ -20,6 +21,7 @@ type Blog = {
 
 export default function Home() {
   const lang: Language = useLocation().pathname.includes("/hy") ? "hy" : "en";
+  const userType = useUserStore((s) => s.userType);
   const [blogs, setBlogs] = useState<Blog[] | null>(null);
 
   useEffect(() => {
@@ -41,9 +43,9 @@ export default function Home() {
       <HeroSection lang={lang} />
       <HelpSection lang={lang} />
       <div className="relative after-shape" />
-      <AdvertSection lang={lang} />
+      {userType !== "child" ? <AdvertSection lang={lang} /> : null}
       {blogs?.length ? <BlogsSection lang={lang} blogs={blogs} /> : null}
-      <PartnersSection lang={lang} />
+      {/* <PartnersSection lang={lang} /> */}
     </main>
   );
 }

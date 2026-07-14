@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    RewriteCond %{ENV:REDIRECT_STATUS} ^$
+
+    # Redirect root to /hy/ if no language prefix is present
+    RewriteRule ^$ /hy/ [L,R=302]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /$1 [L]
+
+</IfModule>

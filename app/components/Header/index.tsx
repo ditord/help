@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { HeaderTop } from './HeaderTop';
 import { HeaderNavigation } from './HeaderNavigation';
 import { LanguageDropdown } from './LanguageDropdown';
+import { UserTypeDropdown } from './UserTypeDropdown';
 import { Link } from 'react-router';
 import type { Language } from "~/Types";
 
@@ -60,6 +61,8 @@ export const Header = ({ lang = "hy" }: HeaderType) => {
 
             <div className="flex items-center lg:pt-1 gap-2.5">
               <LanguageDropdown lang={lang} />
+
+              <UserTypeDropdown lang={lang} />
 
               <button
                 onClick={toggleMenu}

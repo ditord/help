@@ -57,7 +57,7 @@ export const LanguageDropdown = ({ lang = "hy" }: { lang: Language }) => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => toggleLangDropdown()}
-        className="text-blue-500 bg-[#eef1f3] shadow-[0_16px_20px_-12px_rgba(63,105,150,0.32)] pr-8 pl-3 py-3 w-18 text-xs leading-[14px] tracking-[1.5px] transition duration-300 font-medium uppercase cursor-pointer"
+        className="text-blue-500 bg-[#eef1f3] shadow-[0_16px_20px_-12px_rgba(63,105,150,0.32)] pr-8 pl-3 h-9 w-18 text-xs leading-[14px] tracking-[1.5px] transition duration-300 font-medium uppercase cursor-pointer"
       >
         {languages[lang]}
         <span className="block border-none w-6 h-6 top-1.5 right-[6px] absolute bg-[url('/assets/images/down.svg')] bg-no-repeat bg-center bg-[length:10px_6px]" />

@@ -6,14 +6,14 @@ const texts = {
   hy: {
     title: "ԿիբեռՉատ",
     description: "Երեխաների և դեռահասների հարցերով աջակցության հարթակ",
-    description2: "Իրականացվում է ՅՈՒՆԻՍԵՖ-ի, Բազմակողմանի տեղեկատվության ինստիտուտի և CyberHUB-ի կողմից՝ Միացյալ Թագավորության կառավարության ֆինանսավորմամբ և Հայաստանի կառավարության հետ համատեղ:",
+    description2: "Հարթակի գործունեությունը հնարավոր է դարձել ՅՈՒՆԻՍԵՖ-ի, Բազմակողմանի տեղեկատվության ինստիտուտի և CyberHUB-ի կողմից՝ Միացյալ Թագավորության կառավարության ֆինանսավորմամբ և Հայաստանի կառավարության հետ համագործակցությամբ։",
     btn1: "Ունեմ խնդիր",
     btn2: "Օգտակար նյութեր",
   },
   en: {
     title: "CyberChat",
     description: "Support platform for children and adolescents",
-    description2: "Implemented by UNICEF, Media Diversity Institute and CyberHUB, with funding from the UK government and in cooperation with the Government of Armenia.",
+    description2: "The operation of this platform has been made possible by UNICEF, Media Diversity Institute and CyberHUB with funding from the UK government and in cooperation with the Government of Armenia.",
     btn1: "I have a problem",
     btn2: "Useful materials",
   }
