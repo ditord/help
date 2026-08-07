@@ -1,4 +1,4 @@
-window._ow = window._ow || {};
+window.__ow = window.__ow || {};
 window.__ow.organizationId = "53057b95-8d90-44db-9a9d-3c547e7d0148";
 window.__ow.integration_name = "manual_settings";
 window.__ow.product_name = "openwidget";
