@@ -52,9 +52,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Scripts />
         <script src="/assets/embedScript.js" async />
         <script src="/assets/scripts.js" async />
+        <script src="/assets/chat.js" async />
         {/* <script type="text/javascript" id="hs-script-loader" async defer src="https://js-eu1.hs-scripts.com/146466967.js"></script> */}
         {/* <script src="https://elfsightcdn.com/platform.js" async></script> */}
         {/* <div className="elfsight-app-18a0dfeb-5866-405e-a346-2997cbd4d071" data-elfsight-app-lazy></div> */}
+        <noscript>You need to <a href="https://www.openwidget.com/enable-javascript" rel="noopener nofollow">enable JavaScript</a> to use the communication tool powered by <a href="https://www.openwidget.com/" rel="noopener nofollow" target="_blank">OpenWidget</a></noscript>
       </body>
     </html>
   );
