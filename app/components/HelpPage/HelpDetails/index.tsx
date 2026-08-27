@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import type { HelpItemOptionType } from "~/config";
+import { forAudience, type HelpItemOptionType } from "~/config";
 import { type UserType } from "~/store";
 import type { Language } from "~/Types";
 
@@ -23,7 +23,7 @@ export const HelpDetails = ({ options, itemId, userType, lang }: HelpItemProps) 
               to={userType ? `/${lang}/help/${userType}/case-${itemId}.${option.id}` : `/${lang}/help/`}
               className="flex justify-between gap-2 cursor-pointer text-[#5A8FDC] hover:underline"
             >
-              {option.text}
+              {forAudience(option.text, userType)}
               <img
                 src="/assets/images/arrow-right.svg"
                 alt="to help" 

@@ -1,7 +1,8 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import { ClipPathPanel } from "~/elements";
-import { helpItems } from "~/config";
+import { helpItems, forAudience, type AudienceText, type LocalizedText } from "~/config";
+import { useUserStore } from "~/store";
 import type { Language } from "~/Types";
 
 const texts = {
@@ -18,9 +19,7 @@ const texts = {
 type HelpItem = {
   id: number;
   icon: React.ReactNode;
-  title: {
-    [key in Language]: string;
-  }
+  title: AudienceText<LocalizedText>;
 };
 
 type MobileHelpItemProps = {
@@ -63,6 +62,7 @@ type DesktopHelpSectionProps = {
 };
 
 const MobileHelpItem: React.FC<MobileHelpItemProps> = ({ item, index, lang = "hy", goToAbout }) => {
+  const userType = useUserStore((s) => s.userType);
   const itemScrollStyles: React.CSSProperties = {
     scrollSnapAlign: 'center'
   };
@@ -73,7 +73,7 @@ const MobileHelpItem: React.FC<MobileHelpItemProps> = ({ item, index, lang = "hy
     <span className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white px-6 pt-6 pb-3 flex flex-col group cursor-pointer h-full">
       <ClipPathPanel width="w-20" height="h-20">{item.icon}</ClipPathPanel>
       <p className="font-medium text-lg mt-4">
-        {item.title[lang]}
+        {forAudience(item.title, userType)[lang]}
       </p>
       {!isLastItem && (
         <span className="flex justify-end mt-auto">
@@ -109,13 +109,14 @@ const MobileHelpItem: React.FC<MobileHelpItemProps> = ({ item, index, lang = "hy
 };
 
 const DesktopHelpItem: React.FC<DesktopHelpItemProps> = ({ item, currentIndex, itemIndex, lang = "hy", goToAbout }) => {
+  const userType = useUserStore((s) => s.userType);
   const isLastItem = helpItems[helpItems.length - 1].id === item?.id;
 
   const innerContent = (
     <span className="shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] rounded-sm bg-white px-6 pt-6 pb-3 flex flex-col group cursor-pointer h-full">
       <ClipPathPanel width="w-20" height="h-20">{item.icon}</ClipPathPanel>
       <p className="font-medium text-lg mt-4 min-h-21">
-        {item.title[lang]}
+        {forAudience(item.title, userType)[lang]}
       </p>
       {!isLastItem && (
         <span className="flex justify-end mt-auto">

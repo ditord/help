@@ -125,16 +125,31 @@ export const helpItems: HelpItemType[] = [
     iconInactive: <img src="/assets/images/help-icons/help-inactive-1.svg" alt="help-icon-inactive" className="w-full" />,
     iconActive: <img src="/assets/images/help-icons/help-active-1.svg" alt="help-icon-active" className="w-full" />,
     title: {
-      hy: "Կոտրել են օգտահաշիվս",
-      en: "My account has been hacked",
+      child: {
+        hy: "Կոտրել են էջս",
+        en: "My account has been hacked",
+      },
+      parent: {
+        hy: "Կոտրել են օգտահաշիվը",
+        en: "Account has been hacked",
+      },
     },
     description: {
-      hy: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / Gmail / Mail։",
-      en: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / email / Google Drive."
+      child: {
+        hy: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / Gmail / Mail։",
+        en: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / email / Google Drive."
+      },
+      parent: {
+        hy: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / Gmail / Mail։",
+        en: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / email / Google Drive."
+      },
     },
     options: [
       {
-        text: "Կոտրել են օգտահաշիվս",
+        text: {
+          child: "Կոտրել են օգտահաշիվս",
+          parent: "Կոտրել են երեխայիս օգտահաշիվը",
+        },
         id: 1,
       },
     ],
@@ -145,20 +160,38 @@ export const helpItems: HelpItemType[] = [
     iconInactive: <img src="/assets/images/help-icons/help-inactive-2.svg" alt="help-icon-inactive" className="w-full" />,
     iconActive: <img src="/assets/images/help-icons/help-active-2.svg" alt="help-icon-active" className="w-full" />,
     title: {
-      hy: "Կոտրել են օգտահաշիվս ու շանտաժի են ենթարկում",
-      en: "My account has been hacked and I'm being blackmailed",
+      child: {
+        hy: "Կոտրել են էջս ու շանտաժի են ենթարկում",
+        en: "My account has been hacked and I'm being blackmailed",
+      },
+      parent: {
+        hy: "Կոտրել են օգտահաշիվն ու շանտաժի են ենթարկում",
+        en: "Account has been hacked and the child is being blackmailed",
+      },
     },
     description: {
-      hy: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / Gmail / Mail։",
-      en: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / email / Google Drive."
+      child: {
+        hy: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / Gmail / Mail։",
+        en: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / email / Google Drive."
+      },
+      parent: {
+        hy: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / Gmail / Mail։",
+        en: "Instagram / Facebook / Snapchat / TikTok / WhatsApp / Viber / Telegram / email / Google Drive."
+      },
     },
     options: [
       {
-        text: "Օգտահաշիվս շատ կարևոր է ինձ համար",
+        text: {
+          child: "Էջս շատ կարևոր է ինձ համար",
+          parent: "Օգտահաշիվը շատ կարևոր է երեխայի համար",
+        },
         id: 1,
       },
       {
-        text: "Զգայուն տեղեկության հասանելիություն կա",
+        text: {
+          child: "Կա անձնական տվյալների արտահոսքի վտանգ",
+          parent: "Զգայուն անձնական տեղեկության հասանելիություն կա",
+        },
         id: 2,
       },
     ],
@@ -169,28 +202,52 @@ export const helpItems: HelpItemType[] = [
     iconInactive: <img src="/assets/images/help-icons/help-inactive-7.svg" alt="help-icon-inactive" className="w-full" />,
     iconActive: <img src="/assets/images/help-icons/help-active-7.svg" alt="help-icon-active" className="w-full" />,
     title: {
-      hy: "Իմ նկարները տարածել են առանց թույլտվության",
-      en: "My photos have been shared without permission",
+      child: {
+        hy: "Իմ նկարները տարածել են առանց թույլտվության",
+        en: "My photos have been shared without permission",
+      },
+      parent: {
+        hy: "Երեխայի նկարները տարածել են առանց թույլտվության",
+        en: "The child’s photos have been shared without permission",
+      },
     },
     description: {
-      hy: "Իմ լուսանկարները օգտագործում են կամ տարածում են առանց իմ իմացության։",
-      en: "My photos are being used or distributed without my knowledge or consent."
+      child: {
+        hy: "Իմ լուսանկարներն օգտագործում են կամ տարածում են առանց իմ իմացության։",
+        en: "My photos are being used or distributed without my knowledge or consent."
+      },
+      parent: {
+        hy: "Երեխայի լուսանկարներն օգտագործում են կամ տարածում են առանց նրա իմացության։",
+        en: "The child’s photos are being used or distributed without their knowledge or consent."
+      },
     },
     options: [
       {
-        text: "Օգտագործում են կեղծ օգտահաշիվներում",
+        text: {
+          child: "Օգտագործում են կեղծ էջերում",
+          parent: "Օգտագործում են կեղծ օգտահաշիվներում",
+        },
         id: 1,
       },
       {
-        text: "Կրկնօրինակել են օգտահաշիվս և գրում են իմ անունից",
+        text: {
+          child: "Կրկնօրինակել են էջս և գրում են իմ անունից",
+          parent: "Կրկնօրինակել են օգտահաշիվը և գրում են նրա անունից",
+        },
         id: 2,
       },
       {
-        text: "Օգտագործում են ինձ վարկաբեկելու կամ անհանգստացնելու համար",
+        text: {
+          child: "Օգտագործում են ինձ վարկաբեկելու կամ անհանգստացնելու համար",
+          parent: "Օգտագործում են երեխային վարկաբեկելու կամ անհանգստացնելու համար",
+        },
         id: 3,
       },
       {
-        text: "Տեղադրել են ատելություն հրահրող խմբերում, որի անդամներն ինձ ճնշում են",
+        text: {
+          child: "Տեղադրել են ատելություն հրահրող խմբերում, որի անդամներն ինձ ճնշում են",
+          parent: "Տեղադրել են ատելություն հրահրող խմբերում, որի անդամները ճնշում են երեխային",
+        },
         id: 4,
       },
     ],
@@ -201,24 +258,45 @@ export const helpItems: HelpItemType[] = [
     iconInactive: <img src="/assets/images/help-icons/help-inactive-6.svg" alt="help-icon-inactive" className="w-full" />,
     iconActive: <img src="/assets/images/help-icons/help-active-6.svg" alt="help-icon-active" className="w-full" />,
     title: {
-      hy: "Տարածել են ինձ վարկաբեկող լուսանկարներ, խմբագրված վիզուալ նյութեր",
-      en: "I've been defamed with manipulated photos or visual materials",
+      child: {
+        hy: "Տարածել են ինձ վարկաբեկող խմբագրված լուսանկարներ կամ վիդեոներ",
+        en: "I've been defamed with manipulated photos or visual materials",
+      },
+      parent: {
+        hy: "Տարածել են երեխային վարկաբեկող խմբագրված լուսանկարներ, վիզուալ նյութեր",
+        en: "The child has been defamed with manipulated photos or visual materials",
+      },
     },
     description: {
-      hy: "Իմ նկարները կամ խմբագրված վիզուալները տարածել են՝ ինձ վատ ներկայացնելու համար։",
-      en: "My photos or edited visuals have been shared to damage my reputation."
+      child: {
+        hy: "Իմ նկարները կամ վիդեոները տարածել են՝ ինձ վատ ներկայացնելու համար։",
+        en: "My photos or edited visuals have been shared to damage my reputation."
+      },
+      parent: {
+        hy: "Երեխայի նկարները կամ խմբագրված վիզուալները տարածել են՝ նրան կամ նրա հեղինակությունը վնասելու համար։",
+        en: "The child’s photos or edited visuals have been shared to damage their reputation."
+      },
     },
     options: [
       {
-        text: "Տարածել են վարկաբեկման նպատակով",
+        text: {
+          child: "Տարածել են վարկաբեկման նպատակով",
+          parent: "Տարածել են վարկաբեկման նպատակով",
+        },
         id: 1,
       },
       {
-        text: "Ահաբեկում կամ գումար են պահանջում՝ իմ տվյալները հրապարակելու սպառնալիքով",
+        text: {
+          child: "Ահաբեկում կամ գումար են պահանջում՝ իմ տվյալները հրապարակելու սպառնալիքով",
+          parent: "Ահաբեկում կամ գումար են պահանջում՝ նրա տվյալները հրապարակելու սպառնալիքով",
+        },
         id: 2,
       },
       {
-        text: "Ստեղծել են իմ մասնակցությամբ պոռնոգրաֆիկ նյութեր՝ ԱԲ գործիքներով (AI)",
+        text: {
+          child: "Ստեղծել են իմ մասնակցությամբ պոռնոգրաֆիկ նյութեր՝ ԱԲ գործիքներով (AI)",
+          parent: "Ստեղծել են երեխայի մասնակցությամբ պոռնոգրաֆիկ նյութեր՝ ԱԲ գործիքներով (AI)",
+        },
         id: 3,
       },
     ],
@@ -229,20 +307,38 @@ export const helpItems: HelpItemType[] = [
     iconInactive: <img src="/assets/images/help-icons/help-inactive-5.svg" alt="help-icon-inactive" className="w-full" />,
     iconActive: <img src="/assets/images/help-icons/help-active-5.svg" alt="help-icon-active" className="w-full" />,
     title: {
-      hy: "Անհանգստանում եմ առցանց տիրույթում երեխայի անվտանգության համար",
-      en: "I'm concerned about child's online safety",
+      child: {
+        hy: "Մեծերը շատ են միջամտում իմ առցանց գործերին",
+        en: "Adults interfere a lot with my online activities",
+      },
+      parent: {
+        hy: "Անհանգստանում եմ առցանց տիրույթում երեխայի անվտանգության համար",
+        en: "I'm concerned about child's online safety",
+      },
     },
     description: {
-      hy: "Ուզում եմ համոզվել, որ նա պաշտպանված է համացանցում։ Կա մտահոգություն, կամ պարզապես ուզում եմ ավելի ուշադիր լինել նրա օնլայն վարքին։",
-      en: "I want to ensure they're protected online. I have specific concerns or simply want to monitor their online activities more carefully."
+      child: {
+        hy: "Շատ են արգելքներ դնում, չեն վստահում ինձ  կամ անընդհատ հարցեր են տալիս, թե ինչ եմ անում առցանց։",
+        en: "They set a lot of restrictions, don't trust me, or constantly ask me questions about what I do online."
+      },
+      parent: {
+        hy: "Ուզում եմ համոզվել, որ նա պաշտպանված է համացանցում։ Կա մտահոգություն, կամ պարզապես ուզում եմ ավելի ուշադիր լինել նրա օնլայն վարքին։",
+        en: "I want to ensure they're protected online. I have specific concerns or simply want to monitor their online activities more carefully."
+      },
     },
     options: [
       {
-        text: "Երեխան շփվում է վտանգավոր մարդկանց հետ կամ խաղում է կասկածելի խաղեր",
+        text: {
+          child: "Մտածում են, որ շփվում եմ վտանգավոր մարդկանց հետ կամ խաղում եմ կասկածելի խաղեր",
+          parent: "Երեխան շփվում է վտանգավոր մարդկանց հետ կամ խաղում է կասկածելի խաղեր",
+        },
         id: 1,
       },
       {
-        text: "Ուզում եմ վստահ լինել, որ երեխայի առցանց միջավայրն ապահով է",
+        text: {
+          child: "Ուզում են վստահ լինել, որ իմ առցանց միջավայրն ապահով է",
+          parent: "Ուզում եմ վստահ լինել, որ երեխայի առցանց միջավայրն ապահով է",
+        },
         id: 2,
       },
     ],
@@ -253,16 +349,31 @@ export const helpItems: HelpItemType[] = [
     iconInactive: <img src="/assets/images/help-icons/help-inactive-3.svg" alt="help-icon-inactive" className="w-full" />,
     iconActive: <img src="/assets/images/help-icons/help-active-3.svg" alt="help-icon-active" className="w-full" />,
     title: {
-      hy: "Կիբեռբուլինգի եմ ենթարկվում",
-      en: "I am experiencing cyberbullying",
+      child: {
+        hy: "Կիբեռբուլինգի եմ ենթարկվում",
+        en: "I am experiencing cyberbullying",
+      },
+      parent: {
+        hy: "Երեխան կիբեռբուլինգի է ենթարկվում",
+        en: "The child is experiencing cyberbullying",
+      },
     },
     description: {
-      hy: "Շրջապատս կամ այլոք ինձ ծաղրում են համացանցում։",
-      en: "People are harassing or mocking me online."
+      child: {
+        hy: "Շրջապատս կամ այլոք ինձ ծաղրում են համացանցում։",
+        en: "People are harassing or mocking me online."
+      },
+      parent: {
+        hy: "Շրջապատը կամ այլոք երեխային ծաղրում են համացանցում։",
+        en: "People are harassing or mocking them online."
+      },
     },
     options: [
       {
-        text: "Իմ շրջապատում ծաղրում են ինձ",
+        text: {
+          child: "Իմ շրջապատում ծաղրում են ինձ",
+          parent: "Երեխային շրջապատում ծաղրում են",
+        },
         id: 1,
       },
     ],
@@ -273,16 +384,31 @@ export const helpItems: HelpItemType[] = [
     iconInactive: <img src="/assets/images/help-icons/help-inactive-4.svg" alt="help-icon-inactive" className="w-full" />,
     iconActive: <img src="/assets/images/help-icons/help-active-4.svg" alt="help-icon-active" className="w-full" />,
     title: {
-      hy: "Սեռական հետապնդման եմ ենթարկվում",
-      en: "I am being sexually harassed",
+      child: {
+        hy: "Սեռական հետապնդման եմ ենթարկվում",
+        en: "I am being sexually harassed",
+      },
+      parent: {
+        hy: "Երեխան սեռական հետապնդման է ենթարկվում",
+        en: "The child is being sexually harassed",
+      },
     },
     description: {
-      hy: "Մեկը, ով դեռահաս է ձևացնում, փորձում է ընկերանալ, ստանալ վստահություն և հետո պահանջում է անձնական տվյալներ։",
-      en: "Someone is pretending to be a teenager to befriend me, gain my trust, and then demand personal information or inappropriate content."
+      child: {
+        hy: "Մեկը, ով դեռահաս է ձևացնում, փորձում է ընկերանալ, ստանալ վստահություն և հետո պահանջում է անձնական տվյալներ։",
+        en: "Someone is pretending to be a teenager to befriend me, gain my trust, and then demand personal information or inappropriate content."
+      },
+      parent: {
+        hy: "Մեկը, ով դեռահաս է ձևացնում, փորձում է ընկերանալ, ստանալ վստահություն և հետո պահանջում է անձնական տվյալներ։",
+        en: "Someone is pretending to be a teenager to befriend the child, gain their trust, and then demand personal information or inappropriate content."
+      },
     },
     options: [
       {
-        text: "Վստահությունս շահել են, ընկերացել և տվյալներս օգտագործել են ինձ վնասելու նպատակով",
+        text: {
+          child: "Վստահությունս շահել են, ընկերացել և տվյալներս օգտագործել են ինձ վնասելու նպատակով",
+          parent: "Վստահությունը շահել են, ընկերացել և տվյալները օգտագործել են երեխային վնասելու նպատակով",
+        },
         id: 1,
       },
     ],
@@ -293,16 +419,31 @@ export const helpItems: HelpItemType[] = [
     iconInactive: <img src="/assets/images/help-icons/help-inactive-8.svg" alt="help-icon-inactive" className="w-full" />,
     iconActive: <img src="/assets/images/help-icons/help-active-8.svg" alt="help-icon-active" className="w-full" />,
     title: {
-      hy: "Այլ իրավիճակ",
-      en: "Other situation",
+      child: {
+        hy: "Այլ իրավիճակ",
+        en: "Other situation",
+      },
+      parent: {
+        hy: "Այլ իրավիճակ",
+        en: "Other situation",
+      },
     },
     description: {
-      hy: "Ունեմ մի այլ խնդիր կամ դեպք, որը այստեղ նշված չէ։",
-      en: "I have another problem or situation that isn't listed here."
+      child: {
+        hy: "Ունեմ մի այլ խնդիր կամ դեպք, որը այստեղ նշված չէ։",
+        en: "I have another problem or situation that isn't listed here."
+      },
+      parent: {
+        hy: "Ունենք մի այլ խնդիր կամ դեպք, որը այստեղ նշված չէ։",
+        en: "We have another problem or situation that isn't listed here."
+      },
     },
     options: [
       {
-        text: "Այլ իրավիճակ",
+        text: {
+          child: "Այլ իրավիճակ",
+          parent: "Այլ իրավիճակ",
+        },
         id: 1,
       },
     ],
@@ -310,8 +451,19 @@ export const helpItems: HelpItemType[] = [
 ];
 
 
+/** A string that reads differently depending on who is asking. */
+export type AudienceText<T> = {
+  child: T;
+  parent: T;
+};
+
+export type LocalizedText = {
+  [key in Language]: string;
+};
+
 export type HelpItemOptionType = {
-  text: string;
+  /** Armenian only — option text is never rendered in English. */
+  text: AudienceText<string>;
   id: number;
 }
 
@@ -320,11 +472,14 @@ export type HelpItemType = {
   icon: React.ReactNode;
   iconInactive: React.ReactNode;
   iconActive: React.ReactNode;
-  title: {
-    [key in Language]: string;
-  };
-  description: {
-    [key in Language]: string;
-  };
+  title: AudienceText<LocalizedText>;
+  description: AudienceText<LocalizedText>;
   options: HelpItemOptionType[];
 };
+
+/**
+ * Resolves an audience-varying value. `userType` is null until the visitor
+ * picks one in the overlay, so fall back to the child voice.
+ */
+export const forAudience = <T,>(text: AudienceText<T>, userType: "child" | "parent" | null): T =>
+  text[userType === "parent" ? "parent" : "child"];

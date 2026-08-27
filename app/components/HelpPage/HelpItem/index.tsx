@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import type { HelpItemType } from "~/config";
-import { helpItems } from "~/config";
+import { helpItems, forAudience } from "~/config";
 import { ClipPathPanel } from "~/elements";
 import type { Language } from "~/Types";
 import { type UserType } from "~/store";
@@ -29,10 +29,10 @@ export const HelpItem = ({ item, lang, activeItemId, onClick, userType }: HelpIt
     >
       <ClipPathPanel width="w-20" height="h-20">{item.icon}</ClipPathPanel>
       <h3 className="font-medium text-lg mt-4 min-h-15">
-        {item.title[lang]}
+        {forAudience(item.title, userType)[lang]}
       </h3>
       <h4 className="mt-4 text-gray-600 flex-grow">
-        {item.description[lang]}
+        {forAudience(item.description, userType)[lang]}
       </h4>
       <p className={`flex justify-end ${helpItems[helpItems.length - 1].id === item.id ? "hidden" : "max-md:hidden"}`}>
         <img 
@@ -50,7 +50,7 @@ export const HelpItem = ({ item, lang, activeItemId, onClick, userType }: HelpIt
                 className="flex justify-between gap-2 cursor-pointer text-[#5A8FDC] hover:underline"
                 to={userType ? `/${lang}/help/${userType}/case-${item.id}.${option.id}` : `/${lang}/help/`}
               >
-                {option.text}
+                {forAudience(option.text, userType)}
                 <img 
                   src="/assets/images/arrow-right.svg"
                   alt="to help" 

@@ -1,7 +1,7 @@
-import { Link, Outlet, useLocation } from "react-router";
+import { Link, Outlet, useLocation, useNavigate } from "react-router";
 import { ClipPathPanel } from "~/elements";
-import { helpItems, type HelpItemType } from "~/config";
-import { useWindowStore, useCaseTabStore, type UserType } from "~/store";
+import { helpItems, forAudience, type HelpItemType } from "~/config";
+import { useWindowStore, useCaseTabStore, useUserStore, type UserType } from "~/store";
 import type { Language } from "~/Types";
 import { useEffect, useRef, useState } from "react";
 
@@ -32,15 +32,37 @@ export default function HelpDetailsLayout() {
   const setActiveTab = useCaseTabStore(store => store.setActiveTab);
   const [selectedTab, setSelectedTab] = useState('');
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const storedUserType = useUserStore(store => store.userType);
+  const setUserType = useUserStore(store => store.setUserType);
   const itemRefs = useRef<ItemRefs>({});
 
-  const match = pathname.match(/\/(\w+)\/help\/(\w+)\/case-(\d+)\.(\d+)/);
+  const match = pathname.match(/\/(\w+)\/help\/(child|parent)\/case-(\d+)\.(\d+)/);
 
   const lang = match ? match[1] as Language : "hy";
   const userType = match ? match[2] as UserType : "child";
   const caseId = match ? parseInt(match[3], 10) : 1;
   const optionId = match ? parseInt(match[4], 10) : 1;
   const helpItem = helpItems.find(item => item.id === caseId);
+
+  // On this page the URL is the source of truth, so keep the store in step with
+  // it — otherwise the header dropdown shows a different audience than the page.
+  useEffect(() => {
+    if (userType && storedUserType !== userType) {
+      setUserType(userType);
+    }
+  }, [userType, storedUserType, setUserType]);
+
+  // ...and the other way round: switching audience in the header dropdown must
+  // move the page to the matching case, since the URL is what renders it.
+  useEffect(() => {
+    if (match && storedUserType && storedUserType !== userType) {
+      navigate(`/${lang}/help/${storedUserType}/case-${caseId}.${optionId}`, {
+        replace: true,
+        preventScrollReset: true,
+      });
+    }
+  }, [storedUserType]);
 
   const handleItemClick = (item?: HelpItemType) => {
     if (helpItems[helpItems.length - 1].id === item?.id) {
@@ -98,7 +120,7 @@ export default function HelpDetailsLayout() {
         <div className="px-4 lg:pl-8 xl:pr-10 xl:pl-14">
           <div className="h-25 flex items-center max-lg:justify-center">
             <Link
-              to={`${lang}/help`}
+              to={`/${lang}/help`}
               className="px-4 py-2 text-center text-lg font-light text-[#5188D7] flex gap-2"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
@@ -132,7 +154,7 @@ export default function HelpDetailsLayout() {
                     {
                       (!hasActive ||  Number(selectedTab) !== item.id) ?
                         <div className="absolute left-full top-1/2 -translate-y-1/2 ml-2 w-max bg-black text-white text-sm px-3 py-1 rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-100 whitespace-nowrap z-10">
-                          {item.title[lang]}
+                          {forAudience(item.title, userType)[lang]}
                         </div> : null
                     }
                   </div>
@@ -141,7 +163,7 @@ export default function HelpDetailsLayout() {
                       <div
                         className="z-1 absolute left-full top-1/2 -translate-y-1/2 ml-2 shadow-md w-100 p-6 flex flex-col gap-5 transition-shadow duration-300 ease-in-out rounded-sm bg-white"
                       >
-                        <h2 className="text-md font-bold">{item.title[lang]}</h2>
+                        <h2 className="text-md font-bold">{forAudience(item.title, userType)[lang]}</h2>
                         {
                           item.options.map((option, index) =>
                             <h3 className="text-md" key={option.id}>
@@ -152,7 +174,7 @@ export default function HelpDetailsLayout() {
                                 preventScrollReset
                                 className={`flex justify-between gap-2 cursor-pointer text-[#5A8FDC] hover:underline group ${Number(selectedTab) === caseId && optionId === option.id ? "pointer-events-none" : ""}`}
                               >
-                                {option.text}
+                                {forAudience(option.text, userType)}
                                 <img
                                   src="/assets/images/arrow-right.svg"
                                   alt="to help" 
@@ -178,8 +200,11 @@ export default function HelpDetailsLayout() {
               </div>
             </ClipPathPanel>
             <div>
-              <h1 className="md:text-3xl text-2xl font-bold">{helpItem?.title[lang]}</h1>
-              <h2 className="md:text-xl text-lg font-medium mt-3">{helpItem?.options.find(option => option.id === optionId)?.text}</h2>
+              <h1 className="md:text-3xl text-2xl font-bold">{helpItem && forAudience(helpItem.title, userType)[lang]}</h1>
+              <h2 className="md:text-xl text-lg font-medium mt-3">{(() => {
+                const option = helpItem?.options.find(option => option.id === optionId);
+                return option && forAudience(option.text, userType);
+              })()}</h2>
             </div>
           </div>
           

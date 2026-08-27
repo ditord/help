@@ -1,13 +1,20 @@
 // window._storeEmbed_variables = { iframeURL: 'http://localhost:3000/' };
 window._storeEmbed_variables = { iframeURL: 'https://ada-embed-for-cyberhub.web.app/' };
 
+function getEmbedOrigin() {
+  var url = (window._storeEmbed_variables || {}).iframeURL;
+  try {
+    return new URL(url, window.location.href).origin;
+  } catch (e) {
+    return null;
+  }
+}
+
 function checkAda() {
   setTimeout(() => {
     initialization();
   }, )
 }
-
-checkAda();
 
 function ready(fn) {
   if (document.readyState !== 'loading') {
@@ -32,26 +39,41 @@ function isValidJSON(data) {
 }
 
 function initEmbed(htmlElement) {
+  var embedOrigin = getEmbedOrigin();
+
   // toggler event
   htmlElement.onclick = function(e) {
     e.preventDefault();
     e.stopPropagation();
-    document.getElementById('_ada-friendly-embed_').style.display = 'block';
+    var frame = document.getElementById('_ada-friendly-embed_');
+    if (!frame) return;
+    frame.style.display = 'block';
     setTimeout(function() {
-      // document.getElementById('_ada-friendly-embed_').contentWindow.postMessage('_ada-friendly-embed_true', '*');
-      document.getElementById('_ada-friendly-embed_').contentWindow.postMessage('menu', '*');
+      if (!frame.contentWindow || !embedOrigin) return;
+      frame.contentWindow.postMessage('menu', embedOrigin);
     }, 100);
   };
 
   // listener for iframe
   window.addEventListener('message', function(e) {
+    var frame = document.getElementById('_ada-friendly-embed_');
+
+    // Only the embed iframe may talk to us. Both checks matter: the origin
+    // check rejects other sites, the source check rejects other frames that
+    // happen to be loaded from the same origin.
+    if (!embedOrigin || e.origin !== embedOrigin) return;
+    if (!frame || e.source !== frame.contentWindow) return;
+
     if (e?.data && isValidJSON(e.data)) {
       const data = JSON.parse(e.data);
       switch (data.type) {
         case 'close':
-          document.getElementById('_ada-friendly-embed_').style.display = 'none';
+          frame.style.display = 'none';
           return;
         case 'function':
+          // The embed applies host-page accessibility settings (contrast, text
+          // size, spacing) by shipping serialized functions across the frame
+          // boundary. Gated on the origin/source checks above.
           const receivedFunction = new Function('return ' + data.action)();
           receivedFunction();
           return;
@@ -126,16 +148,22 @@ function initialization() {
   // iframe initialization
   var { iframeURL } = window._storeEmbed_variables || {};
 
-  var iframeWrapper = document.createElement("div");
-  
-  var iframe = `<iframe
-    id="_ada-friendly-embed_"
-    allowTransparency="true"
-    frameborder="0"
-    src='${iframeURL}'
-  />`;
+  // Built via DOM APIs rather than innerHTML so the URL can never break out of
+  // the src attribute, and rejected unless it resolves to an http(s) origin.
+  var embedOrigin = getEmbedOrigin();
+  if (!embedOrigin || !/^https?:$/.test(new URL(iframeURL, window.location.href).protocol)) {
+    return;
+  }
 
-  iframeWrapper.innerHTML = iframe
+  var iframeWrapper = document.createElement("div");
+
+  var iframe = document.createElement("iframe");
+  iframe.id = '_ada-friendly-embed_';
+  iframe.setAttribute('allowTransparency', 'true');
+  iframe.setAttribute('frameborder', '0');
+  iframe.src = iframeURL;
+
+  iframeWrapper.appendChild(iframe);
   document.body.appendChild(iframeWrapper);
 
   var toggler = document.createElement("div");
