@@ -11,17 +11,17 @@ export function meta({ location }: Route.MetaArgs) {
   return metadata.resources[lang];
 }
 
-type TabTypes = "unicef" | "unicef_youtube" | "babycef" | "cyberhub"
+type TabTypes = "unicef" | "unicef_youtube" | "cyberhub"
 
 const tabs: { [key in TabTypes]: { text: string, content: any[] } } = {
   unicef: {
     text: "UNICEF",
     content: [
       {
-        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/797A1056.jpg.webp?itok=2LKSOTZa",
-        description: "10 պարզ կանոն, որոնք կօգնեն ձեզ համացանցում ավելի անվտանգ լինել",
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/BIA_20230322_0398.webp?itok=Lo-Gd_kx",
+        description: "Համացանց և անձնական տվյալներ",
         linkText: "Ավելին",
-        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/10-%D5%BA%D5%A1%D6%80%D5%A6-%D5%AF%D5%A1%D5%B6%D5%B8%D5%B6-%D5%B8%D6%80%D5%B8%D5%B6%D6%84-%D5%AF%D6%85%D5%A3%D5%B6%D5%A5%D5%B6-%D5%B1%D5%A5%D5%A6-%D5%B0%D5%A1%D5%B4%D5%A1%D6%81%D5%A1%D5%B6%D6%81%D5%B8%D6%82%D5%B4-%D5%A1%D5%BE%D5%A5%D5%AC%D5%AB-%D5%A1%D5%B6%D5%BE%D5%BF%D5%A1%D5%B6%D5%A3-%D5%AC%D5%AB%D5%B6%D5%A5%D5%AC",
+        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/%D5%B0%D5%A1%D5%B4%D5%A1%D6%81%D5%A1%D5%B6%D6%81-%D6%87-%D5%A1%D5%B6%D5%B1%D5%B6%D5%A1%D5%AF%D5%A1%D5%B6-%D5%BF%D5%BE%D5%B5%D5%A1%D5%AC%D5%B6%D5%A5%D6%80",
       },
       {
         img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/A94A6956-1.jpg.webp?itok=m5esJvWQ",
@@ -36,10 +36,10 @@ const tabs: { [key in TabTypes]: { text: string, content: any[] } } = {
         link: "https://www.unicef.org/armenia/%D5%A6%D5%A5%D5%AF%D5%B8%D6%82%D5%B5%D6%81%D5%B6%D5%A5%D6%80/%D5%BA%D5%A1%D5%BF%D5%AF%D5%A5%D6%80%D5%A1%D5%BA%D5%A1%D5%BF%D5%B8%D6%82%D5%B4-%D5%AF%D5%B8%D5%B4%D5%AB%D6%84%D5%BD-%D5%AF%D5%AB%D5%A2%D5%A5%D5%BC-%D5%B6%D5%AB%D5%B6%D5%B1%D5%A1%D5%B6%D5%A5%D6%80%D5%A8-%D5%BA%D5%A1%D5%B5%D6%84%D5%A1%D6%80%D5%B8%D6%82%D5%B4-%D5%A5%D5%B6-%D5%B0%D5%A1%D5%B4%D5%A1%D6%81%D5%A1%D5%B6%D6%81%D5%A1%D5%B5%D5%AB%D5%B6-%D5%BE%D5%BF%D5%A1%D5%B6%D5%A3%D5%B6%D5%A5%D6%80%D5%AB-%D5%A4%D5%A5%D5%B4",
       },
       {
-        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/UNI363750_0.jpg.webp?itok=RhmmEJa7",
-        description: "Ինչպես ապահովել երեխայի անվտանգությունն առցանց տիրույթում",
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/NMP_0563_2_zoom.jpg.webp?itok=t8AMdpvJ",
+        description: "Ինչպես ապահովել ձեր երեխայի անվտանգությունը համացանցում",
         linkText: "Ավելին",
-        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/%D5%AB%D5%B6%D5%B9%D5%BA%D5%A5%D5%BD-%D5%A1%D5%BA%D5%A1%D5%B0%D5%B8%D5%BE%D5%A5%D5%AC-%D5%A5%D6%80%D5%A5%D5%AD%D5%A1%D5%B5%D5%AB-%D5%A1%D5%B6%D5%BE%D5%BF%D5%A1%D5%B6%D5%A3%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6-%D5%A1%D5%BC%D6%81%D5%A1%D5%B6%D6%81-%D5%BF%D5%AB%D6%80%D5%B8%D6%82%D5%B5%D5%A9%D5%B8%D6%82%D5%B4",
+        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/%D5%AB%D5%B6%D5%B9%D5%BA%D5%A5%D5%BD-%D5%A1%D5%BA%D5%A1%D5%B0%D5%B8%D5%BE%D5%A5%D5%AC-%D5%B1%D5%A5%D6%80-%D5%A5%D6%80%D5%A5%D5%AD%D5%A1%D5%B5%D5%AB-%D5%A1%D5%B6%D5%BE%D5%BF%D5%A1%D5%B6%D5%A3%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%A8-%D5%B0%D5%A1%D5%B4%D5%A1%D6%81%D5%A1%D5%B6%D6%81%D5%B8%D6%82%D5%B4",
       },
       {
         img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/797A0707.jpg.webp?itok=5h75eCUa",
@@ -48,16 +48,52 @@ const tabs: { [key in TabTypes]: { text: string, content: any[] } } = {
         link: "https://www.unicef.org/armenia/%D5%AB%D5%B6%D5%B9-%D5%BA%D5%A5%D5%BF%D6%84-%D5%A7-%D5%AB%D5%B4%D5%A1%D5%B6%D5%A1-%D5%B5%D5%B8%D6%82%D6%80%D5%A1%D6%84%D5%A1%D5%B6%D5%B9%D5%B5%D5%B8%D6%82%D6%80-%D5%A4%D5%A5%D5%BC%D5%A1%D5%B0%D5%A1%D5%BD-%D5%AF%D5%AB%D5%A2%D5%A5%D6%80%D5%A2%D5%B8%D6%82%D5%AC%D5%AB%D5%AB%D5%B6%D5%A3%D5%AB-%D5%B4%D5%A1%D5%BD%D5%AB%D5%B6",
       },
       {
-        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/2018.3.7_UNICEF_Children_002.jpg.webp?itok=2hbBmmUu",
-        description: "Ինչպե՞ս համացանցում ապահովել երեխաների անվտանգությունը",
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/NMP_0563_2_zoom.jpg.webp?itok=t8AMdpvJ",
+        description: "Երեխաները ինչպե՞ս կարող են պաշտպանվել համացանցում",
         linkText: "Ավելին",
-        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/%D5%AB%D5%B6%D5%B9%D5%BA%D5%A5%D5%9E%D5%BD-%D5%B0%D5%A1%D5%B4%D5%A1%D6%81%D5%A1%D5%B6%D6%81%D5%B8%D6%82%D5%B4-%D5%A1%D5%BA%D5%A1%D5%B0%D5%B8%D5%BE%D5%A5%D5%AC-%D5%A5%D6%80%D5%A5%D5%AD%D5%A1%D5%B6%D5%A5%D6%80%D5%AB-%D5%A1%D5%B6%D5%BE%D5%BF%D5%A1%D5%B6%D5%A3%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%A8",
+        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/%D5%A5%D6%80%D5%A5%D5%AD%D5%A1%D5%B6%D5%A5%D6%80%D5%A8-%D5%AB%D5%B6%D5%B9%D5%BA%D5%A5%D5%9E%D5%BD-%D5%AF%D5%A1%D6%80%D5%B8%D5%B2-%D5%A5%D5%B6-%D5%BA%D5%A1%D5%B7%D5%BF%D5%BA%D5%A1%D5%B6%D5%BE%D5%A5%D5%AC-%D5%B0%D5%A1%D5%B4%D5%A1%D6%81%D5%A1%D5%B6%D6%81%D5%B8%D6%82%D5%B4",
       },
       {
-        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/Gyumri%20Youth%20House_%20Collage%202.png.webp?itok=kePMlgtI",
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/Gyumri%20Youth%20House_%20Collage%202.png.webp?itok=GW62MPR3",
         description: "Ինչպես ավելի անվտանգ օգտվել համացանցից․ խորհուրդներ երիտասարդներից",
         linkText: "Ավելին",
-        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/%D5%AB%D5%B6%D5%B9%D5%BA%D5%A5%D5%BD-%D5%A1%D5%BE%D5%A5%D5%AC%D5%AB-%D5%A1%D5%B6%D5%BE%D5%BF%D5%A1%D5%B6%D5%A3-%D6%85%D5%A3%D5%BF%D5%BE%D5%A5%D5%AC-%D5%B0%D5%A1%D5%B4%D5%A1%D6%81%D5%A1%D5%B6%D6%81%D5%AB%D6%81%E2%80%A4-%D5%AD%D5%B8%D6%80%D5%B0%D5%B8%D6%82%D6%80%D5%A4%D5%B6%D5%A5%D6%80-%D5%A5%D6%80%D5%AB%D5%BF%D5%A1%D5%BD%D5%A1%D6%80%D5%A4%D5%B6%D5%A5%D6%80%D5%AB%D6%81",
+        link: "https://www.unicef.org/armenia/en/stories/how-be-safe-online-tips-young-people",
+      },
+      {
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/NMP_0947_charging%20the%20phone.jpg.webp?itok=2UYVpB01",
+        description: "Երեխաները իրական մարդկանց, այլ ոչ էկրանային հերոսների հետ շփվելու կարիք ունեն",
+        linkText: "Ավելին",
+        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/%D5%A5%D6%80%D5%A5%D5%AD%D5%A1%D5%B6%D5%A5%D6%80%D5%A8-%D5%AB%D6%80%D5%A1%D5%AF%D5%A1%D5%B6-%D5%B4%D5%A1%D6%80%D5%A4%D5%AF%D5%A1%D5%B6%D6%81-%D5%A1%D5%B5%D5%AC-%D5%B8%D5%B9-%D5%A7%D5%AF%D6%80%D5%A1%D5%B6%D5%A1%D5%B5%D5%AB%D5%B6-%D5%B0%D5%A5%D6%80%D5%B8%D5%BD%D5%B6%D5%A5%D6%80%D5%AB-%D5%B0%D5%A5%D5%BF-%D5%B7%D6%83%D5%BE%D5%A5%D5%AC%D5%B8%D6%82-%D5%AF%D5%A1%D6%80%D5%AB%D6%84-%D5%B8%D6%82%D5%B6%D5%A5%D5%B6",
+      },
+      {
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/UN0572526.webp?itok=TNt5CGjP",
+        description: "Երեխան և համացանցը",
+        linkText: "Ավելին",
+        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/%D5%A5%D6%80%D5%A5%D5%AD%D5%A1%D5%B6-%D6%87-%D5%B0%D5%A1%D5%B4%D5%A1%D6%81%D5%A1%D5%B6%D6%81%D5%A8",
+      },
+      {
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/BIA_20230322_0392.webp?itok=1mLv4s0H",
+        description: "Սոցիալական մեդիան և դեռահասների հոգեկան առողջությունը",
+        linkText: "Ավելին",
+        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/%D5%BD%D5%B8%D6%81%D5%AB%D5%A1%D5%AC%D5%A1%D5%AF%D5%A1%D5%B6-%D5%B4%D5%A5%D5%A4%D5%AB%D5%A1%D5%B6-%D6%87-%D5%A4%D5%A5%D5%BC%D5%A1%D5%B0%D5%A1%D5%BD%D5%B6%D5%A5%D6%80%D5%AB-%D5%B0%D5%B8%D5%A3%D5%A5%D5%AF%D5%A1%D5%B6-%D5%A1%D5%BC%D5%B8%D5%B2%D5%BB%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%A8",
+      },
+      {
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/BIA_20230322_0416.webp?itok=H2A9nMCN",
+        description: "Տեսախաղերը և երեխաները. ուղեցույց ծնողների համար",
+        linkText: "Ավելին",
+        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/%D5%BF%D5%A5%D5%BD%D5%A1%D5%AD%D5%A1%D5%B2%D5%A5%D6%80%D5%A8-%D6%87-%D5%A5%D6%80%D5%A5%D5%AD%D5%A1%D5%B6%D5%A5%D6%80%D5%A8-%D5%B8%D6%82%D5%B2%D5%A5%D6%81%D5%B8%D6%82%D5%B5%D6%81-%D5%AE%D5%B6%D5%B8%D5%B2%D5%B6%D5%A5%D6%80%D5%AB-%D5%B0%D5%A1%D5%B4%D5%A1%D6%80",
+      },
+      {
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/NMP_5909.webp?itok=kyay7iJj",
+        description: "Տանը առողջ թվային սովորություններ ձևավորելու 10 մեթոդ",
+        linkText: "Ավելին",
+        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/%D5%BF%D5%A1%D5%B6%D5%A8-%D5%A1%D5%BC%D5%B8%D5%B2%D5%BB-%D5%A9%D5%BE%D5%A1%D5%B5%D5%AB%D5%B6-%D5%BD%D5%B8%D5%BE%D5%B8%D6%80%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80-%D5%B1%D6%87%D5%A1%D5%BE%D5%B8%D6%80%D5%A5%D5%AC%D5%B8%D6%82-10-%D5%B4%D5%A5%D5%A9%D5%B8%D5%A4-0",
+      },
+      {
+        img: "https://www.unicef.org/armenia/sites/unicef.org.armenia/files/styles/hero_extended/public/BIA_20230322_0088.webp?itok=XsezOL6g",
+        description: "Ինչ է անհրաժեշտ իմանալ նախքան սոցցանցերում մեր երեխաների մասին հրապարակումներ տարածելը",
+        linkText: "Ավելին",
+        link: "https://www.unicef.org/armenia/%D5%BA%D5%A1%D5%BF%D5%B4%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80/%D5%AB%D5%B6%D5%B9-%D5%A7-%D5%A1%D5%B6%D5%B0%D6%80%D5%A1%D5%AA%D5%A5%D5%B7%D5%BF-%D5%AB%D5%B4%D5%A1%D5%B6%D5%A1%D5%AC-%D5%B6%D5%A1%D5%AD%D6%84%D5%A1%D5%B6-%D5%BD%D5%B8%D6%81%D6%81%D5%A1%D5%B6%D6%81%D5%A5%D6%80%D5%B8%D6%82%D5%B4-%D5%B4%D5%A5%D6%80-%D5%A5%D6%80%D5%A5%D5%AD%D5%A1%D5%B6%D5%A5%D6%80%D5%AB-%D5%B4%D5%A1%D5%BD%D5%AB%D5%B6-%D5%B0%D6%80%D5%A1%D5%BA%D5%A1%D6%80%D5%A1%D5%AF%D5%B8%D6%82%D5%B4%D5%B6%D5%A5%D6%80",
       },
     ],
   },
@@ -111,65 +147,6 @@ const tabs: { [key in TabTypes]: { text: string, content: any[] } } = {
         description: "Սոցիալական ցանցերը և երեխաները | Ուղիղ եթեր",
         linkText: "Ավելին",
         link: "https://www.youtube.com/watch?v=A_kVyYqFHRU&t=7s",
-      },
-    ],
-  },
-  babycef: {
-    text: "Babycef",
-    content: [
-      {
-        img: "https://www.babycef.am/sites/default/files/styles/top_image/public/2020-04/IMG_3222.jpg?itok=UtK2NMjP",
-        description: "Ինչ կարող են անել ծնողները իրենց երեխաներին թվային աշխարհում պաշտպանելու համար",
-        linkText: "Ավելին",
-        link: "https://www.babycef.am/hy/childcare-health/security-online-safety-tips-for-parents?term=13",
-      },
-      {
-        img: "https://www.babycef.am/sites/default/files/styles/top_image/public/2019-08/UN040853.jpg?itok=lVYn72ef",
-        description: "Երեխաները իրական մարդկանց, այլ ոչ էկրանային հերոսների հետ շփվելու կարիք ունեն",
-        linkText: "Ավելին",
-        link: "https://www.babycef.am/hy/child-development/babies-toddlers-screen-time?term=13",
-      },
-      {
-        img: "https://www.babycef.am/sites/default/files/styles/top_image/public/2020-04/UN040655_0.jpg?itok=FIkuGrg5",
-        description: "Երեխաները ինչպե՞ս կարող են պաշտպանվել համացանցում",
-        linkText: "Ավելին",
-        link: "https://www.babycef.am/hy/childcare-health/security-online-safety-tips-for-children?term=13",
-      },
-      {
-        img: "https://www.babycef.am/sites/default/files/styles/top_image/public/2022-06/UN0572522.jpg?itok=8bf1b1Bj",
-        description: "Երեխան և համացանցը",
-        linkText: "Ավելին",
-        link: "https://www.babycef.am/hy/positive-parenting/upbringing-teaching-your-child-to-be-media-literate?term=13",
-      },
-      {
-        img: "https://www.babycef.am/sites/default/files/styles/top_image/public/2024-02/BIA_20230322_0215.jpg?itok=dUgmRFNn",
-        description: "Սոցիալական մեդիան և դեռահասների հոգեկան առողջությունը",
-        linkText: "Ավելին",
-        link: "https://www.babycef.am/hy/positive-parenting/social-media-and-mental-health-of-teenagers?term=13",
-      },
-      {
-        img: "https://www.babycef.am/sites/default/files/styles/top_image/public/2024-06/BIA_20230322_0416.webp?itok=zawLQEFb",
-        description: "Տեսախաղերը և երեխաները. ուղեցույց ծնողների համար",
-        linkText: "Ավելին",
-        link: "https://www.babycef.am/hy/positive-parenting/video-games-and-children-guideline-for-parents",
-      },
-      {
-        img: "https://www.babycef.am/sites/default/files/styles/top_image/public/2024-06/NMP_5909.webp?itok=s3UMUK4N",
-        description: "Ինչպես ապահովել ձեր երեխայի անվտանգությունը համացանցում",
-        linkText: "Ավելին",
-        link: "https://www.babycef.am/hy/childcare-health/security-how-to-keep-your-child-safe-online",
-      },
-      {
-        img: "https://www.babycef.am/sites/default/files/styles/top_image/public/2024-06/NMP_5929.webp?itok=wdFtcuu8",
-        description: "Տանը առողջ թվային սովորություններ ձևավորելու 10 մեթոդ",
-        linkText: "Ավելին",
-        link: "https://www.babycef.am/hy/positive-parenting/creating-healthy-digital-habits-at-home",
-      },
-      {
-        img: "https://www.babycef.am/sites/default/files/styles/top_image/public/2024-06/BIA_20230322_0083.webp?itok=Ez5uvRG6",
-        description: "Ինչ է անհրաժեշտ իմանալ նախքան սոցցանցերում մեր երեխաների մասին հրապարակումներ տարածելը",
-        linkText: "Ավելին",
-        link: "https://www.babycef.am/hy/positive-parenting/what-parents-need-to-know-before-sharing-photos-of-their-children-on-internet",
       },
     ],
   },
@@ -264,7 +241,7 @@ export default function Resources() {
         </div>
       </div>
       <section id="useful-posts" className="container mx-auto px-4 pt-14">
-        <h2 className="text-3xl md:text-4xl font-black mb-10">Օգտակար նութեր</h2>
+        <h2 className="text-3xl md:text-4xl font-black mb-10">Օգտակար նյութեր</h2>
 
         <div className="w-full mt-5 bg-[#FAFAFA] lg:p-10 p-4 flex xl:flex-row flex-col gap-10">
             <div className="flex-1 flex-col flex">
@@ -284,7 +261,7 @@ export default function Resources() {
               <div className="flex-1 h-full border border-[#8E8E93] bg-white px-5 pt-5 xl:pb-5 gap-5 flex flex-wrap">
                 {
                   tabs[activeTab].content.map((tabContent) =>
-                    <div className="2xl:w-[calc(33.333%-14px)] xl:w-[calc(50%-10px)] w-full md:h-45 shadow-xs flex md:flex-row flex-col gap-3 rounded-sm" key={tabContent.img}>
+                    <div className="2xl:w-[calc(33.333%-14px)] xl:w-[calc(50%-10px)] w-full md:h-45 shadow-xs flex md:flex-row flex-col gap-3 rounded-sm" key={tabContent.link}>
                       <img src={tabContent.img} className="md:aspect-[5/4] h-60 object-cover md:h-45 rounded-sm" />
                       <div className="flex flex-col justify-between py-2 w-full max-md:px-4">
                         <p className="font-bold">{tabContent.description}</p>
